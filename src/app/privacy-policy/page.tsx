@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
         <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950 space-y-6 text-sm sm:text-base text-slate-700 dark:text-gray-300 leading-relaxed p-8 sm:p-12">
           
           <p>
-            Welcome to <strong>VP Enterpriceses</strong> (available at <a href="https://vpenterprises.in" className="text-blue-600 dark:text-blue-400 hover:underline">https://vpenterprises.in</a>). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice, please contact us at <a href="mailto:contact@vpenterprises.in" className="text-blue-600 dark:text-blue-400 hover:underline">contact@vpenterprises.in</a>.
+            Welcome to <strong>VP Enterpriceses</strong> (available at <a href="https://vpenterpriceses.in" className="text-blue-600 dark:text-blue-400 hover:underline">https://vpenterpriceses.in</a>). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice, please contact us at <a href="mailto:contact@vpenterpriceses.in" className="text-blue-600 dark:text-blue-400 hover:underline">contact@vpenterpriceses.in</a>.
           </p>
 
           <div className="space-y-3">
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
           <div className="space-y-3">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">5. Contact Us</h3>
             <p>
-              If you have questions or comments about this policy, you may email us directly at <a href="mailto:contact@vpenterprises.in" className="text-blue-600 dark:text-blue-400 hover:underline">contact@vpenterprises.in</a> or write to:
+              If you have questions or comments about this policy, you may email us directly at <a href="mailto:contact@vpenterpriceses.in" className="text-blue-600 dark:text-blue-400 hover:underline">contact@vpenterpriceses.in</a> or write to:
             </p>
             <p className="text-slate-600 dark:text-gray-400 border-l-2 border-blue-500 pl-4 font-mono text-xs">
               VP Enterpriceses<br />

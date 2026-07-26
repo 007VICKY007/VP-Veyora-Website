@@ -120,13 +120,13 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
                 <span>Share Article</span>
               </h4>
               <div className="flex space-x-3 pt-2">
-                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://vpenterprises.in/blog/${blog.slug}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:text-blue-400 text-slate-500 dark:text-gray-500">
+                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://vpenterpriceses.in/blog/${blog.slug}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:text-blue-400 text-slate-500 dark:text-gray-500">
                   <LinkedInIcon className="h-5 w-5" />
                 </a>
-                <a href={`https://twitter.com/intent/tweet?url=https://vpenterprises.in/blog/${blog.slug}&text=${blog.title}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:text-blue-400 text-slate-500 dark:text-gray-500">
+                <a href={`https://twitter.com/intent/tweet?url=https://vpenterpriceses.in/blog/${blog.slug}&text=${blog.title}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:text-blue-400 text-slate-500 dark:text-gray-500">
                   <TwitterIcon className="h-5 w-5" />
                 </a>
-                <a href={`mailto:?subject=${blog.title}&body=Check this article out: https://vpenterprises.in/blog/${blog.slug}`} className="hover:text-[#00529b] dark:text-blue-400 text-slate-500 dark:text-gray-500">
+                <a href={`mailto:?subject=${blog.title}&body=Check this article out: https://vpenterpriceses.in/blog/${blog.slug}`} className="hover:text-[#00529b] dark:text-blue-400 text-slate-500 dark:text-gray-500">
                   <Mail className="h-5 w-5" />
                 </a>
               </div>

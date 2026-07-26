@@ -125,7 +125,7 @@ export default async function HomePage() {
                   <a href="https://linkedin.com/in/vigneshpandiya" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="LinkedIn Profile">
                     <LinkedInIcon size={14} className="h-3.5 w-3.5" />
                   </a>
-                  <a href="mailto:contact@vpenterprises.in" className="p-2 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="Email Founder">
+                  <a href="mailto:contact@vpenterpriceses.in" className="p-2 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="Email Founder">
                     <Mail className="h-3.5 w-3.5" />
                   </a>
                 </div>
@@ -440,7 +440,7 @@ export default async function HomePage() {
               Submit your project scope, budget guidelines, and target timelines. Vignesh Pandiya and our system architect teams will schedule a brief technical exploration call within 24 business hours.
             </p>
             <div className="space-y-4 text-sm text-slate-600 dark:text-gray-400 pt-4">
-              <p>Email: <a href="mailto:contact@vpenterprises.in" className="text-[#00529b] dark:text-blue-400 hover:underline">contact@vpenterprises.in</a></p>
+              <p>Email: <a href="mailto:contact@vpenterpriceses.in" className="text-[#00529b] dark:text-blue-400 hover:underline">contact@vpenterpriceses.in</a></p>
               <p>WhatsApp: <a href="https://wa.me/919488890697" className="text-[#00529b] dark:text-blue-400 hover:underline">+91 9488890697</a></p>
               <p>Location: <span className="text-slate-900 dark:text-white">Tamil Nadu, India</span></p>
               <p>Hours: <span className="text-slate-900 dark:text-white">Monday - Saturday (9:00 AM - 7:00 PM IST)</span></p>

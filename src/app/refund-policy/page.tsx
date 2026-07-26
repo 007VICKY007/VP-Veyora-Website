@@ -45,7 +45,7 @@ export default function RefundPolicyPage() {
           <div className="space-y-3">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">4. Inquiries & Disagreements</h3>
             <p>
-              We aim for complete project success and customer satisfaction. If you believe a deliverable does not match the signed SOW specs, please contact CEO Vignesh Pandiya directly at <a href="mailto:contact@vpenterprises.in" className="text-blue-600 dark:text-blue-400 hover:underline">contact@vpenterprises.in</a> so that we can review and resolve the discrepancy.
+              We aim for complete project success and customer satisfaction. If you believe a deliverable does not match the signed SOW specs, please contact CEO Vignesh Pandiya directly at <a href="mailto:contact@vpenterpriceses.in" className="text-blue-600 dark:text-blue-400 hover:underline">contact@vpenterpriceses.in</a> so that we can review and resolve the discrepancy.
             </p>
           </div>
 
