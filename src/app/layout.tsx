@@ -5,8 +5,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "VP Enterprises | Engineering AI Solutions for Tomorrow",
-  description: "VP Enterprises is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, and cybersecurity solutions.",
+  title: "VP Enterpriceses | Engineering AI Solutions for Tomorrow",
+  description: "VP Enterpriceses is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, and cybersecurity solutions.",
   keywords: [
     "Artificial Intelligence",
     "Software Development",
@@ -16,20 +16,20 @@ export const metadata: Metadata = {
     "Cloud Computing",
     "Enterprise Solutions",
     "Vignesh Pandiya",
-    "VP Enterprises"
+    "VP Enterpriceses"
   ],
   authors: [{ name: "Vignesh Pandiya" }],
   metadataBase: new URL("https://vpenterprises.in"),
   openGraph: {
-    title: "VP Enterprises | Engineering AI Solutions for Tomorrow",
-    description: "VP Enterprises is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, and automation workflows.",
+    title: "VP Enterpriceses | Engineering AI Solutions for Tomorrow",
+    description: "VP Enterpriceses is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, and automation workflows.",
     url: "https://vpenterprises.in",
-    siteName: "VP Enterprises",
+    siteName: "VP Enterpriceses",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VP Enterprises | Engineering AI Solutions for Tomorrow",
+    title: "VP Enterpriceses | Engineering AI Solutions for Tomorrow",
     description: "AI-first technology company helping startups and organizations scale through intelligent software and automation.",
   },
   robots: {

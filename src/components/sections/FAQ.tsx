@@ -14,8 +14,8 @@ export const FAQ = () => {
 
   const faqs: FAQItem[] = [
     {
-      question: "Who is the founder of VP Enterprises?",
-      answer: "VP Enterprises was founded by Vignesh Pandiya. Under his leadership, we function as an AI-first technology partner, engineering robust automation engines and custom enterprise architectures."
+      question: "Who is the founder of VP Enterpriceses?",
+      answer: "VP Enterpriceses was founded by Vignesh Pandiya. Under his leadership, we function as an AI-first technology partner, engineering robust automation engines and custom enterprise architectures."
     },
     {
       question: "What types of services do you offer?",
@@ -26,11 +26,11 @@ export const FAQ = () => {
       answer: "Typically, our clients see an 80%+ reduction in manual processing times (such as invoice processing, data syncs, or scheduling) and a 3x return on investment within the first quarter of going live. We analyze your bottlenecks to deliver exact metrics."
     },
     {
-      question: "How does VP Enterprises approach application security?",
+      question: "How does VP Enterpriceses approach application security?",
       answer: "Security is baked into our development lifecycle. We conduct rigorous penetration testing, implement rate-limiting, defend against OWASP Top 10 vulnerabilities (SQLi, XSS, CSRF), and maintain zero-trust cloud configuration guidelines."
     },
     {
-      question: "Can we hire VP Enterprises for ongoing IT support?",
+      question: "Can we hire VP Enterpriceses for ongoing IT support?",
       answer: "Yes. We offer service-level agreement (SLA) support packages ranging from startup launch support to dedicated 24/7 enterprise infrastructure monitoring, software upgrades, and continuous feature integration."
     }
   ];

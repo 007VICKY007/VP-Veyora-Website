@@ -30,9 +30,9 @@ export const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo / Brand */}
           <Link href="/" className="flex items-center space-x-3">
-            <img src="/logo.jpg" alt="VP Enterprises Logo" className="h-9 w-9 object-contain rounded-lg shadow-sm" />
+            <img src="/logo.jpg" alt="VP Enterpriceses Logo" className="h-9 w-9 object-contain rounded-lg shadow-sm" />
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00205b] to-[#00529b]">
-              VP Enterprises
+              VP Enterpriceses
             </span>
           </Link>
 

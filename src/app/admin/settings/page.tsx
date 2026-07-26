@@ -139,7 +139,7 @@ export default function SiteSettingsPage() {
                 rows={5}
                 value={settings["homepage.about.text"]}
                 onChange={handleChange}
-                placeholder="VP Enterprises is an AI-first technology company..."
+                placeholder="VP Enterpriceses is an AI-first technology company..."
                 className="w-full rounded-xl border border-gray-850 bg-gray-950/80 px-4 py-3 text-sm text-white focus:border-indigo-500 focus:outline-none"
               ></textarea>
             </div>

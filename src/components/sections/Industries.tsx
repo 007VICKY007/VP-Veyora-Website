@@ -172,7 +172,7 @@ export const Industries = () => {
 
             {/* Bottom Actions */}
             <div className="pt-8 border-t border-slate-100 flex items-center justify-between flex-wrap gap-4 mt-6">
-              <span className="text-[10px] text-slate-400 font-mono">End-to-End Solutions • VP Enterprises</span>
+              <span className="text-[10px] text-slate-400 font-mono">End-to-End Solutions • VP Enterpriceses</span>
               <a 
                 href="/contact"
                 className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#00529b] hover:underline"

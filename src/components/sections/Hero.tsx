@@ -48,7 +48,7 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
           className="inline-flex items-center space-x-2 rounded-full border border-[#00529b]/30 bg-blue-500/10 px-4 py-1.5 text-xs sm:text-sm text-[#00529b] backdrop-blur-sm"
         >
           <span className="h-2 w-2 rounded-full bg-[#00529b] animate-ping"></span>
-          <span>VP Enterprises — Global Technology & Business Partner</span>
+          <span>VP Enterpriceses — Global Technology & Business Partner</span>
         </motion.div>
 
         {/* Hero Title */}

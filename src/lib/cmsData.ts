@@ -1,4 +1,4 @@
-// Static data fallbacks for VP Enterprises when DB is not reachable or empty.
+// Static data fallbacks for VP Enterpriceses when DB is not reachable or empty.
 
 export interface ServiceItem {
   id: string;
@@ -573,7 +573,7 @@ Integrating LLMs with tools like n8n, Make.com, or custom Node.js scripts allows
 2. **Understand**: LLM extracts metadata, detects intent, and determines correct routes.
 3. **Act**: Write to database, send email notifications, or hit internal APIs.
 
-VP Enterprises specializes in building these smart orchestration pipelines, enabling companies to focus on strategic decisions rather than administrative inputs.`,
+VP Enterpriceses specializes in building these smart orchestration pipelines, enabling companies to focus on strategic decisions rather than administrative inputs.`,
     readTime: "5 min read",
     tags: ["AI", "Automation", "Enterprise"],
     coverImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
@@ -615,7 +615,7 @@ export const fallbackTestimonials: TestimonialItem[] = [
     name: "Rajesh Kumar",
     role: "Chief Technology Officer",
     company: "Alpha Logistics",
-    feedback: "VP Enterprises transformed our operations. Their AI automation solution saved us hundreds of hours monthly and has been incredibly stable and robust.",
+    feedback: "VP Enterpriceses transformed our operations. Their AI automation solution saved us hundreds of hours monthly and has been incredibly stable and robust.",
     rating: 5,
     avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
     featured: true

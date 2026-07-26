@@ -101,7 +101,7 @@ export const ContactForm = () => {
           </div>
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Inquiry Sent Successfully!</h3>
           <p className="text-slate-600 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
-            Thank you for reaching out to VP Enterprises. Founder Vignesh Pandiya or one of our system specialists will review your submission and contact you within 24 hours.
+            Thank you for reaching out to VP Enterpriceses. Founder Vignesh Pandiya or one of our system specialists will review your submission and contact you within 24 hours.
           </p>
           <button
             onClick={() => setSuccess(false)}

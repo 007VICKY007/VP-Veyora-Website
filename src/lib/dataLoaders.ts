@@ -21,7 +21,7 @@ export async function getSiteSettings(): Promise<Record<string, string>> {
       return {
         "homepage.hero.title": "Engineering AI Solutions for Tomorrow",
         "homepage.hero.subtitle": "Helping businesses automate, innovate, and grow using Artificial Intelligence and modern software technologies.",
-        "homepage.about.text": "VP Enterprises is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, enterprise applications, cloud infrastructure, and cybersecurity solutions."
+        "homepage.about.text": "VP Enterpriceses is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, enterprise applications, cloud infrastructure, and cybersecurity solutions."
       };
     }
     return settings.reduce((acc, curr) => {
@@ -33,7 +33,7 @@ export async function getSiteSettings(): Promise<Record<string, string>> {
     return {
       "homepage.hero.title": "Engineering AI Solutions for Tomorrow",
       "homepage.hero.subtitle": "Helping businesses automate, innovate, and grow using Artificial Intelligence and modern software technologies.",
-      "homepage.about.text": "VP Enterprises is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, enterprise applications, cloud infrastructure, and cybersecurity solutions."
+      "homepage.about.text": "VP Enterpriceses is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, enterprise applications, cloud infrastructure, and cybersecurity solutions."
     };
   }
 }

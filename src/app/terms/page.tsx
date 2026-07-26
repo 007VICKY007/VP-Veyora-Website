@@ -18,13 +18,13 @@ export default function TermsPage() {
         <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950 space-y-6 text-sm sm:text-base text-slate-700 dark:text-gray-300 leading-relaxed p-8 sm:p-12">
           
           <p>
-            These Terms & Conditions govern your use of the <strong>VP Enterprises</strong> website located at <a href="https://vpenterprises.in" className="text-blue-600 dark:text-blue-400 hover:underline">https://vpenterprises.in</a>. By accessing this website, we assume you accept these terms and conditions in full.
+            These Terms & Conditions govern your use of the <strong>VP Enterpriceses</strong> website located at <a href="https://vpenterprises.in" className="text-blue-600 dark:text-blue-400 hover:underline">https://vpenterprises.in</a>. By accessing this website, we assume you accept these terms and conditions in full.
           </p>
 
           <div className="space-y-3">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">1. Intellectual Property Rights</h3>
             <p>
-              Unless otherwise stated, VP Enterprises and/or its licensors own the intellectual property rights for all material, code assets, and media published on this site. All intellectual property rights are reserved. You must not copy, sell, or rent content from our site.
+              Unless otherwise stated, VP Enterpriceses and/or its licensors own the intellectual property rights for all material, code assets, and media published on this site. All intellectual property rights are reserved. You must not copy, sell, or rent content from our site.
             </p>
           </div>
 
@@ -45,7 +45,7 @@ export default function TermsPage() {
           <div className="space-y-3">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">4. Limitation of Liability</h3>
             <p>
-              VP Enterprises founder Vignesh Pandiya and our developer teams shall not be held liable for any indirect, consequential, or special liability arising out of or in any way connected with your use of this website or reliance on its static blog checklists.
+              VP Enterpriceses founder Vignesh Pandiya and our developer teams shall not be held liable for any indirect, consequential, or special liability arising out of or in any way connected with your use of this website or reliance on its static blog checklists.
             </p>
           </div>
 

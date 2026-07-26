@@ -18,10 +18,10 @@ export default function AboutPage() {
         
         {/* Header Section */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#00529b] dark:text-blue-400">VP Enterprises</span>
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#00529b] dark:text-blue-400">VP Enterpriceses</span>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Our Organization & Vision</h1>
           <p className="text-slate-600 dark:text-gray-400 text-lg sm:text-xl leading-relaxed">
-            VP Enterprises is an AI-first technology company founded by Vignesh Pandiya. We engineer custom software and automate workflows to help startups and enterprises scale.
+            VP Enterpriceses is an AI-first technology company founded by Vignesh Pandiya. We engineer custom software and automate workflows to help startups and enterprises scale.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export default function AboutPage() {
               </div>
               
               <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                Under the strategic leadership of Vignesh Pandiya, VP Enterprises functions as a premier technology partner, engineering robust AI solutions and custom enterprise architectures that drive digital transformation. We specialize in building intelligent automation frameworks, scalable software ecosystems, and secure cloud infrastructures that empower organizations to modernize workflows and unlock new growth avenues.
+                Under the strategic leadership of Vignesh Pandiya, VP Enterpriceses functions as a premier technology partner, engineering robust AI solutions and custom enterprise architectures that drive digital transformation. We specialize in building intelligent automation frameworks, scalable software ecosystems, and secure cloud infrastructures that empower organizations to modernize workflows and unlock new growth avenues.
               </p>
               
               <p className="text-slate-600 leading-relaxed text-sm sm:text-base">

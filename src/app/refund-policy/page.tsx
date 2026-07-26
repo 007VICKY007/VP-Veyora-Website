@@ -18,7 +18,7 @@ export default function RefundPolicyPage() {
         <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950 space-y-6 text-sm sm:text-base text-slate-700 dark:text-gray-300 leading-relaxed p-8 sm:p-12">
           
           <p>
-            Thank you for partnering with <strong>VP Enterprises</strong>. Since we are a professional business consulting and custom software development agency, we outline refund and cancellation terms clearly.
+            Thank you for partnering with <strong>VP Enterpriceses</strong>. Since we are a professional business consulting and custom software development agency, we outline refund and cancellation terms clearly.
           </p>
 
           <div className="space-y-3">

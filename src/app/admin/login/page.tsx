@@ -46,8 +46,8 @@ export default function AdminLoginPage() {
         
         {/* Brand Header */}
         <div className="text-center space-y-2">
-          <img src="/logo.jpg" alt="VP Enterprises Logo" className="h-16 w-16 object-contain rounded-xl shadow-sm mx-auto select-none" />
-          <h2 className="text-2xl font-bold">VP Enterprises</h2>
+          <img src="/logo.jpg" alt="VP Enterpriceses Logo" className="h-16 w-16 object-contain rounded-xl shadow-sm mx-auto select-none" />
+          <h2 className="text-2xl font-bold">VP Enterpriceses</h2>
           <p className="text-sm text-slate-500 dark:text-gray-500">Authorized Systems Administration Portal</p>
         </div>
 

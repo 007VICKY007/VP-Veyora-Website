@@ -12,7 +12,7 @@ export default function ContactPage() {
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#00529b] dark:text-blue-400">Get in Touch</span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Contact VP Enterprises</h1>
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Contact VP Enterpriceses</h1>
           <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
             Ready to initiate a custom development sprint or automate your database workflows? Connect with us below.
           </p>

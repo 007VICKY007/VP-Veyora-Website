@@ -45,9 +45,9 @@ export const Footer = () => {
           {/* Brand and Mission Column */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-3">
-              <img src="/logo.jpg" alt="VP Enterprises Logo" className="h-9 w-9 object-contain rounded-lg shadow-sm" />
+              <img src="/logo.jpg" alt="VP Enterpriceses Logo" className="h-9 w-9 object-contain rounded-lg shadow-sm" />
               <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00205b] to-[#00529b] dark:from-[#00529b] dark:to-[#0072ce]">
-                VP Enterprises
+                VP Enterpriceses
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
@@ -140,7 +140,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-12 border-t border-gray-200/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-400">
-          <p>© {currentYear} VP Enterprises. All rights reserved. Founded by Vignesh Pandiya.</p>
+          <p>© {currentYear} VP Enterpriceses. All rights reserved. Founded by Vignesh Pandiya.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link>
             <Link href="/terms" className="hover:underline">Terms & Conditions</Link>

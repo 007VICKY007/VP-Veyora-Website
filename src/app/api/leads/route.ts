@@ -56,7 +56,7 @@ export async function POST(req: Request) {
     // Send confirmation email to client
     const clientHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
-        <h2 style="color: #4f46e5; margin-bottom: 20px;">Thank you for contacting VP Enterprises</h2>
+        <h2 style="color: #4f46e5; margin-bottom: 20px;">Thank you for contacting VP Enterpriceses</h2>
         <p>Dear ${name},</p>
         <p>We have received your project request and our team is already reviewing your details. Founder & CEO Vignesh Pandiya or a senior systems architect will get in touch with you shortly.</p>
         
@@ -73,7 +73,7 @@ export async function POST(req: Request) {
         <p>If you have urgent files or specifications, feel free to reply to this email directly at <a href="mailto:contact@vpenterprises.in">contact@vpenterprises.in</a>.</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 25px 0;" />
         <p style="font-size: 13px; color: #64748b;">
-          <strong>VP Enterprises</strong><br />
+          <strong>VP Enterpriceses</strong><br />
           Engineering AI Solutions for Tomorrow<br />
           Location: Tamil Nadu, India<br />
           Website: <a href="https://vpenterprises.in">https://vpenterprises.in</a>
@@ -81,7 +81,7 @@ export async function POST(req: Request) {
       </div>
     `;
 
-    // Send notification email to VP Enterprises
+    // Send notification email to VP Enterpriceses
     const adminHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
         <h2 style="color: #e11d48; margin-bottom: 20px;">New Project Lead Received</h2>
@@ -130,7 +130,7 @@ export async function POST(req: Request) {
     `;
 
     // Trigger emails asynchronously, non-blocking
-    await sendEmail({ to: email, subject: "Project Inquiry Received - VP Enterprises", html: clientHtml });
+    await sendEmail({ to: email, subject: "Project Inquiry Received - VP Enterpriceses", html: clientHtml });
     await sendEmail({ to: "contact@vpenterprises.in", subject: `[NEW LEAD] ${name} - ${service}`, html: adminHtml });
 
     return NextResponse.json({ success: true, lead });
