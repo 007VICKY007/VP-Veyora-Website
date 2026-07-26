@@ -1,0 +1,146 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum LeadStatus {
+  PENDING
+  CONTACTED
+  IN_PROGRESS
+  CLOSED_WON
+  CLOSED_LOST
+}
+
+enum JobStatus {
+  OPEN
+  CLOSED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lead {
+  id          String     @id @default(uuid())
+  name        String
+  companyName String?
+  email       String
+  phone       String?
+  country     String?
+  service     String
+  budget      String
+  timeline    String
+  message     String
+  status      LeadStatus @default(PENDING)
+  notes       String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Service {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  title       String
+  category    String   // e.g., "Artificial Intelligence", "AI Automation", etc.
+  description String
+  icon        String   // Lucide icon name, e.g., "Brain", "Cpu", etc.
+  features    String   // JSON string representing list of features
+  techStack   String?  // JSON string representing tech stack
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Portfolio {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  title       String
+  category    String   // e.g., "AI Solutions", "Mobile App", "E-commerce"
+  client      String
+  description String
+  challenge   String
+  solution    String
+  results     String   // JSON string representing results (key metric -> value)
+  imageUrl    String
+  websiteUrl  String?
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Blog {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  title       String
+  content     String
+  excerpt     String
+  coverImage  String
+  author      String
+  readTime    String
+  tags        String   // comma-separated or JSON list
+  published   Boolean  @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  name      String
+  role      String
+  company   String
+  feedback  String
+  rating    Int      @default(5)
+  avatarUrl String?
+  featured  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Career {
+  id           String    @id @default(uuid())
+  title        String
+  department   String
+  location     String
+  type         String    // e.g., "Full-time", "Contract", etc.
+  description  String
+  requirements String    // JSON string array
+  benefits     String    // JSON string array
+  status       JobStatus @default(OPEN)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model PricingPlan {
+  id            String   @id @default(uuid())
+  name          String
+  price         String
+  billingPeriod String   // e.g., "month", "one-time"
+  description   String
+  features      String   // JSON string array
+  buttonText    String   @default("Get Started")
+  buttonUrl     String   @default("/contact")
+  featured      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+}
+
+model SiteSetting {
+  id        String   @id @default(uuid())
+  key       String   @unique // e.g. "homepage.hero.title", "homepage.hero.subtitle"
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

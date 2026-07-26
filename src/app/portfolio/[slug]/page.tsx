@@ -1,0 +1,171 @@
+import React from "react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getPortfolio } from "@/lib/dataLoaders";
+import { GlassCard } from "@/components/shared/GlassCard";
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  HelpCircle, 
+  Settings, 
+  BarChart, 
+  Calendar,
+  Building,
+  User,
+  ShieldCheck
+} from "lucide-react";
+
+interface CaseStudyDetailProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const portfolio = await getPortfolio();
+  return portfolio.map((p) => ({
+    slug: p.slug,
+  }));
+}
+
+export default async function CaseStudyDetailPage({ params }: CaseStudyDetailProps) {
+  const { slug } = await params;
+  const portfolio = await getPortfolio();
+  const item = portfolio.find((p) => p.slug === slug);
+
+  if (!item) {
+    notFound();
+  }
+
+  const results = typeof item.results === "string" ? {} : item.results;
+
+  return (
+    <div className="bg-transparent text-slate-900 dark:text-white min-h-screen py-20 px-4">
+      <div className="max-w-5xl mx-auto space-y-16">
+        
+        {/* Back Link & Header */}
+        <div className="space-y-6">
+          <Link 
+            href="/portfolio" 
+            className="inline-flex items-center space-x-2 text-xs font-semibold text-slate-600 dark:text-gray-400 hover:text-[#00529b] dark:text-blue-400 transition-colors"
+          >
+            <ArrowRight className="h-4 w-4 rotate-180" />
+            <span>Back to Portfolio</span>
+          </Link>
+
+          <div className="space-y-4 border-b border-slate-200 dark:border-gray-900 pb-10">
+            <span className="text-xs font-bold text-[#00529b] dark:text-blue-400 uppercase tracking-widest">{item.category}</span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">{item.title}</h1>
+            <p className="text-slate-600 dark:text-gray-400 max-w-3xl leading-relaxed text-sm sm:text-base">
+              {item.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Dynamic Split Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+          
+          {/* Main case details */}
+          <div className="lg:col-span-2 space-y-10">
+            
+            {/* The Challenge */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2 font-bold text-lg text-slate-900 dark:text-white">
+                <HelpCircle className="h-5 w-5 text-[#00529b] dark:text-blue-400" />
+                <h3>The Challenge</h3>
+              </div>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed pl-7">
+                {item.challenge}
+              </p>
+            </div>
+
+            {/* The Solution */}
+            <div className="space-y-4 border-t border-slate-200 dark:border-gray-900 pt-10">
+              <div className="flex items-center space-x-2 font-bold text-lg text-slate-900 dark:text-white">
+                <Settings className="h-5 w-5 text-[#00529b] dark:text-blue-400 animate-spin" style={{ animationDuration: '6s' }} />
+                <h3>The Solution</h3>
+              </div>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed pl-7">
+                {item.solution}
+              </p>
+            </div>
+
+            {/* The Results */}
+            <div className="space-y-6 border-t border-slate-200 dark:border-gray-900 pt-10">
+              <div className="flex items-center space-x-2 font-bold text-lg text-slate-900 dark:text-white">
+                <BarChart className="h-5 w-5 text-[#00529b] dark:text-blue-400" />
+                <h3>The Results</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pl-7">
+                {Object.entries(results).map(([key, value]) => (
+                  <GlassCard key={key} interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/10 dark:border-gray-950 space-y-1">
+                    <span className="text-[10px] text-slate-500 dark:text-gray-500 uppercase tracking-wider font-semibold">{key}</span>
+                    <h4 className="text-xl font-bold text-[#00529b] dark:text-blue-400">{value}</h4>
+                  </GlassCard>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6 lg:sticky lg:top-24">
+            
+            {/* Project Parameters Card */}
+            <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 space-y-4 text-xs sm:text-sm">
+              <h4 className="font-bold text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">Case Metadata</h4>
+              
+              <ul className="space-y-4">
+                <li className="flex items-center space-x-3 text-slate-600 dark:text-gray-400">
+                  <Building className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0" />
+                  <div>
+                    <span className="text-xs text-slate-500 dark:text-gray-500 block">Client</span>
+                    <strong className="text-slate-900 dark:text-white font-semibold">{item.client}</strong>
+                  </div>
+                </li>
+                <li className="flex items-center space-x-3 text-slate-600 dark:text-gray-400">
+                  <Calendar className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0" />
+                  <div>
+                    <span className="text-xs text-slate-500 dark:text-gray-500 block">Deploy Timeline</span>
+                    <strong className="text-slate-900 dark:text-white font-semibold">1-3 Months</strong>
+                  </div>
+                </li>
+                <li className="flex items-center space-x-3 text-slate-600 dark:text-gray-400">
+                  <User className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0" />
+                  <div>
+                    <span className="text-xs text-slate-500 dark:text-gray-500 block">Lead Architect</span>
+                    <strong className="text-slate-900 dark:text-white font-semibold">Vignesh Pandiya</strong>
+                  </div>
+                </li>
+                <li className="flex items-center space-x-3 text-slate-600 dark:text-gray-400">
+                  <ShieldCheck className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0" />
+                  <div>
+                    <span className="text-xs text-slate-500 dark:text-gray-500 block">Status</span>
+                    <strong className="text-slate-900 dark:text-white font-semibold text-green-400">Completed & Verified</strong>
+                  </div>
+                </li>
+              </ul>
+            </GlassCard>
+
+            {/* CTA */}
+            <GlassCard className="border-[#00529b]/20 bg-blue-50/40 border border-blue-100/50 dark:bg-blue-50/40 border border-blue-100/50 space-y-4 text-center">
+              <h4 className="font-bold text-base text-slate-900 dark:text-white">Require Similar Automation?</h4>
+              <p className="text-xs text-slate-600 dark:text-gray-400 leading-relaxed">
+                Connect with our development team. We provide full code ownership and deployment services.
+              </p>
+              <Link
+                href="/contact"
+                className="flex w-full items-center justify-center space-x-2 rounded-xl bg-gradient-to-r from-[#00205b] via-[#00529b] to-[#0072ce] px-4 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md hover:scale-[1.01] transition-all"
+              >
+                <span>Request Case Blueprint</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </GlassCard>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  );
+}
