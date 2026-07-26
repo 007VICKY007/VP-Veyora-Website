@@ -98,7 +98,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailProps) 
               <h3 className="text-xl sm:text-2xl font-bold">Capabilities & Deliverables</h3>
               <div className="grid grid-cols-1 gap-4">
                 {features.map((feat, idx) => (
-                  <GlassCard key={idx} interactive={false} className="flex items-start space-x-4 border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/10 dark:border-gray-950">
+                  <GlassCard key={idx} interactive={false} className="flex items-start space-x-4 border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950">
                     <CheckCircle className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
                     <div>
                       <h4 className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base">{feat}</h4>

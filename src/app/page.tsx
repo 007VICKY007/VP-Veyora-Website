@@ -10,6 +10,7 @@ import {
 import { Hero } from "@/components/sections/Hero";
 import { FAQ } from "@/components/sections/FAQ";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Industries } from "@/components/sections/Industries";
 import { GlassCard } from "@/components/shared/GlassCard";
 import { 
   Brain, 
@@ -29,8 +30,10 @@ import {
   Briefcase,
   ExternalLink,
   Target,
-  Eye
+  Eye,
+  Mail
 } from "lucide-react";
+import { LinkedInIcon } from "@/components/shared/SocialIcons";
 
 // Mapping string names to Lucide icons dynamically
 const iconMap: Record<string, any> = {
@@ -58,13 +61,7 @@ export default async function HomePage() {
   const heroSubtitle = settings["homepage.hero.subtitle"] || "Helping businesses automate, innovate, and grow using Artificial Intelligence and modern software technologies.";
   const aboutText = settings["homepage.about.text"] || "VP Enterprises is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, enterprise applications, cloud infrastructure, and cybersecurity solutions.";
 
-  const industries = [
-    { name: "Logistics & Supply Chain", desc: "AI route optimization and cognitive document extraction." },
-    { name: "EdTech & Learning Platforms", desc: "Scalable SaaS course systems and virtual classroom management." },
-    { name: "Healthcare & Biotech", desc: "Real-time vitals monitoring and HIPAA-compliant patient databases." },
-    { name: "Retail & E-commerce", desc: "Intelligent pricing recommenders and inventory synchronization." },
-    { name: "FinTech & Banking", desc: "Smart fraud-detection models and ledger audits." }
-  ];
+  // Removed local industries list to use the new interactive Industries component
 
   const techStackCategories = [
     { title: "Artificial Intelligence", techs: ["OpenAI API", "Claude API", "Gemini API", "LangChain", "Pinecone"] },
@@ -106,28 +103,115 @@ export default async function HomePage() {
           </div>
 
           {/* Founder Panel */}
-          <GlassCard className="relative overflow-hidden group border-[#00529b]/20">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+          <GlassCard className="relative overflow-hidden border-slate-200/60 shadow-xl hover:shadow-[#00529b]/10 hover:border-[#00529b]/35 transition-all duration-300">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
             <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-tr from-[#00205b] to-[#00529b] flex items-center justify-center text-white text-2xl font-bold font-mono">
-                  VP
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="relative group/img">
+                    <div className="absolute -inset-0.5 bg-gradient-to-tr from-[#00205b] to-[#0072ce] rounded-full blur opacity-25 group-hover/img:opacity-45 transition duration-300"></div>
+                    <div className="relative h-16 w-16 rounded-full bg-gradient-to-tr from-[#00205b] to-[#00529b] flex items-center justify-center text-white text-xl font-bold font-mono shadow-md border border-slate-200/50 transform hover:scale-105 transition-transform duration-300 select-none">
+                      VP
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900">Vignesh Pandiya</h3>
+                    <p className="text-sm font-semibold text-[#00529b]">Founder & CEO, Lead Architect</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Vignesh Pandiya</h3>
-                  <p className="text-sm text-[#00529b] dark:text-blue-400">Founder & CEO, VP Enterprises</p>
+                
+                {/* Social icons */}
+                <div className="flex space-x-2">
+                  <a href="https://linkedin.com/in/vigneshpandiya" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="LinkedIn Profile">
+                    <LinkedInIcon size={14} className="h-3.5 w-3.5" />
+                  </a>
+                  <a href="mailto:contact@vpenterprises.in" className="p-2 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="Email Founder">
+                    <Mail className="h-3.5 w-3.5" />
+                  </a>
                 </div>
               </div>
-              <blockquote className="text-slate-700 dark:text-gray-300 italic leading-relaxed">
-                "We believe technology should solve real business problems through innovation, automation, and scalable software. Our products are engineered with state-of-the-art architectures to drive genuine ROI for our enterprise partners."
+              
+              <blockquote className="text-slate-700 italic leading-relaxed text-sm border-l-2 border-[#00529b]/40 pl-3">
+                "Our mission is to bridge the gap between complex technological capabilities and actual business outcomes. We don't just build software; we engineer competitive advantages through intelligent automation and secure, scalable design."
               </blockquote>
-              <div className="flex space-x-4 text-sm pt-2">
-                <span className="text-slate-500 dark:text-gray-500">Location: <strong className="text-slate-700 dark:text-gray-300">Tamil Nadu, India</strong></span>
-                <span className="text-slate-500 dark:text-gray-500">|</span>
-                <span className="text-slate-500 dark:text-gray-500">Focus: <strong className="text-slate-700 dark:text-gray-300">Artificial Intelligence & Cloud</strong></span>
+              
+              <div className="flex flex-wrap gap-2 text-[10px] font-semibold text-slate-500 pt-2 border-t border-slate-100">
+                <span className="bg-blue-50/50 px-2.5 py-1 rounded-full text-[#00529b]">AI Solutions</span>
+                <span className="bg-blue-50/50 px-2.5 py-1 rounded-full text-[#00529b]">Enterprise Software</span>
+                <span className="bg-blue-50/50 px-2.5 py-1 rounded-full text-[#00529b]">Cloud & DevOps</span>
+                <span className="bg-blue-50/50 px-2.5 py-1 rounded-full text-[#00529b]">Cybersecurity</span>
               </div>
             </div>
           </GlassCard>
+        </div>
+      </section>
+
+      {/* 2.5 Value Proposition & Trust Indicators */}
+      <section className="py-24 px-4 max-w-7xl mx-auto border-t border-slate-200 bg-gradient-to-b from-white via-blue-50/5 to-white">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#00529b]">Value Proposition</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+            One Trusted Partner for Your Complete Digital Business Journey
+          </h2>
+          <p className="text-slate-600 text-lg">
+            From Strategy to Software, We Deliver End-to-End Business Solutions.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <GlassCard className="border-slate-200/60 shadow-md hover:border-[#00529b]/25 transition-all duration-300 space-y-4 p-8">
+            <div className="inline-flex p-3 rounded-xl bg-blue-500/10 text-[#00529b]">
+              <Target className="h-6 w-6" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900">Streamline Operations</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              We audit and optimize your workflows to eliminate bottlenecks, integrate legacy databases, and automate scheduling, procurement, and billing systems.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="border-slate-200/60 shadow-md hover:border-[#00529b]/25 transition-all duration-300 space-y-4 p-8">
+            <div className="inline-flex p-3 rounded-xl bg-blue-500/10 text-[#00529b]">
+              <Zap className="h-6 w-6" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900">Automate Workflows</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Utilize custom AI agents, automated email alerts, and cross-application API integrations to free your teams from manual data entry and tasks.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="border-slate-200/60 shadow-md hover:border-[#00529b]/25 transition-all duration-300 space-y-4 p-8">
+            <div className="inline-flex p-3 rounded-xl bg-blue-500/10 text-[#00529b]">
+              <Brain className="h-6 w-6" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900">Accelerate Growth</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Deploy high-conversion web portals, e-commerce storefronts, and client databases that improve overall customer experience and scale revenues.
+            </p>
+          </GlassCard>
+        </div>
+
+        {/* Enterprise Trust Grid */}
+        <div className="mt-16 pt-16 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="space-y-1">
+            <span className="text-3xl font-extrabold text-[#00529b]">99.9%</span>
+            <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">System SLA Uptime</h4>
+            <p className="text-[10px] text-slate-400">Enterprise grade reliability</p>
+          </div>
+          <div className="space-y-1">
+            <span className="text-3xl font-extrabold text-[#00529b]">Zero-Trust</span>
+            <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">Security First</h4>
+            <p className="text-[10px] text-slate-400">Rigid pen-testing audits</p>
+          </div>
+          <div className="space-y-1">
+            <span className="text-3xl font-extrabold text-[#00529b]">Global</span>
+            <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">Delivery Model</h4>
+            <p className="text-[10px] text-slate-400">Serving clients worldwide</p>
+          </div>
+          <div className="space-y-1">
+            <span className="text-3xl font-extrabold text-[#00529b]">Long-Term</span>
+            <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">Partnerships</h4>
+            <p className="text-[10px] text-slate-400">Sustained system evolution</p>
+          </div>
         </div>
       </section>
 
@@ -195,36 +279,7 @@ export default async function HomePage() {
       </section>
 
       {/* 4. Industries Section */}
-      <section className="py-24 px-4 max-w-7xl mx-auto border-t border-slate-200 dark:border-gray-900">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-          <div className="lg:col-span-1 space-y-6">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-[#00529b]/20 bg-blue-50/40 border border-blue-100/50 dark:bg-blue-50/40 border border-blue-100/50 px-4 py-1.5 text-xs text-[#00529b] dark:text-blue-400">
-              <Briefcase className="h-4 w-4" />
-              <span>Target Verticals</span>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight">Industries We Serve</h2>
-            <p className="text-slate-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
-              We build customized enterprise systems and AI automations that resolve specific regulatory, scheduling, and logistical challenges across multiple industries.
-            </p>
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center space-x-2 rounded-full bg-[#00529b] px-6 py-3 text-sm font-semibold text-white hover:bg-blue-500 shadow-md"
-            >
-              <span>Explore Case Studies</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-
-          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {industries.map((ind, idx) => (
-              <GlassCard key={idx} interactive={false} className="border-slate-200 dark:border-gray-800/40 space-y-2">
-                <h4 className="font-semibold text-slate-900 dark:text-white text-base">{ind.name}</h4>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{ind.desc}</p>
-              </GlassCard>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Industries />
 
       {/* 5. Featured Case Studies */}
       <section className="py-24 px-4 max-w-7xl mx-auto border-t border-slate-200 dark:border-gray-900 bg-gradient-to-b from-white via-blue-50/10 to-white dark:from-gray-950 dark:via-indigo-950/5 dark:to-gray-950">
@@ -283,15 +338,15 @@ export default async function HomePage() {
       {/* 6. Technology Stack Section */}
       <section className="py-24 px-4 max-w-7xl mx-auto border-t border-slate-200 dark:border-gray-900">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Technology Stack</h2>
-          <p className="text-slate-600 dark:text-gray-400 max-w-xl mx-auto text-sm">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Our Technology Stack</h2>
+          <p className="text-slate-600 max-w-xl mx-auto text-sm">
             We master enterprise-grade frameworks, databases, and APIs to guarantee performant, secure deployments.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {techStackCategories.map((cat, idx) => (
-            <GlassCard key={idx} interactive={false} className="space-y-4 border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/10 dark:border-gray-950">
+            <GlassCard key={idx} interactive={false} className="space-y-4 border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950">
               <h4 className="font-bold text-[#00529b] dark:text-blue-400 border-b border-slate-200 dark:border-gray-800 pb-2 text-sm uppercase tracking-wider">{cat.title}</h4>
               <ul className="space-y-2">
                 {cat.techs.map((tech, i) => (

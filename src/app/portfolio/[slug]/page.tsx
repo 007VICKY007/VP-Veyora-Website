@@ -97,7 +97,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyDetailPro
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pl-7">
                 {Object.entries(results).map(([key, value]) => (
-                  <GlassCard key={key} interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/10 dark:border-gray-950 space-y-1">
+                  <GlassCard key={key} interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950 space-y-1">
                     <span className="text-[10px] text-slate-500 dark:text-gray-500 uppercase tracking-wider font-semibold">{key}</span>
                     <h4 className="text-xl font-bold text-[#00529b] dark:text-blue-400">{value}</h4>
                   </GlassCard>

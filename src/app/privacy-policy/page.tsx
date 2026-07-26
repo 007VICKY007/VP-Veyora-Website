@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* Content */}
-        <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/10 dark:border-gray-950 space-y-6 text-sm sm:text-base text-slate-700 dark:text-gray-300 leading-relaxed p-8 sm:p-12">
+        <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950 space-y-6 text-sm sm:text-base text-slate-700 dark:text-gray-300 leading-relaxed p-8 sm:p-12">
           
           <p>
             Welcome to <strong>VP Enterprises</strong> (available at <a href="https://vpenterprises.in" className="text-blue-600 dark:text-blue-400 hover:underline">https://vpenterprises.in</a>). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice, please contact us at <a href="mailto:contact@vpenterprises.in" className="text-blue-600 dark:text-blue-400 hover:underline">contact@vpenterprises.in</a>.

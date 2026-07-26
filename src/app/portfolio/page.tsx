@@ -78,7 +78,7 @@ export default async function PortfolioPage() {
         </div>
 
         {/* Tech Partner Note */}
-        <div className="rounded-3xl bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/40 dark:border-gray-950 border border-slate-200 dark:border-gray-800 p-8 sm:p-12 text-center space-y-6 max-w-4xl mx-auto">
+        <div className="rounded-3xl bg-white/70 border border-slate-100 dark:bg-gray-900/40 dark:border-gray-950 border border-slate-200 dark:border-gray-800 p-8 sm:p-12 text-center space-y-6 max-w-4xl mx-auto">
           <h3 className="text-2xl font-bold">Have a Technical Challenge to Solve?</h3>
           <p className="text-slate-600 dark:text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
             Founder Vignesh Pandiya will personally consult on system requirements and sketch architecture blueprints.

@@ -77,7 +77,7 @@ export default async function PricingPage() {
         </div>
 
         {/* Additional note */}
-        <div className="max-w-4xl mx-auto flex items-start space-x-3 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/30 dark:border-gray-950 border border-slate-200 dark:border-gray-800 p-6 rounded-2xl text-xs sm:text-sm text-slate-600 dark:text-gray-400">
+        <div className="max-w-4xl mx-auto flex items-start space-x-3 bg-white/70 border border-slate-100 dark:bg-gray-900/30 dark:border-gray-950 border border-slate-200 dark:border-gray-800 p-6 rounded-2xl text-xs sm:text-sm text-slate-600 dark:text-gray-400">
           <Info className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
           <div className="space-y-1">
             <h4 className="font-semibold text-white">Need custom integrations, SLA agreements, or dedicated developer retainers?</h4>

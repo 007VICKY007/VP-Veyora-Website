@@ -16,6 +16,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = "light";
   const toggleTheme = () => {};
 
+  useEffect(() => {
+    const root = window.document.documentElement;
+    const body = window.document.body;
+    root.classList.remove("dark");
+    root.classList.add("light");
+    body.classList.remove("theme-dark");
+    body.classList.add("theme-light");
+    localStorage.setItem("vp-theme", "light");
+  }, []);
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

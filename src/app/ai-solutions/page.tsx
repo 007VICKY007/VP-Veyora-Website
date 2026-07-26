@@ -61,7 +61,7 @@ export default function AiSolutionsPage() {
                 <li className="flex items-center space-x-2"><Check className="h-4 w-4 text-[#00529b] dark:text-blue-400" /> <span>Seamless integration with Pinecone, pgvector, or Qdrant</span></li>
               </ul>
             </div>
-            <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/40 dark:border-gray-950 space-y-4">
+            <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/40 dark:border-gray-950 space-y-4">
               <h4 className="font-bold text-sm uppercase tracking-wider text-[#00529b] dark:text-blue-400">AI Stack Highlights</h4>
               <div className="flex flex-wrap gap-2 text-xs font-mono">
                 <span className="bg-slate-50 dark:bg-gray-950 border border-slate-200 dark:border-gray-800 px-3 py-1 rounded">OpenAI API</span>

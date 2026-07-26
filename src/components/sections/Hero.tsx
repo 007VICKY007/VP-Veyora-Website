@@ -28,8 +28,10 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
       ref={containerRef}
       className="relative flex min-h-[90vh] flex-col justify-center items-center overflow-hidden bg-transparent px-4 pt-20 text-center transition-colors duration-300"
       style={{
-        background: "radial-gradient(circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 82, 155, 0.08), transparent 80%)"
-      }}
+        background: "radial-gradient(circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 82, 155, 0.08), transparent 80%)",
+        "--mouse-x": "50%",
+        "--mouse-y": "50%"
+      } as React.CSSProperties}
     >
       {/* Background Orbs */}
       <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-blue-500/10 glow-blur animate-pulse-slow"></div>
@@ -43,10 +45,10 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center space-x-2 rounded-full border border-[#00529b]/30 bg-blue-500/10 px-4 py-1.5 text-xs sm:text-sm text-[#00529b] dark:text-blue-400 backdrop-blur-sm"
+          className="inline-flex items-center space-x-2 rounded-full border border-[#00529b]/30 bg-blue-500/10 px-4 py-1.5 text-xs sm:text-sm text-[#00529b] backdrop-blur-sm"
         >
           <span className="h-2 w-2 rounded-full bg-[#00529b] animate-ping"></span>
-          <span>VP Enterprises — Next-Gen AI Platform</span>
+          <span>VP Enterprises — Global Technology & Business Partner</span>
         </motion.div>
 
         {/* Hero Title */}
@@ -54,10 +56,10 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-6xl md:text-7xl leading-tight"
+          className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl md:text-7xl leading-tight"
         >
-          Engineering <span className="text-gradient">AI Solutions</span> <br />
-          for Tomorrow
+          Engineering <span className="text-gradient">Intelligent Technology</span> <br />
+          for Growing Businesses
         </motion.h1>
 
         {/* Hero Subtitle */}
@@ -65,9 +67,9 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
+          className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed"
         >
-          {subtitle || "Helping businesses automate, innovate, and grow using Artificial Intelligence and modern software technologies."}
+          {subtitle || "Building intelligent technology for growing businesses worldwide. We deliver custom software development, cloud orchestration, workflow automation, and cybersecurity solutions."}
         </motion.p>
 
         {/* Action Buttons */}
@@ -79,15 +81,15 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
         >
           <Link
             href="/contact"
-            className="group flex items-center space-x-2 rounded-full bg-gradient-to-r from-[#00205b] via-[#00529b] to-[#0072ce] px-8 py-4 text-base font-semibold text-white shadow-xl shadow-blue-900/15 hover:shadow-blue-500/35 hover:scale-105 transition-all duration-300"
+            className="group flex items-center space-x-2 rounded-full bg-gradient-to-r from-[#00205b] to-[#00529b] px-8 py-4 text-base font-semibold text-white shadow-xl shadow-blue-900/15 hover:shadow-blue-500/35 hover:scale-105 transition-all duration-300"
           >
-            <span>Start Your Project</span>
+            <span>Partner with Us</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           
           <Link
             href="/services"
-            className="flex items-center space-x-2 rounded-full border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-900/60 hover:bg-gray-800 px-8 py-4 text-base font-semibold text-slate-700 dark:text-gray-300 hover:text-white transition-all duration-300"
+            className="flex items-center space-x-2 rounded-full border border-[#00529b]/40 bg-white hover:bg-blue-50/50 px-8 py-4 text-base font-semibold text-[#00529b] transition-all duration-300"
           >
             Explore Services
           </Link>
@@ -98,27 +100,27 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.8 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 max-w-4xl mx-auto border-t border-slate-200 dark:border-gray-800"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 max-w-4xl mx-auto border-t border-slate-200"
         >
           <div className="flex items-center space-x-3 text-left">
-            <Brain className="h-6 w-6 text-[#00529b] dark:text-blue-400 shrink-0" />
+            <Brain className="h-6 w-6 text-[#00529b] shrink-0" />
             <div>
-              <h4 className="text-sm font-semibold text-slate-900 dark:text-white">AI First Strategy</h4>
-              <p className="text-xs text-slate-500 dark:text-gray-500">Autonomous agents & Generative LLMs</p>
+              <h4 className="text-sm font-semibold text-slate-900">AI-First Solutions</h4>
+              <p className="text-xs text-slate-500">Autonomous agents & workflow automation</p>
             </div>
           </div>
           <div className="flex items-center space-x-3 text-left">
-            <Cpu className="h-6 w-6 text-slate-500 dark:text-slate-400 shrink-0" />
+            <Cpu className="h-6 w-6 text-[#00529b] shrink-0" />
             <div>
-              <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Scalable Systems</h4>
-              <p className="text-xs text-slate-500 dark:text-gray-500">Enterprise CRM, ERP & SaaS apps</p>
+              <h4 className="text-sm font-semibold text-slate-900">Custom Systems</h4>
+              <p className="text-xs text-slate-500">Enterprise CRM, ERP & SaaS apps</p>
             </div>
           </div>
           <div className="flex items-center space-x-3 text-left">
-            <ShieldCheck className="h-6 w-6 text-slate-450 dark:text-pink-400 shrink-0" />
+            <ShieldCheck className="h-6 w-6 text-[#00529b] shrink-0" />
             <div>
-              <h4 className="text-sm font-semibold text-slate-900 dark:text-white">Proactive Security</h4>
-              <p className="text-xs text-slate-500 dark:text-gray-500">Penetration testing & Cloud security</p>
+              <h4 className="text-sm font-semibold text-slate-900">Proactive Security</h4>
+              <p className="text-xs text-slate-500">Zero-trust architecture & testing audits</p>
             </div>
           </div>
         </motion.div>

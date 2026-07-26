@@ -64,7 +64,7 @@ export const FAQ = () => {
             return (
               <div
                 key={index}
-                className="overflow-hidden rounded-2xl border border-slate-200 dark:border-gray-800 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/40 dark:border-gray-950 backdrop-blur-sm transition-all duration-300 hover:border-slate-200 dark:border-gray-700"
+                className="overflow-hidden rounded-2xl border border-slate-200 dark:border-gray-800 bg-white/70 border border-slate-100 dark:bg-gray-900/40 dark:border-gray-950 backdrop-blur-sm transition-all duration-300 hover:border-slate-200 dark:border-gray-700"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
@@ -86,7 +86,7 @@ export const FAQ = () => {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="border-t border-slate-200 dark:border-gray-800 p-6 text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/20 dark:border-gray-950">
+                      <div className="border-t border-slate-200 dark:border-gray-800 p-6 text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed bg-white/70 border border-slate-100 dark:bg-gray-900/20 dark:border-gray-950">
                         {faq.answer}
                       </div>
                     </motion.div>

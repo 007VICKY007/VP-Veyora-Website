@@ -60,7 +60,7 @@ export default function TechnologiesPage() {
           {techCategories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
-              <GlassCard key={idx} interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/10 dark:border-gray-950 space-y-6 flex flex-col justify-between">
+              <GlassCard key={idx} interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950 space-y-6 flex flex-col justify-between">
                 <div className="space-y-4">
                   {/* Category Header */}
                   <div className="flex items-center space-x-3">

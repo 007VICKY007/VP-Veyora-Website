@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { GlassCard } from "@/components/shared/GlassCard";
-import { Target, Eye, ShieldCheck, Heart, Award, ArrowRight } from "lucide-react";
+import { Target, Eye, ShieldCheck, Heart, Award, ArrowRight, Mail } from "lucide-react";
+import { LinkedInIcon, GitHubIcon } from "@/components/shared/SocialIcons";
 
 export default function AboutPage() {
   const values = [
@@ -48,34 +49,70 @@ export default function AboutPage() {
         </div>
 
         {/* Founder Spotlights */}
-        <div className="border-t border-slate-200 dark:border-gray-900 pt-20">
+        <div className="border-t border-slate-200 pt-20">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
             
             {/* Image / Name Card */}
-            <div className="lg:col-span-2 text-center lg:text-left space-y-4">
-              <div className="h-48 w-48 rounded-full bg-gradient-to-tr from-[#00205b] via-purple-500 to-pink-500 mx-auto lg:mx-0 flex items-center justify-center text-slate-900 dark:text-white text-5xl font-bold font-mono shadow-2xl">
-                VP
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Vignesh Pandiya</h3>
-                <p className="text-[#00529b] dark:text-blue-400">Founder & CEO, Lead Architect</p>
-                <p className="text-xs text-slate-500 dark:text-gray-500 mt-1">Tamil Nadu, India</p>
-              </div>
+            <div className="lg:col-span-2">
+              <GlassCard className="border-slate-200/60 shadow-xl hover:shadow-[#00529b]/10 hover:border-[#00529b]/35 transition-all duration-300 p-8 rounded-3xl flex flex-col items-center text-center space-y-6">
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-tr from-[#00205b] to-[#0072ce] rounded-full blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                  <div className="relative h-40 w-40 rounded-full bg-gradient-to-tr from-[#00205b] to-[#00529b] flex items-center justify-center text-white text-5xl font-bold font-mono shadow-md border border-slate-200/50 transform hover:scale-105 transition-transform duration-300 select-none">
+                    VP
+                  </div>
+                </div>
+                
+                <div className="space-y-1">
+                  <h3 className="text-2xl font-bold text-slate-900">Vignesh Pandiya</h3>
+                  <p className="text-sm font-semibold text-[#00529b]">Founder & CEO, Lead Architect</p>
+                  <p className="text-xs text-slate-500">Tamil Nadu, India</p>
+                </div>
+
+                <div className="flex space-x-3 pt-2">
+                  <a href="https://linkedin.com/in/vigneshpandiya" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="LinkedIn Profile">
+                    <LinkedInIcon size={16} className="h-4 w-4" />
+                  </a>
+                  <a href="https://github.com/vigneshpandiyag" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="GitHub Profile">
+                    <GitHubIcon size={16} className="h-4 w-4" />
+                  </a>
+                  <a href="mailto:contact@vpenterprises.in" className="p-2.5 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="Email Founder">
+                    <Mail className="h-4 w-4" />
+                  </a>
+                </div>
+              </GlassCard>
             </div>
 
             {/* Founder Biography */}
             <div className="lg:col-span-3 space-y-6">
-              <h3 className="text-2xl font-bold">Leading with Technology First</h3>
-              <p className="text-slate-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
-                Founded by Vignesh Pandiya, VP Enterprises was built on the core belief that enterprise software should be clean, secure, and fast. Rather than outsourcing client architectures, Vignesh oversees all product layouts and system integrations personally.
+              <div className="space-y-2 text-center lg:text-left">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#00529b]">Executive Leadership</span>
+                <h3 className="text-3xl font-extrabold tracking-tight text-slate-900">Leading with Innovation First</h3>
+              </div>
+              
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                Under the strategic leadership of Vignesh Pandiya, VP Enterprises functions as a premier technology partner, engineering robust AI solutions and custom enterprise architectures that drive digital transformation. We specialize in building intelligent automation frameworks, scalable software ecosystems, and secure cloud infrastructures that empower organizations to modernize workflows and unlock new growth avenues.
               </p>
-              <p className="text-slate-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
-                Whether implementing custom vector indexers for Retrieval Augmented Generation (RAG) or configuring Kubernetes pods on AWS, our organization guarantees clean documentation, structured codebases, and reliable client support.
+              
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                Rather than deploying generic integrations, we establish high-trust, long-term partnerships with our clients. We combine rigorous cybersecurity protocols with advanced artificial intelligence implementations to deliver zero-trust, high-concurrency systems that align perfectly with complex business objectives and compliance standards.
               </p>
-              <div className="flex flex-wrap gap-4 text-xs font-semibold text-slate-600 dark:text-gray-400">
-                <span className="bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 px-3.5 py-1.5 rounded-full">AI AUTOMATION</span>
-                <span className="bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 px-3.5 py-1.5 rounded-full">NEXT.JS ARCHITECT</span>
-                <span className="bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 px-3.5 py-1.5 rounded-full">CYBERSECURITY</span>
+
+              {/* Founder Quote / Vision Statement */}
+              <div className="border-l-4 border-[#00529b] pl-4 italic text-slate-700 text-sm sm:text-base bg-blue-50/50 py-3 pr-2 rounded-r-xl">
+                "Our mission is to bridge the gap between complex technological capabilities and actual business outcomes. We don't just build software; we engineer competitive advantages through intelligent automation and secure, scalable design."
+              </div>
+
+              {/* Enterprise Trust Indicators / Expertise Tags */}
+              <div className="space-y-3 pt-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Core Enterprise Capabilities</span>
+                <div className="flex flex-wrap gap-2 text-xs font-semibold text-slate-700">
+                  <span className="bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full">AI Solutions</span>
+                  <span className="bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full">Enterprise Software</span>
+                  <span className="bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full">Cloud & DevOps</span>
+                  <span className="bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full">Cybersecurity</span>
+                  <span className="bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full">Global Delivery</span>
+                  <span className="bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full">Client Success</span>
+                </div>
               </div>
             </div>
 
@@ -106,14 +143,14 @@ export default function AboutPage() {
         </div>
 
         {/* CTA Banner */}
-        <div className="rounded-3xl bg-gradient-to-r from-indigo-950/60 to-purple-950/60 border border-[#00529b]/20 p-8 sm:p-12 text-center space-y-6">
-          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Ready to consult on your digital roadmap?</h3>
-          <p className="text-slate-700 dark:text-gray-300 max-w-xl mx-auto text-sm sm:text-base">
+        <div className="rounded-3xl bg-gradient-to-r from-[#00205b]/5 via-[#00529b]/10 to-blue-50 border border-blue-100/50 p-8 sm:p-12 text-center space-y-6">
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Ready to consult on your digital roadmap?</h3>
+          <p className="text-slate-700 max-w-xl mx-auto text-sm sm:text-base">
             Contact Vignesh Pandiya and the development team to schedule a system mapping discussion.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center space-x-2 rounded-full bg-white text-gray-950 hover:bg-gray-100 px-6 py-3 text-sm font-bold shadow-lg transition-all"
+            className="inline-flex items-center space-x-2 rounded-full bg-gradient-to-r from-[#00205b] to-[#00529b] px-6 py-3 text-sm font-bold text-white hover:scale-105 shadow-lg shadow-blue-900/10 transition-all"
           >
             <span>Let's Connect</span>
             <ArrowRight className="h-4 w-4" />

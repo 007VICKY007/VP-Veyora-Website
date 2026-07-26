@@ -93,7 +93,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="w-full rounded-3xl border border-gray-200/10 bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/30 dark:border-gray-950 p-6 sm:p-10 backdrop-blur-md shadow-xl transition-all duration-300">
+    <div className="w-full rounded-3xl border border-gray-200/10 bg-white/70 border border-slate-100 dark:bg-gray-900/30 dark:border-gray-950 p-6 sm:p-10 backdrop-blur-md shadow-xl transition-all duration-300">
       {success ? (
         <div className="text-center py-12 space-y-4">
           <div className="inline-flex rounded-full bg-green-500/15 p-4 text-green-400">
@@ -124,7 +124,7 @@ export const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-white dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
               />
             </div>
 
@@ -138,7 +138,7 @@ export const ContactForm = () => {
                 value={formData.companyName}
                 onChange={handleChange}
                 placeholder="Your Company Name"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-white dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
               />
             </div>
 
@@ -153,7 +153,7 @@ export const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email Address"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-white dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
               />
             </div>
 
@@ -167,7 +167,7 @@ export const ContactForm = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Your Phone / WhatsApp Number"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-white dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
               />
             </div>
 
@@ -181,7 +181,7 @@ export const ContactForm = () => {
                 value={formData.country}
                 onChange={handleChange}
                 placeholder="Your Country"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-white dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
               />
             </div>
 
@@ -194,7 +194,7 @@ export const ContactForm = () => {
                 required
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-white dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-[#00529b] focus:outline-none [&>option]:bg-slate-50 dark:bg-gray-950"
+                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-[#00529b] focus:outline-none [&>option]:bg-slate-50 dark:bg-gray-950"
               >
                 {servicesList.map((serviceName) => (
                   <option key={serviceName} value={serviceName}>{serviceName}</option>
@@ -211,7 +211,7 @@ export const ContactForm = () => {
                 required
                 value={formData.budget}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-white dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-[#00529b] focus:outline-none [&>option]:bg-slate-50 dark:bg-gray-950"
+                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-[#00529b] focus:outline-none [&>option]:bg-slate-50 dark:bg-gray-950"
               >
                 {budgetsList.map((budgetValue) => (
                   <option key={budgetValue} value={budgetValue}>{budgetValue}</option>
@@ -228,7 +228,7 @@ export const ContactForm = () => {
                 required
                 value={formData.timeline}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-white dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-[#00529b] focus:outline-none [&>option]:bg-slate-50 dark:bg-gray-950"
+                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-[#00529b] focus:outline-none [&>option]:bg-slate-50 dark:bg-gray-950"
               >
                 {timelinesList.map((timeValue) => (
                   <option key={timeValue} value={timeValue}>{timeValue}</option>
@@ -248,7 +248,7 @@ export const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="Outline your application features, automated workflows, dashboard requirements, or specific target systems..."
-              className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-white dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+              className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
             ></textarea>
           </div>
 

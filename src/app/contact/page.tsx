@@ -82,13 +82,13 @@ export default function ContactPage() {
 
             {/* Social wall */}
             <div className="flex justify-center lg:justify-start space-x-4 pt-2">
-              <a href="https://linkedin.com/company/vpenterprises" target="_blank" rel="noopener noreferrer" className="p-3 bg-white dark:bg-gray-900 hover:bg-gray-800 rounded-full border border-slate-200 dark:border-gray-800 hover:text-[#00529b] dark:text-blue-400 text-slate-600 dark:text-gray-400 transition-colors">
+              <a href="https://linkedin.com/company/vpenterprises" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
                 <LinkedInIcon className="h-5 w-5" />
               </a>
-              <a href="https://github.com/VPEnterprises" target="_blank" rel="noopener noreferrer" className="p-3 bg-white dark:bg-gray-900 hover:bg-gray-800 rounded-full border border-slate-200 dark:border-gray-800 hover:text-[#00529b] dark:text-blue-400 text-slate-600 dark:text-gray-400 transition-colors">
+              <a href="https://github.com/VPEnterprises" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
                 <GitHubIcon className="h-5 w-5" />
               </a>
-              <a href="https://instagram.com/vpenterprises" target="_blank" rel="noopener noreferrer" className="p-3 bg-white dark:bg-gray-900 hover:bg-gray-800 rounded-full border border-slate-200 dark:border-gray-800 hover:text-[#00529b] dark:text-blue-400 text-slate-600 dark:text-gray-400 transition-colors">
+              <a href="https://instagram.com/vpenterprises" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
                 <InstagramIcon className="h-5 w-5" />
               </a>
             </div>

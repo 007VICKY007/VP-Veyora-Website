@@ -25,13 +25,13 @@ export const Navbar = () => {
   if (isAdmin) return null;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200/10 bg-white/70 dark:bg-gray-950/70 backdrop-blur-md transition-colors duration-300">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/70 backdrop-blur-md transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo / Brand */}
           <Link href="/" className="flex items-center space-x-3">
             <img src="/logo.jpg" alt="VP Enterprises Logo" className="h-9 w-9 object-contain rounded-lg shadow-sm" />
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00205b] to-[#00529b] dark:from-[#00529b] dark:to-[#0072ce]">
+            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00205b] to-[#00529b]">
               VP Enterprises
             </span>
           </Link>
@@ -42,10 +42,10 @@ export const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-[#00529b] dark:hover:text-blue-400 ${
+                className={`text-sm font-medium transition-colors duration-200 hover:text-[#00529b] ${
                   isActive(link.href)
-                    ? "text-[#00529b] dark:text-blue-400 border-b-2 border-blue-600 dark:border-indigo-400 pb-1"
-                    : "text-gray-600 dark:text-gray-300"
+                    ? "text-[#00529b] border-b-2 border-blue-600 pb-1"
+                    : "text-slate-600"
                 }`}
               >
                 {link.name}
@@ -68,7 +68,7 @@ export const Navbar = () => {
           <div className="flex md:hidden items-center space-x-2">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="rounded-md p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="rounded-md p-2 text-slate-600 hover:bg-slate-100"
               aria-label="Toggle mobile menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -79,7 +79,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu Panel */}
       {isOpen && (
-        <div className="md:hidden border-b border-gray-200/10 bg-white dark:bg-gray-950 px-4 pt-2 pb-4 space-y-1 sm:px-6 transition-colors duration-300">
+        <div className="md:hidden border-b border-slate-200/50 bg-white px-4 pt-2 pb-4 space-y-1 sm:px-6 transition-colors duration-300">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -87,8 +87,8 @@ export const Navbar = () => {
               onClick={() => setIsOpen(false)}
               className={`block rounded-md px-3 py-2 text-base font-medium ${
                 isActive(link.href)
-                  ? "bg-blue-50/70 dark:bg-blue-950/20 text-[#00529b] dark:text-blue-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900"
+                  ? "bg-blue-50/70 text-[#00529b]"
+                  : "text-slate-700 hover:bg-slate-50"
               }`}
             >
               {link.name}

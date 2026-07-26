@@ -14,7 +14,11 @@ import {
   Link as LinkIcon, 
   Megaphone,
   ArrowRight,
-  Check
+  Check,
+  Target,
+  Eye,
+  Compass,
+  Briefcase
 } from "lucide-react";
 
 const iconMap: Record<string, any> = {
@@ -28,7 +32,11 @@ const iconMap: Record<string, any> = {
   BarChart3: BarChart3,
   CpuIcon: Cpu,
   Link: LinkIcon,
-  Megaphone: Megaphone
+  Megaphone: Megaphone,
+  Target: Target,
+  Eye: Eye,
+  Compass: Compass,
+  Briefcase: Briefcase
 };
 
 export default async function ServicesPage() {
@@ -120,14 +128,14 @@ export default async function ServicesPage() {
         </div>
 
         {/* Custom Quote Box */}
-        <div className="rounded-3xl bg-white/70 border border-slate-100 dark:bg-white dark:bg-gray-900/40 dark:border-gray-950 border border-slate-200 dark:border-gray-800 p-8 sm:p-12 text-center space-y-6 max-w-4xl mx-auto">
+        <div className="rounded-3xl bg-white/70 border border-slate-100 dark:bg-gray-900/40 dark:border-gray-950 border border-slate-200 dark:border-gray-800 p-8 sm:p-12 text-center space-y-6 max-w-4xl mx-auto">
           <h3 className="text-2xl font-bold">Need a Custom Enterprise Solution?</h3>
           <p className="text-slate-600 dark:text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
             We draft precise Statement of Work blueprints outlining technical stacks, milestones, deliverables, and SLAs.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center space-x-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-650 px-6 py-3 text-sm font-bold text-slate-900 dark:text-white hover:scale-105 transition-all shadow-lg"
+            className="inline-flex items-center space-x-2 rounded-full bg-gradient-to-r from-[#00205b] to-[#00529b] px-6 py-3 text-sm font-semibold text-white hover:scale-105 transition-all shadow-lg"
           >
             <span>Request Enterprise Consultation</span>
             <ArrowRight className="h-4 w-4" />
