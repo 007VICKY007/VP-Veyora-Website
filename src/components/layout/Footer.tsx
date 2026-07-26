@@ -54,19 +54,19 @@ export const Footer = () => {
               Engineering AI Solutions for Tomorrow. Helping businesses automate, innovate, and grow using Artificial Intelligence and modern software technologies.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="https://linkedin.com/company/vpenterprises" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
+              <a href="https://linkedin.com/company/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
                 <LinkedInIcon className="h-5 w-5" />
               </a>
-              <a href="https://github.com/VPEnterprises" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
+              <a href="https://github.com/VPEnterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
                 <GitHubIcon className="h-5 w-5" />
               </a>
-              <a href="https://instagram.com/vpenterprises" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
+              <a href="https://instagram.com/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
                 <InstagramIcon className="h-5 w-5" />
               </a>
-              <a href="https://facebook.com/vpenterprises" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
+              <a href="https://facebook.com/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
                 <FacebookIcon className="h-5 w-5" />
               </a>
-              <a href="https://youtube.com/@vpenterprises" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
+              <a href="https://youtube.com/@vpenterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
                 <YouTubeIcon className="h-5 w-5" />
               </a>
             </div>

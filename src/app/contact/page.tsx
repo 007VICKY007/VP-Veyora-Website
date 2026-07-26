@@ -82,13 +82,13 @@ export default function ContactPage() {
 
             {/* Social wall */}
             <div className="flex justify-center lg:justify-start space-x-4 pt-2">
-              <a href="https://linkedin.com/company/vpenterprises" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
+              <a href="https://linkedin.com/company/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
                 <LinkedInIcon className="h-5 w-5" />
               </a>
-              <a href="https://github.com/VPEnterprises" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
+              <a href="https://github.com/VPEnterpriceses" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
                 <GitHubIcon className="h-5 w-5" />
               </a>
-              <a href="https://instagram.com/vpenterprises" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
+              <a href="https://instagram.com/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
                 <InstagramIcon className="h-5 w-5" />
               </a>
             </div>
