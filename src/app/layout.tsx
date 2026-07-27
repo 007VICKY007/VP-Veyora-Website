@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     "VP Enterpriceses"
   ],
   authors: [{ name: "Vignesh Pandiya" }],
-  metadataBase: new URL("https://vpenterpriceses.in"),
+  metadataBase: new URL("https://vpenterpriceses.com"),
   openGraph: {
     title: "VP Enterpriceses | Engineering AI Solutions for Tomorrow",
     description: "VP Enterpriceses is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, and automation workflows.",
-    url: "https://vpenterpriceses.in",
+    url: "https://vpenterpriceses.com",
     siteName: "VP Enterpriceses",
     type: "website",
   },

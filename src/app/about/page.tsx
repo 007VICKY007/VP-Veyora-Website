@@ -75,7 +75,7 @@ export default function AboutPage() {
                   <a href="https://github.com/vigneshpandiyag" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="GitHub Profile">
                     <GitHubIcon size={16} className="h-4 w-4" />
                   </a>
-                  <a href="mailto:contact@vpenterpriceses.in" className="p-2.5 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="Email Founder">
+                  <a href="mailto:contact@vpenterpriceses.com" className="p-2.5 bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#00529b] rounded-full border border-slate-200 transition-colors" aria-label="Email Founder">
                     <Mail className="h-4 w-4" />
                   </a>
                 </div>

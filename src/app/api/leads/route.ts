@@ -70,13 +70,13 @@ export async function POST(req: Request) {
           </ul>
         </div>
 
-        <p>If you have urgent files or specifications, feel free to reply to this email directly at <a href="mailto:contact@vpenterpriceses.in">contact@vpenterpriceses.in</a>.</p>
+        <p>If you have urgent files or specifications, feel free to reply to this email directly at <a href="mailto:contact@vpenterpriceses.com">contact@vpenterpriceses.com</a>.</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 25px 0;" />
         <p style="font-size: 13px; color: #64748b;">
           <strong>VP Enterpriceses</strong><br />
           Engineering AI Solutions for Tomorrow<br />
           Location: Tamil Nadu, India<br />
-          Website: <a href="https://vpenterpriceses.in">https://vpenterpriceses.in</a>
+          Website: <a href="https://vpenterpriceses.com">https://vpenterpriceses.com</a>
         </p>
       </div>
     `;
@@ -124,14 +124,14 @@ export async function POST(req: Request) {
           </tr>
         </table>
         <div style="margin-top: 30px; text-align: center;">
-          <a href="https://vpenterpriceses.in/admin/leads" style="background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px;">Open Admin Dashboard</a>
+          <a href="https://vpenterpriceses.com/admin/leads" style="background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px;">Open Admin Dashboard</a>
         </div>
       </div>
     `;
 
     // Trigger emails asynchronously, non-blocking
     await sendEmail({ to: email, subject: "Project Inquiry Received - VP Enterpriceses", html: clientHtml });
-    await sendEmail({ to: "contact@vpenterpriceses.in", subject: `[NEW LEAD] ${name} - ${service}`, html: adminHtml });
+    await sendEmail({ to: "contact@vpenterpriceses.com", subject: `[NEW LEAD] ${name} - ${service}`, html: adminHtml });
 
     return NextResponse.json({ success: true, lead });
   } catch (error) {

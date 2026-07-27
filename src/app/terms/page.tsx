@@ -18,7 +18,7 @@ export default function TermsPage() {
         <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950 space-y-6 text-sm sm:text-base text-slate-700 dark:text-gray-300 leading-relaxed p-8 sm:p-12">
           
           <p>
-            These Terms & Conditions govern your use of the <strong>VP Enterpriceses</strong> website located at <a href="https://vpenterpriceses.in" className="text-blue-600 dark:text-blue-400 hover:underline">https://vpenterpriceses.in</a>. By accessing this website, we assume you accept these terms and conditions in full.
+            These Terms & Conditions govern your use of the <strong>VP Enterpriceses</strong> website located at <a href="https://vpenterpriceses.com" className="text-blue-600 dark:text-blue-400 hover:underline">https://vpenterpriceses.com</a>. By accessing this website, we assume you accept these terms and conditions in full.
           </p>
 
           <div className="space-y-3">

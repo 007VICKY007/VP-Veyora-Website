@@ -99,8 +99,8 @@ export const Footer = () => {
               <li className="flex items-start space-x-2.5">
                 <Mail className="h-4 w-4 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
                 <div className="flex flex-col space-y-0.5">
-                  <a href="mailto:contact@vpenterpriceses.in" className="hover:text-[#00529b] dark:hover:text-blue-400">contact@vpenterpriceses.in</a>
-                  <a href="mailto:sales@vpenterpriceses.in" className="text-xs text-gray-400 hover:text-[#00529b] dark:hover:text-blue-400">sales@vpenterpriceses.in</a>
+                  <a href="mailto:contact@vpenterpriceses.com" className="hover:text-[#00529b] dark:hover:text-blue-400">contact@vpenterpriceses.com</a>
+                  <a href="mailto:sales@vpenterpriceses.com" className="text-xs text-gray-400 hover:text-[#00529b] dark:hover:text-blue-400">sales@vpenterpriceses.com</a>
                 </div>
               </li>
               <li className="flex items-center space-x-2.5">

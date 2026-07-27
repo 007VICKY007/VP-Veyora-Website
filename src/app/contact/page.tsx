@@ -32,21 +32,21 @@ export default function ContactPage() {
                   <Mail className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-xs text-slate-500 dark:text-gray-500 block">General Business</span>
-                    <a href="mailto:contact@vpenterpriceses.in" className="text-slate-900 dark:text-white hover:underline font-semibold">contact@vpenterpriceses.in</a>
+                    <a href="mailto:contact@vpenterpriceses.com" className="text-slate-900 dark:text-white hover:underline font-semibold">contact@vpenterpriceses.com</a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
                   <Mail className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-xs text-slate-500 dark:text-gray-500 block">Project Sales</span>
-                    <a href="mailto:sales@vpenterpriceses.in" className="text-slate-900 dark:text-white hover:underline font-semibold">sales@vpenterpriceses.in</a>
+                    <a href="mailto:sales@vpenterpriceses.com" className="text-slate-900 dark:text-white hover:underline font-semibold">sales@vpenterpriceses.com</a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
                   <Mail className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-xs text-slate-500 dark:text-gray-500 block">Customer Support</span>
-                    <a href="mailto:support@vpenterpriceses.in" className="text-slate-900 dark:text-white hover:underline font-semibold">support@vpenterpriceses.in</a>
+                    <a href="mailto:support@vpenterpriceses.com" className="text-slate-900 dark:text-white hover:underline font-semibold">support@vpenterpriceses.com</a>
                   </div>
                 </li>
               </ul>

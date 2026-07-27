@@ -82,7 +82,7 @@ export default async function PricingPage() {
           <div className="space-y-1">
             <h4 className="font-semibold text-white">Need custom integrations, SLA agreements, or dedicated developer retainers?</h4>
             <p className="leading-relaxed">
-              For organizations requiring RAG systems, specialized API developments, security pentesting, or Kubernetes orchestrations, we perform full scoping meetings and provide detailed project bids. Contact CEO Vignesh Pandiya directly at <a href="mailto:contact@vpenterpriceses.in" className="text-[#00529b] dark:text-blue-400 hover:underline">contact@vpenterpriceses.in</a>.
+              For organizations requiring RAG systems, specialized API developments, security pentesting, or Kubernetes orchestrations, we perform full scoping meetings and provide detailed project bids. Contact CEO Vignesh Pandiya directly at <a href="mailto:contact@vpenterpriceses.com" className="text-[#00529b] dark:text-blue-400 hover:underline">contact@vpenterpriceses.com</a>.
             </p>
           </div>
         </div>
