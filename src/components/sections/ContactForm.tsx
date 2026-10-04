@@ -93,19 +93,19 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="w-full rounded-3xl border border-gray-200/10 bg-white/70 border border-slate-100 dark:bg-gray-900/30 dark:border-gray-950 p-6 sm:p-10 backdrop-blur-md shadow-xl transition-all duration-300">
+    <div className="w-full rounded-xl border border-white/[0.08] bg-white/[0.015] p-6 sm:p-8 backdrop-blur-md shadow-2xl shadow-black/50 transition-all duration-300">
       {success ? (
         <div className="text-center py-12 space-y-4">
           <div className="inline-flex rounded-full bg-green-500/15 p-4 text-green-400">
             <CheckCircle2 className="h-16 w-16" />
           </div>
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Inquiry Sent Successfully!</h3>
-          <p className="text-slate-600 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
-            Thank you for reaching out to VP Enterpriceses. Founder Vignesh Pandiya or one of our system specialists will review your submission and contact you within 24 hours.
+          <h3 className="text-2xl font-bold text-white ">Inquiry Sent Successfully!</h3>
+          <p className="text-white/60  max-w-md mx-auto leading-relaxed">
+            Thank you for reaching out to VP Veyora Private Limited. Founder Vignesh Pandiya or one of our system specialists will review your submission and contact you within 24 hours.
           </p>
           <button
             onClick={() => setSuccess(false)}
-            className="mt-6 inline-flex items-center space-x-2 rounded-full border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-900/60 px-6 py-2.5 text-sm font-semibold text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:text-white"
+            className="mt-6 inline-flex items-center space-x-2 rounded-full border border-white/08  bg-white/[0.04]  px-6 py-2.5 text-sm font-semibold text-white/80  hover:text-white "
           >
             Send Another Message
           </button>
@@ -115,7 +115,7 @@ export const ContactForm = () => {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {/* Full Name */}
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-semibold text-slate-700 dark:text-gray-300">Full Name *</label>
+              <label htmlFor="name" className="text-sm font-semibold text-white/80 ">Full Name *</label>
               <input
                 type="text"
                 id="name"
@@ -124,13 +124,13 @@ export const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
               />
             </div>
 
             {/* Company Name */}
             <div className="space-y-2">
-              <label htmlFor="companyName" className="text-sm font-semibold text-slate-700 dark:text-gray-300">Company Name</label>
+              <label htmlFor="companyName" className="text-sm font-semibold text-white/80 ">Company Name</label>
               <input
                 type="text"
                 id="companyName"
@@ -138,13 +138,13 @@ export const ContactForm = () => {
                 value={formData.companyName}
                 onChange={handleChange}
                 placeholder="Your Company Name"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
               />
             </div>
 
             {/* Email Address */}
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-semibold text-slate-700 dark:text-gray-300">Email Address *</label>
+              <label htmlFor="email" className="text-sm font-semibold text-white/80 ">Email Address *</label>
               <input
                 type="email"
                 id="email"
@@ -153,13 +153,13 @@ export const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email Address"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
               />
             </div>
 
             {/* Phone Number */}
             <div className="space-y-2">
-              <label htmlFor="phone" className="text-sm font-semibold text-slate-700 dark:text-gray-300">Phone / WhatsApp</label>
+              <label htmlFor="phone" className="text-sm font-semibold text-white/80 ">Phone / WhatsApp</label>
               <input
                 type="tel"
                 id="phone"
@@ -167,13 +167,13 @@ export const ContactForm = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Your Phone / WhatsApp Number"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
               />
             </div>
 
             {/* Country */}
             <div className="space-y-2">
-              <label htmlFor="country" className="text-sm font-semibold text-slate-700 dark:text-gray-300">Country</label>
+              <label htmlFor="country" className="text-sm font-semibold text-white/80 ">Country</label>
               <input
                 type="text"
                 id="country"
@@ -181,20 +181,20 @@ export const ContactForm = () => {
                 value={formData.country}
                 onChange={handleChange}
                 placeholder="Your Country"
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
               />
             </div>
 
             {/* Selected Service */}
             <div className="space-y-2">
-              <label htmlFor="service" className="text-sm font-semibold text-slate-700 dark:text-gray-300">Service Needed *</label>
+              <label htmlFor="service" className="text-sm font-semibold text-white/80 ">Service Needed *</label>
               <select
                 id="service"
                 name="service"
                 required
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-[#00529b] focus:outline-none [&>option]:bg-slate-50 dark:bg-gray-950"
+                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  focus:border-[#F5C200] focus:outline-none [&>option]:bg-[#07070f] "
               >
                 {servicesList.map((serviceName) => (
                   <option key={serviceName} value={serviceName}>{serviceName}</option>
@@ -204,14 +204,14 @@ export const ContactForm = () => {
 
             {/* Budget Range */}
             <div className="space-y-2">
-              <label htmlFor="budget" className="text-sm font-semibold text-slate-700 dark:text-gray-300">Estimated Budget *</label>
+              <label htmlFor="budget" className="text-sm font-semibold text-white/80 ">Estimated Budget *</label>
               <select
                 id="budget"
                 name="budget"
                 required
                 value={formData.budget}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-[#00529b] focus:outline-none [&>option]:bg-slate-50 dark:bg-gray-950"
+                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  focus:border-[#F5C200] focus:outline-none [&>option]:bg-[#07070f] "
               >
                 {budgetsList.map((budgetValue) => (
                   <option key={budgetValue} value={budgetValue}>{budgetValue}</option>
@@ -221,14 +221,14 @@ export const ContactForm = () => {
 
             {/* Project Timeline */}
             <div className="space-y-2">
-              <label htmlFor="timeline" className="text-sm font-semibold text-slate-700 dark:text-gray-300">Project Timeline *</label>
+              <label htmlFor="timeline" className="text-sm font-semibold text-white/80 ">Project Timeline *</label>
               <select
                 id="timeline"
                 name="timeline"
                 required
                 value={formData.timeline}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white focus:border-[#00529b] focus:outline-none [&>option]:bg-slate-50 dark:bg-gray-950"
+                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  focus:border-[#F5C200] focus:outline-none [&>option]:bg-[#07070f] "
               >
                 {timelinesList.map((timeValue) => (
                   <option key={timeValue} value={timeValue}>{timeValue}</option>
@@ -239,7 +239,7 @@ export const ContactForm = () => {
 
           {/* Project Message */}
           <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-semibold text-slate-700 dark:text-gray-300">Project Details *</label>
+            <label htmlFor="message" className="text-sm font-semibold text-white/80 ">Project Details *</label>
             <textarea
               id="message"
               name="message"
@@ -248,7 +248,7 @@ export const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="Outline your application features, automated workflows, dashboard requirements, or specific target systems..."
-              className="w-full rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-gray-950/80 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-gray-600 focus:border-[#00529b] focus:outline-none"
+              className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
             ></textarea>
           </div>
 
@@ -264,10 +264,10 @@ export const ContactForm = () => {
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full items-center justify-center space-x-2 rounded-xl bg-gradient-to-r from-[#00205b] via-[#00529b] to-[#0072ce] px-6 py-4 text-base font-semibold text-white shadow-lg hover:from-[#00205b] hover:to-[#00529b] focus:outline-none disabled:opacity-50 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200"
+            className="flex w-full items-center justify-center space-x-2 rounded-lg bg-[#F5C200] px-6 py-4 text-xs font-bold uppercase tracking-[0.15em] text-[#05050d] hover:bg-white focus:outline-none disabled:opacity-50 hover:shadow-lg hover:shadow-[#F5C200]/20 transition-all duration-300 cursor-pointer"
           >
             {loading ? (
-              <span className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></span>
+              <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#05050d] border-t-transparent"></span>
             ) : (
               <>
                 <span>Submit Inquiry</span>

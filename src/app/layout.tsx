@@ -5,8 +5,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "VP Enterpriceses | Engineering AI Solutions for Tomorrow",
-  description: "VP Enterpriceses is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, and cybersecurity solutions.",
+  title: "VP Veyora Private Limited | Engineering AI Solutions for Tomorrow",
+  description: "VP Veyora Private Limited is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, and cybersecurity solutions.",
   keywords: [
     "Artificial Intelligence",
     "Software Development",
@@ -16,21 +16,26 @@ export const metadata: Metadata = {
     "Cloud Computing",
     "Enterprise Solutions",
     "Vignesh Pandiya",
-    "VP Enterpriceses"
+    "VP Veyora Private Limited"
   ],
   authors: [{ name: "Vignesh Pandiya" }],
   metadataBase: new URL("https://vpenterpriceses.com"),
   openGraph: {
-    title: "VP Enterpriceses | Engineering AI Solutions for Tomorrow",
-    description: "VP Enterpriceses is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, and automation workflows.",
+    title: "VP Veyora Private Limited | Engineering AI Solutions for Tomorrow",
+    description: "VP Veyora Private Limited is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, and automation workflows.",
     url: "https://vpenterpriceses.com",
-    siteName: "VP Enterpriceses",
+    siteName: "VP Veyora Private Limited",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VP Enterpriceses | Engineering AI Solutions for Tomorrow",
+    title: "VP Veyora Private Limited | Engineering AI Solutions for Tomorrow",
     description: "AI-first technology company helping startups and organizations scale through intelligent software and automation.",
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   robots: {
     index: true,
@@ -45,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-gradient-to-b from-blue-50 via-white to-blue-50/30 text-slate-900 selection:bg-blue-500 selection:text-white">
+      <body className="min-h-full flex flex-col bg-transparent text-white selection:bg-[#F5C200] selection:text-[#05050d]">
         <ThemeProvider>
           <Navbar />
           <main className="flex-grow">{children}</main>

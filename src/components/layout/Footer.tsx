@@ -3,134 +3,141 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  ArrowRight,
-  Brain
-} from "lucide-react";
-import {
-  LinkedInIcon,
-  GitHubIcon,
-  InstagramIcon,
-  FacebookIcon,
-  YouTubeIcon
-} from "../shared/SocialIcons";
+import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
+import { LinkedInIcon, GitHubIcon, InstagramIcon, FacebookIcon, YouTubeIcon } from "../shared/SocialIcons";
 
 export const Footer = () => {
   const pathname = usePathname();
   const [email, setEmail] = useState("");
-  const [subscribed, setSubsubscribed] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
 
-  // Don't show footer on admin routes
-  const isAdmin = pathname.startsWith("/admin");
-  if (isAdmin) return null;
+  if (pathname.startsWith("/admin")) return null;
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    setSubsubscribed(true);
+    setSubscribed(true);
     setEmail("");
   };
 
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200/10 bg-gray-50 dark:bg-gray-950/40 py-16 text-gray-600 dark:text-gray-300 transition-colors duration-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-4 md:grid-cols-2">
-          
-          {/* Brand and Mission Column */}
-          <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-3">
-              <img src="/logo.jpg" alt="VP Enterpriceses Logo" className="h-9 w-9 object-contain rounded-lg shadow-sm" />
-              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00205b] to-[#00529b] dark:from-[#00529b] dark:to-[#0072ce]">
-                VP Enterpriceses
-              </span>
+    <footer className="relative bg-[#030309] border-t border-white/05">
+      {/* Top gold line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[#F5C200]/40 to-transparent" />
+
+      {/* Ambient glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#F5C200]/4 glow-blur pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+          {/* Brand */}
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="flex flex-col leading-tight">
+                <span className="text-base font-black uppercase tracking-tight text-white">VP Veyora</span>
+                <span className="text-[8px] tracking-[0.2em] uppercase text-white/30">Private Limited · SaaS</span>
+              </div>
             </Link>
-            <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-              Engineering AI Solutions for Tomorrow. Helping businesses automate, innovate, and grow using Artificial Intelligence and modern software technologies.
+            <p className="text-sm text-white/40 leading-relaxed">
+              Engineering intelligent technology for growing businesses — AI, SaaS, cloud, and cybersecurity from Tamil Nadu, India.
             </p>
-            <div className="flex space-x-4 pt-2">
-              <a href="https://linkedin.com/company/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
-                <LinkedInIcon className="h-5 w-5" />
-              </a>
-              <a href="https://github.com/VPEnterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
-                <GitHubIcon className="h-5 w-5" />
-              </a>
-              <a href="https://instagram.com/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
-                <InstagramIcon className="h-5 w-5" />
-              </a>
-              <a href="https://facebook.com/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
-                <FacebookIcon className="h-5 w-5" />
-              </a>
-              <a href="https://youtube.com/@vpenterpriceses" target="_blank" rel="noopener noreferrer" className="hover:text-[#00529b] dark:hover:text-blue-400">
-                <YouTubeIcon className="h-5 w-5" />
-              </a>
+            <div className="flex gap-4">
+              {[
+                { href: "https://linkedin.com/company/vpveyora", Icon: LinkedInIcon },
+                { href: "https://github.com/VPVeyora", Icon: GitHubIcon },
+                { href: "https://instagram.com/vpveyora", Icon: InstagramIcon },
+                { href: "https://facebook.com/vpveyora", Icon: FacebookIcon },
+                { href: "https://youtube.com/@vpveyora", Icon: YouTubeIcon },
+              ].map(({ href, Icon }) => (
+                <a key={href} href={href} target="_blank" rel="noopener noreferrer"
+                  className="text-white/25 hover:text-[#F5C200] transition-colors duration-300">
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Quick Links Column */}
+          {/* Services */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-950 dark:text-white">Services</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/services/artificial-intelligence" className="hover:text-[#00529b] dark:hover:text-blue-400">Artificial Intelligence</Link></li>
-              <li><Link href="/services/ai-automation" className="hover:text-[#00529b] dark:hover:text-blue-400">AI Automation</Link></li>
-              <li><Link href="/services/software-development" className="hover:text-[#00529b] dark:hover:text-blue-400">Software Development</Link></li>
-              <li><Link href="/services/cybersecurity" className="hover:text-[#00529b] dark:hover:text-blue-400">Cybersecurity</Link></li>
-              <li><Link href="/services/cloud-solutions" className="hover:text-[#00529b] dark:hover:text-blue-400">Cloud Solutions</Link></li>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="accent-bar" />
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">Services</h3>
+            </div>
+            <ul className="space-y-2.5">
+              {[
+                ["AI & Machine Learning", "/services/ai-machine-learning"],
+                ["Web Development", "/services/web-development"],
+                ["Software Development", "/services/software-development"],
+                ["AI Agents", "/services/ai-agents"],
+                ["Automation", "/services/automation"],
+                ["Data Analytics", "/services/data-analytics"],
+                ["CRM Solutions", "/services/crm-solutions"],
+                ["ERP Solutions", "/services/erp-solutions"],
+                ["Custom Technology Services", "/services/custom-technology-services"],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="text-xs sm:text-sm text-white/35 hover:text-[#F5C200] transition-colors flex items-center gap-2 group">
+                    <span className="w-0 group-hover:w-2 h-px bg-[#F5C200] transition-all duration-300" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Details Column */}
+          {/* Contact */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-950 dark:text-white">Contact Info</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center space-x-2.5">
-                <MapPin className="h-4 w-4 text-[#00529b] dark:text-blue-400 shrink-0" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="accent-bar" />
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">Contact</h3>
+            </div>
+            <ul className="space-y-4 text-sm text-white/40">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-4 w-4 text-[#F5C200] shrink-0 mt-0.5" />
                 <span>Tamil Nadu, India</span>
               </li>
-              <li className="flex items-center space-x-2.5">
-                <Phone className="h-4 w-4 text-[#00529b] dark:text-blue-400 shrink-0" />
-                <a href="tel:+919488890697" className="hover:text-[#00529b] dark:hover:text-blue-400">+91 9488890697</a>
+              <li className="flex items-center gap-3">
+                <Phone className="h-4 w-4 text-[#F5C200] shrink-0" />
+                <a href="tel:+919488890697" className="hover:text-[#F5C200] transition-colors">+91 9488890697</a>
               </li>
-              <li className="flex items-start space-x-2.5">
-                <Mail className="h-4 w-4 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
-                <div className="flex flex-col space-y-0.5">
-                  <a href="mailto:contact@vpenterpriceses.com" className="hover:text-[#00529b] dark:hover:text-blue-400">contact@vpenterpriceses.com</a>
-                  <a href="mailto:sales@vpenterpriceses.com" className="text-xs text-gray-400 hover:text-[#00529b] dark:hover:text-blue-400">sales@vpenterpriceses.com</a>
-                </div>
+              <li className="flex items-center gap-3">
+                <Mail className="h-4 w-4 text-[#F5C200] shrink-0" />
+                <a href="mailto:vpveyora@gmail.com" className="hover:text-[#F5C200] transition-colors">vpveyora@gmail.com</a>
               </li>
-              <li className="flex items-center space-x-2.5">
-                <Clock className="h-4 w-4 text-[#00529b] dark:text-blue-400 shrink-0" />
-                <span>Mon - Sat: 9 AM - 7 PM IST</span>
+              <li className="flex items-center gap-3">
+                <Clock className="h-4 w-4 text-[#F5C200] shrink-0" />
+                <span>Mon – Sat · 9 AM – 7 PM IST</span>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter Column */}
+          {/* Newsletter */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-950 dark:text-white">Newsletter</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-              Subscribe to get the latest insights on Artificial Intelligence & digital transformation.
+            <div className="flex items-center gap-3 mb-6">
+              <div className="accent-bar" />
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">Newsletter</h3>
+            </div>
+            <p className="text-sm text-white/35 leading-relaxed">
+              Stay updated with the latest AI & digital transformation insights.
             </p>
             {subscribed ? (
-              <p className="text-sm text-green-600 dark:text-green-400 font-medium">Thank you for subscribing!</p>
+              <p className="text-sm text-[#F5C200] font-semibold glow-gold-text">✓ Thank you for subscribing!</p>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex">
+              <form onSubmit={handleSubscribe} className="flex mt-4">
                 <input
                   type="email"
-                  placeholder="Enter email"
+                  placeholder="Your email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-l-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-[#00529b] focus:outline-none dark:border-gray-800 dark:bg-gray-900 dark:text-white"
+                  className="flex-1 glass border border-white/08 px-4 py-3 text-sm text-white placeholder-white/25 focus:border-[#F5C200]/40 focus:outline-none bg-transparent"
                 />
                 <button
                   type="submit"
-                  className="rounded-r-md bg-[#00529b] px-4 text-white hover:bg-blue-500 transition-colors"
+                  className="bg-[#F5C200] px-4 text-[#05050d] hover:bg-white transition-colors"
                 >
                   <ArrowRight className="h-4 w-4" />
                 </button>
@@ -139,12 +146,13 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-200/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-400">
-          <p>© {currentYear} VP Enterpriceses. All rights reserved. Founded by Vignesh Pandiya.</p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link>
-            <Link href="/terms" className="hover:underline">Terms & Conditions</Link>
-            <Link href="/refund-policy" className="hover:underline">Refund Policy</Link>
+        {/* Bottom */}
+        <div className="mt-16 pt-8 border-t border-white/05 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/20">
+          <p>© {currentYear} VP Veyora Private Limited. All rights reserved. Founded by Vignesh Pandiya.</p>
+          <div className="flex gap-6">
+            <Link href="/privacy-policy" className="hover:text-[#F5C200] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#F5C200] transition-colors">Terms & Conditions</Link>
+            <Link href="/refund-policy" className="hover:text-[#F5C200] transition-colors">Refund Policy</Link>
           </div>
         </div>
       </div>

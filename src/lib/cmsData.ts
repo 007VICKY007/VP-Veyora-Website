@@ -1,4 +1,4 @@
-// Static data fallbacks for VP Enterpriceses when DB is not reachable or empty.
+// Static data fallbacks for VP Veyora Private Limited when DB is not reachable or empty.
 
 export interface ServiceItem {
   id: string;
@@ -78,439 +78,202 @@ export interface PricingPlanItem {
 
 export const fallbackServices: ServiceItem[] = [
   {
-    id: "s1",
-    slug: "ai-machine-learning",
-    title: "AI & Machine Learning Solutions",
-    category: "Artificial Intelligence",
-    description: "Deploy custom machine learning models, natural language classifiers, and predictive analytics engines built to process complex business data.",
-    icon: "Brain",
-    features: [
-      "Predictive Analytics",
-      "Natural Language Processing",
-      "Anomaly & Fraud Detection",
-      "Model Optimization & Tuning"
+    "id": "s1",
+    "slug": "ai-machine-learning",
+    "title": "AI & Machine Learning",
+    "category": "Artificial Intelligence",
+    "description": "Custom machine learning models, predictive intelligence, neural networks, and domain-tuned algorithms engineered to turn complex business data into automated competitive advantages.",
+    "icon": "Brain",
+    "features": [
+      "Custom Predictive Modeling",
+      "Natural Language Processing (NLP)",
+      "Computer Vision & Recognition",
+      "Model Fine-Tuning & Deployment",
+      "Real-Time Inference Pipelines"
     ],
-    techStack: ["TensorFlow", "PyTorch", "Python", "Scikit-Learn", "Hugging Face"]
+    "techStack": [
+      "PyTorch",
+      "TensorFlow",
+      "Python",
+      "Hugging Face",
+      "Scikit-Learn"
+    ]
   },
   {
-    id: "s2",
-    slug: "custom-software",
-    title: "Custom Software Development",
-    category: "Software Development",
-    description: "Tailor-made software architectures engineered from the ground up to support unique business requirements and scalable operations.",
-    icon: "Code",
-    features: [
-      "Bespoke Architectures",
-      "High-Concurrency Backend APIs",
-      "Modular Database Design",
-      "Robust Integrations"
+    "id": "s2",
+    "slug": "web-development",
+    "title": "Web Development",
+    "category": "Web Platforms",
+    "description": "High-performance, ultra-fast modern web applications, client portals, and responsive digital interfaces built for seamless user experiences and high conversion.",
+    "icon": "Globe",
+    "features": [
+      "Next.js 15 & React 19 Architectures",
+      "High-Conversion UI/UX Design",
+      "Server-Side Rendering (SSR) & Edge Caching",
+      "SEO & Core Web Vitals Optimization",
+      "Mobile-First Responsive Layouts"
     ],
-    techStack: ["Node.js", "Python", "TypeScript", "PostgreSQL", "MongoDB"]
+    "techStack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js"
+    ]
   },
   {
-    id: "s3",
-    slug: "enterprise-web-apps",
-    title: "Enterprise Web Applications",
-    category: "Software Development",
-    description: "High-performance, secure web applications built to coordinate complex workflows and serve millions of active users globally.",
-    icon: "Globe",
-    features: [
-      "Custom Admin Hubs",
-      "Multi-Tenant Platforms",
-      "Real-Time Collaboration Tools",
-      "Granular Access Controls"
+    "id": "s3",
+    "slug": "software-development",
+    "title": "Software Development",
+    "category": "Software Engineering",
+    "description": "Bespoke full-cycle software development from system architecture to secure production deployment, built with scalable codebases and zero-trust engineering.",
+    "icon": "Code",
+    "features": [
+      "Bespoke System Architectures",
+      "High-Concurrency Microservices & APIs",
+      "Modular Database Schema Design",
+      "Cross-Platform Native & Hybrid Applications",
+      "Automated CI/CD & Testing Pipelines"
     ],
-    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma"]
+    "techStack": [
+      "TypeScript",
+      "Node.js",
+      "Go",
+      "PostgreSQL",
+      "Docker"
+    ]
   },
   {
-    id: "s4",
-    slug: "mobile-apps",
-    title: "Mobile App Development",
-    category: "Software Development",
-    description: "Build immersive, cross-platform and native mobile experiences that run smoothly on iOS and Android platforms.",
-    icon: "Smartphone",
-    features: [
-      "Cross-Platform Optimization",
-      "Offline-First Support",
-      "Biometric Authentication",
-      "Push Notification Pipelines"
+    "id": "s4",
+    "slug": "ai-agents",
+    "title": "AI Agents",
+    "category": "Autonomous Systems",
+    "description": "Autonomous multi-agent ecosystems that reason, execute tasks, research, interact with third-party tools, and automate complex cognitive business operations 24/7.",
+    "icon": "Bot",
+    "features": [
+      "Autonomous Decision-Making Agents",
+      "Tool-Calling & Multi-Agent Collaboration",
+      "Retrieval-Augmented Generation (RAG)",
+      "Customer Support & Sales AI Agents",
+      "Continuous Memory & Learning Systems"
     ],
-    techStack: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"]
+    "techStack": [
+      "LangChain",
+      "OpenAI API",
+      "Claude API",
+      "LlamaIndex",
+      "Pinecone"
+    ]
   },
   {
-    id: "s5",
-    slug: "cloud-devops",
-    title: "Cloud Computing & DevOps",
-    category: "Cloud Solutions",
-    description: "Scale your software seamlessly with robust cloud architectures, automated deployments, and continuous system monitoring.",
-    icon: "Cloud",
-    features: [
-      "AWS & Google Cloud Setup",
-      "Docker & Kubernetes Deployment",
-      "CI/CD Deployment Pipelines",
-      "Auto-Scaling & Load Balancing"
+    "id": "s5",
+    "slug": "automation",
+    "title": "Automation",
+    "category": "Workflow Automation",
+    "description": "End-to-end enterprise workflow automation that connects disjointed applications, eliminates repetitive manual labor, and synchronizes mission-critical business data.",
+    "icon": "Zap",
+    "features": [
+      "Cross-Platform System Integration",
+      "n8n, Make & Zapier Enterprise Workflows",
+      "Automated Document Processing & Invoicing",
+      "WhatsApp & Omnichannel Alert Bots",
+      "Scheduled Batch Processing & ETL Pipelines"
     ],
-    techStack: ["AWS", "Google Cloud", "Docker", "Kubernetes", "GitHub Actions", "Terraform"]
+    "techStack": [
+      "n8n",
+      "Make.com",
+      "Zapier",
+      "WhatsApp API",
+      "Python"
+    ]
   },
   {
-    id: "s6",
-    slug: "cybersecurity-services",
-    title: "Cybersecurity Services",
-    category: "Cybersecurity",
-    description: "Protect your corporate networks and web assets with comprehensive security checks, ethical hacking audits, and zero-trust guidelines.",
-    icon: "ShieldAlert",
-    features: [
-      "Penetration Testing & Auditing",
-      "Vulnerability Scanning",
-      "Identity & Access Management",
-      "Threat Response Planning"
+    "id": "s6",
+    "slug": "data-analytics",
+    "title": "Data Analytics",
+    "category": "Data Intelligence",
+    "description": "Transform raw data into real-time business intelligence with interactive executive dashboards, automated reporting pipelines, and predictive revenue analytics.",
+    "icon": "BarChart3",
+    "features": [
+      "Real-Time Executive BI Dashboards",
+      "ETL Data Pipelines & Warehousing",
+      "Cohort & Customer Retention Analytics",
+      "Revenue Forecasting & Operational Metrics",
+      "Automated Scheduled Data Reports"
     ],
-    techStack: ["Kali Linux", "Burp Suite", "OWASP ZAP", "Wireshark", "Nmap"]
+    "techStack": [
+      "PostgreSQL",
+      "ClickHouse",
+      "PowerBI",
+      "Python",
+      "Apache Superset"
+    ]
   },
   {
-    id: "s7",
-    slug: "erp-crm-solutions",
-    title: "ERP & CRM Solutions",
-    category: "Business Software",
-    description: "Align your internal operations and customer relationships with highly customizable enterprise management software.",
-    icon: "Briefcase",
-    features: [
-      "Operational Resource Management",
-      "Customer Lifecycle Tracking",
-      "Automated Sales Pipelines",
-      "Finance & HR Modules"
+    "id": "s7",
+    "slug": "crm-solutions",
+    "title": "CRM Solutions",
+    "category": "Enterprise Platforms",
+    "description": "Custom Customer Relationship Management systems built to streamline pipeline tracking, automate lead follow-ups, unify communications, and drive deal closures.",
+    "icon": "Users",
+    "features": [
+      "End-to-End Sales Pipeline Tracking",
+      "Automated Lead Capture & Smart Routing",
+      "Integrated Email & WhatsApp Communication",
+      "Custom Contact Lifecycle Management",
+      "Detailed Performance & Conversion Reporting"
     ],
-    techStack: ["Odoo", "Salesforce API", "PostgreSQL", "Node.js", "React"]
+    "techStack": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma"
+    ]
   },
   {
-    id: "s8",
-    slug: "business-automation",
-    title: "Business Process Automation",
-    category: "AI Automation",
-    description: "Connect your fragmented systems, automate administrative jobs, and eliminate manual entry using cognitive workflow bots.",
-    icon: "Cpu",
-    features: [
-      "Cross-App API Workflows",
-      "Email & Document Automation",
-      "Database Synchronization",
-      "Error Handling & Logging"
+    "id": "s8",
+    "slug": "erp-solutions",
+    "title": "ERP Solutions",
+    "category": "Enterprise Platforms",
+    "description": "Comprehensive Enterprise Resource Planning systems designed to integrate inventory tracking, supply chain, financial accounting, HR operations, and order fulfillment.",
+    "icon": "Database",
+    "features": [
+      "Centralized Inventory & Warehouse Tracking",
+      "Financial Accounting & Automated Ledger Sync",
+      "Supply Chain & Vendor Management Hubs",
+      "Human Resources & Employee Attendance Portals",
+      "Role-Based Granular Access & Audit Logs"
     ],
-    techStack: ["n8n", "Make.com", "Zapier", "WhatsApp API", "Resend"]
+    "techStack": [
+      "PostgreSQL",
+      "TypeScript",
+      "Node.js",
+      "Redis",
+      "Docker"
+    ]
   },
   {
-    id: "s9",
-    slug: "digital-transformation",
-    title: "Digital Transformation Consulting",
-    category: "IT Consulting",
-    description: "Bridge the gap between modern technology capabilities and actual business outcomes with comprehensive system blueprints.",
-    icon: "Target",
-    features: [
-      "Legacy System Auditing",
-      "Technology Stack Modernization",
-      "Strategic Roadmap Planning",
-      "Change Management Guidance"
+    "id": "s9",
+    "slug": "custom-technology-services",
+    "title": "Custom Technology Services",
+    "category": "Specialized Engineering",
+    "description": "Specialized technical consulting, legacy system refactoring, cloud infrastructure migration, API architecture design, and zero-trust security audits tailored to unique challenges.",
+    "icon": "Terminal",
+    "features": [
+      "Cloud Infrastructure & DevOps (AWS / GCP)",
+      "Legacy Codebase Modernization & Refactoring",
+      "Penetration Testing & Zero-Trust Security Audits",
+      "Third-Party API & Hardware Protocol Integrations",
+      "High-Availability 24/7 SLA Engineering Support"
     ],
-    techStack: ["ITIL", "Enterprise Architecture", "Agile Roadmap", "Blueprinting"]
-  },
-  {
-    id: "s10",
-    slug: "ui-ux-design",
-    title: "UI/UX Design",
-    category: "Software Development",
-    description: "Create intuitive user journeys and highly interactive wireframes designed to optimize engagement and customer conversions.",
-    icon: "Eye",
-    features: [
-      "User Persona Development",
-      "Wireframing & Prototyping",
-      "Interactive Micro-Animations",
-      "Design System Implementation"
-    ],
-    techStack: ["Figma", "Adobe XD", "Tailwind CSS", "Framer Motion"]
-  },
-  {
-    id: "s11",
-    slug: "data-analytics",
-    title: "Data Analytics & Business Intelligence",
-    category: "Data Engineering",
-    description: "Transform raw databases into beautiful dashboards and key performance metrics that support executive decision making.",
-    icon: "BarChart3",
-    features: [
-      "Executive BI Dashboards",
-      "Data Pipelines & ETL",
-      "Predictive Trend Analysis",
-      "Key Metric Tracking"
-    ],
-    techStack: ["Power BI", "Tableau", "Apache Spark", "Snowflake", "Python"]
-  },
-  {
-    id: "s12",
-    slug: "it-consulting",
-    title: "IT Consulting",
-    category: "IT Consulting",
-    description: "Navigate complex vendor reviews, architectural patterns, and IT budgets with seasoned systems consultant guidance.",
-    icon: "Compass",
-    features: [
-      "Architecture Advisory",
-      "SLA & Vendor Evaluations",
-      "Capacity Planning",
-      "Disaster Recovery Strategy"
-    ],
-    techStack: ["TOGAF", "Cloud Architecture", "Disaster Recovery", "System Scaling"]
-  },
-  {
-    id: "s13",
-    slug: "saas-development",
-    title: "SaaS Product Development",
-    category: "Software Development",
-    description: "Turn your business logic into a scalable, secure software-as-a-service application ready to onboard worldwide tenants.",
-    icon: "Code",
-    features: [
-      "Multi-Tenant DB Partitioning",
-      "Stripe Billing Subscriptions",
-      "Self-Serve Account Setup",
-      "Global API Gateways"
-    ],
-    techStack: ["Next.js", "Node.js", "Stripe API", "PostgreSQL", "Auth0"]
-  },
-  {
-    id: "s14",
-    slug: "api-integration",
-    title: "API Development & System Integration",
-    category: "Software Development",
-    description: "Connect disparate legacy software, external SaaS tools, and local databases with robust, clean API interfaces.",
-    icon: "Link",
-    features: [
-      "RESTful & GraphQL Design",
-      "Secure Middleware Bridges",
-      "Webhooks & WebSockets",
-      "Thorough API Documentation"
-    ],
-    techStack: ["Fastify", "Express", "GraphQL", "Swagger", "Postman"]
-  },
-  {
-    id: "s15",
-    slug: "qa-testing",
-    title: "Quality Assurance & Testing",
-    category: "Software Development",
-    description: "Ensure software durability and code correctness with comprehensive automated testing scripts and performance profiling.",
-    icon: "Check",
-    features: [
-      "End-to-End Test Automation",
-      "Load & Stress Testing",
-      "API Contract Validation",
-      "Regression Suite Integration"
-    ],
-    techStack: ["Playwright", "Cypress", "Jest", "Postman", "K6"]
-  },
-  {
-    id: "s16",
-    slug: "managed-it-services",
-    title: "Managed IT Services",
-    category: "IT Consulting",
-    description: "Delegate infrastructure health checks, system monitoring, and hardware support to dedicated network specialists.",
-    icon: "ShieldAlert",
-    features: [
-      "24/7 Server Monitoring",
-      "Automatic Security Patches",
-      "Database Backup Routines",
-      "Network Support Tickets"
-    ],
-    techStack: ["Nagios", "Datadog", "AWS CloudWatch", "Prometheus"]
-  },
-  {
-    id: "s17",
-    slug: "technical-support",
-    title: "Technical Support & Maintenance",
-    category: "Software Development",
-    description: "Keep your operational platforms running optimally with regular software revisions, bug fixes, and performance updates.",
-    icon: "Cpu",
-    features: [
-      "Preventative Maintenance",
-      "Incident SLA Response",
-      "Legacy Bug Investigation",
-      "Database Performance Tuning"
-    ],
-    techStack: ["Git", "Prisma", "Jira", "Sentry", "AWS Console"]
-  },
-  {
-    id: "s18",
-    slug: "digital-marketing-technology",
-    title: "Digital Marketing Technology",
-    category: "Digital Marketing",
-    description: "Enhance marketing reach with targeted SEO pipelines, lead capture automation, and clean client data analytics.",
-    icon: "Megaphone",
-    features: [
-      "Search Engine Optimization",
-      "Marketing Lead Integration",
-      "Analytics Tracking",
-      "Automated Ad Campaigns"
-    ],
-    techStack: ["Google Analytics 4", "Semrush", "Meta Ads Manager", "Google Ads"]
-  },
-  {
-    id: "s19",
-    slug: "ecommerce-solutions",
-    title: "E-commerce Solutions",
-    category: "Software Development",
-    description: "Deploy high-conversion retail frameworks, custom digital storefronts, and secure payment processing pipelines.",
-    icon: "Globe",
-    features: [
-      "Inventory Sync Pipelines",
-      "Multiple Payment Gateways",
-      "Order Processing Workflows",
-      "Customer Coupon Logic"
-    ],
-    techStack: ["Shopify API", "Next.js", "Stripe", "PostgreSQL", "Algolia"]
-  },
-  {
-    id: "s20",
-    slug: "startup-consulting",
-    title: "Startup Technology Consulting",
-    category: "IT Consulting",
-    description: "Support early-stage companies with rapid MVP blueprinting, product architecture design, and investor pitch deck reviews.",
-    icon: "Target",
-    features: [
-      "MVP Scoping & Mapping",
-      "Rapid Wireframe Feedback",
-      "Scalable Technology Choice",
-      "Technical Feasibility Check"
-    ],
-    techStack: ["Agile MVP", "Next.js", "Firebase", "PostgreSQL"]
-  },
-  {
-    id: "s21",
-    slug: "corporate-training",
-    title: "Corporate Training",
-    category: "IT Consulting",
-    description: "Level up your internal software engineers and managers with rigorous workshops covering AI, cloud, and modern programming.",
-    icon: "Brain",
-    features: [
-      "Generative AI Workshops",
-      "DevOps & Cloud Architecture",
-      "Modern Web Frameworks",
-      "Cybersecurity Best Practices"
-    ],
-    techStack: ["React 19", "Next.js 15", "Kubernetes", "Prompt Engineering"]
-  },
-  {
-    id: "s22",
-    slug: "recruitment-technology",
-    title: "Recruitment Technology Solutions",
-    category: "Business Software",
-    description: "Streamline talent acquisition with applicant tracking databases, cognitive resume parser pipelines, and interview schedulers.",
-    icon: "Briefcase",
-    features: [
-      "Applicant Tracking Systems",
-      "AI Resume Ingestion",
-      "Automated Interview Invites",
-      "HR Onboarding Checklists"
-    ],
-    techStack: ["Node.js", "React", "PostgreSQL", "OpenAI API"]
-  },
-  {
-    id: "s23",
-    slug: "import-export-software",
-    title: "Import & Export Management Software",
-    category: "Business Software",
-    description: "Track international custom logs, freight details, transport manifests, and global compliance regulations smoothly.",
-    icon: "Globe",
-    features: [
-      "Customs Documentation Log",
-      "Freight Cost Analysis",
-      "Tariff Rule Ingestion",
-      "Vendor License Tracking"
-    ],
-    techStack: ["TypeScript", "PostgreSQL", "n8n", "AWS S3"]
-  },
-  {
-    id: "s24",
-    slug: "supply-chain-logistics",
-    title: "Supply Chain & Logistics Software",
-    category: "Business Software",
-    description: "Optimize shipping networks, import logs, carrier configurations, and shipping delays with intelligent software.",
-    icon: "Compass",
-    features: [
-      "Carrier API Integrations",
-      "Real-Time Tracking Logs",
-      "Shipping Rate Optimization",
-      "Delays Notification Bot"
-    ],
-    techStack: ["Node.js", "React", "PostgreSQL", "Mapbox API"]
-  },
-  {
-    id: "s25",
-    slug: "warehouse-management",
-    title: "Warehouse Management Systems",
-    category: "Business Software",
-    description: "Organize bin configurations, barcode scan updates, stock shelf layouts, and physical warehouse operations in real time.",
-    icon: "Cpu",
-    features: [
-      "Barcode Scanning Software",
-      "Bin Location Configuration",
-      "Stock Inward/Outward Log",
-      "Inventory Level Alerts"
-    ],
-    techStack: ["React Native", "Express", "PostgreSQL", "Zebra Scanner API"]
-  },
-  {
-    id: "s26",
-    slug: "fleet-management",
-    title: "Fleet Management Solutions",
-    category: "Business Software",
-    description: "Monitor commercial vehicles, vehicle maintenance tasks, driver hours, and route optimization routines.",
-    icon: "Compass",
-    features: [
-      "GPS Vehicle Coordinates Map",
-      "Fuel Consumption Logs",
-      "Maintenance Schedule Alerts",
-      "Driver Dispatch Dispatcher"
-    ],
-    techStack: ["Node.js", "Flutter", "PostgreSQL", "Google Maps API"]
-  },
-  {
-    id: "s27",
-    slug: "inventory-procurement",
-    title: "Inventory & Procurement Systems",
-    category: "Business Software",
-    description: "Keep purchase orders, stock levels, vendor lists, and inventory valuations synchronized automatically.",
-    icon: "Briefcase",
-    features: [
-      "Auto Purchase Order Creation",
-      "Vendor Catalog Management",
-      "Average Cost Valuation",
-      "Stock Level Thresholds"
-    ],
-    techStack: ["Next.js", "Prisma", "PostgreSQL", "Node.js"]
-  },
-  {
-    id: "s28",
-    slug: "business-management",
-    title: "Business Management Software",
-    category: "Business Software",
-    description: "Unify company operations, task calendars, billing details, and staff profiles inside a secure business dashboard.",
-    icon: "Target",
-    features: [
-      "Task Assignment Board",
-      "Billing & Invoice Modules",
-      "Staff Profile Directory",
-      "Expense Request Approvals"
-    ],
-    techStack: ["Next.js", "Tailwind CSS", "PostgreSQL", "Prisma"]
-  },
-  {
-    id: "s29",
-    slug: "enterprise-digital-solutions",
-    title: "Enterprise Digital Solutions",
-    category: "Business Software",
-    description: "Custom software solutions engineered to scale large corporate operations, integrate disparate APIs, and secure data pipelines.",
-    icon: "Code",
-    features: [
-      "Multi-Region Data Pipelines",
-      "Unified LDAP/SSO Auth",
-      "Legacy Database Modernization",
-      "Custom API Integrations"
-    ],
-    techStack: ["Next.js", "AWS", "PostgreSQL", "Docker", "Node.js"]
+    "techStack": [
+      "AWS",
+      "Kubernetes",
+      "Docker",
+      "Linux",
+      "Terraform"
+    ]
   }
 ];
 
@@ -573,7 +336,7 @@ Integrating LLMs with tools like n8n, Make.com, or custom Node.js scripts allows
 2. **Understand**: LLM extracts metadata, detects intent, and determines correct routes.
 3. **Act**: Write to database, send email notifications, or hit internal APIs.
 
-VP Enterpriceses specializes in building these smart orchestration pipelines, enabling companies to focus on strategic decisions rather than administrative inputs.`,
+VP Veyora Private Limited specializes in building these smart orchestration pipelines, enabling companies to focus on strategic decisions rather than administrative inputs.`,
     readTime: "5 min read",
     tags: ["AI", "Automation", "Enterprise"],
     coverImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
@@ -615,7 +378,7 @@ export const fallbackTestimonials: TestimonialItem[] = [
     name: "Rajesh Kumar",
     role: "Chief Technology Officer",
     company: "Alpha Logistics",
-    feedback: "VP Enterpriceses transformed our operations. Their AI automation solution saved us hundreds of hours monthly and has been incredibly stable and robust.",
+    feedback: "VP Veyora Private Limited transformed our operations. Their AI automation solution saved us hundreds of hours monthly and has been incredibly stable and robust.",
     rating: 5,
     avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
     featured: true
@@ -677,7 +440,7 @@ export const fallbackPricing: PricingPlanItem[] = [
   {
     id: "pr1",
     name: "Startup Launchpad",
-    price: "₹49,999",
+    price: "₹15,000",
     billingPeriod: "one-time",
     description: "Perfect for startups and small businesses looking to establish a premium web presence and generate leads.",
     features: [
@@ -694,7 +457,7 @@ export const fallbackPricing: PricingPlanItem[] = [
   {
     id: "pr2",
     name: "Growth Automation",
-    price: "₹1,49,999",
+    price: "₹25,000",
     billingPeriod: "one-time",
     description: "Ideal for companies needing automated business workflows, custom dashboards, and specialized web tools.",
     features: [

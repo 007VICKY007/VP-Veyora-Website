@@ -41,14 +41,14 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="bg-transparent text-slate-900 dark:text-white min-h-[90vh] flex flex-col justify-center items-center px-4">
+    <div className="bg-transparent text-white  min-h-[90vh] flex flex-col justify-center items-center px-4">
       <div className="max-w-md w-full space-y-6">
         
         {/* Brand Header */}
         <div className="text-center space-y-2">
-          <img src="/logo.jpg" alt="VP Enterpriceses Logo" className="h-16 w-16 object-contain rounded-xl shadow-sm mx-auto select-none" />
-          <h2 className="text-2xl font-bold">VP Enterpriceses</h2>
-          <p className="text-sm text-slate-500 dark:text-gray-500">Authorized Systems Administration Portal</p>
+          <img src="/logo.png" alt="VP Veyora Private Limited Logo" className="h-16 w-16 object-contain rounded-xl shadow-sm mx-auto select-none" />
+          <h2 className="text-2xl font-bold">VP Veyora Private Limited</h2>
+          <p className="text-sm text-white/40 ">Authorized Systems Administration Portal</p>
         </div>
 
         {/* Login Card */}
@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="contact@vpenterpriceses.com"
+                  placeholder="vpveyora@gmail.com"
                   className="w-full rounded-xl border border-gray-800 bg-gray-950/80 pl-10 pr-4 py-3 text-sm text-white placeholder-gray-600 focus:border-indigo-500 focus:outline-none"
                 />
               </div>

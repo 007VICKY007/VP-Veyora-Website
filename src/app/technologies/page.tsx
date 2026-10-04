@@ -43,14 +43,14 @@ export default function TechnologiesPage() {
   ];
 
   return (
-    <div className="bg-transparent text-slate-900 dark:text-white min-h-screen py-20 px-4">
+    <div className="bg-transparent text-white  min-h-screen py-20 px-4">
       <div className="max-w-6xl mx-auto space-y-16">
         
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#00529b] dark:text-blue-400">Our Toolkits</span>
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#F5C200] ">Our Toolkits</span>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Enterprise Technology Stack</h1>
-          <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
+          <p className="text-white/60  text-lg leading-relaxed">
             We use stable, modern, and high-performance developer ecosystems to construct safe databases, fast web portals, and reliable automations.
           </p>
         </div>
@@ -60,24 +60,24 @@ export default function TechnologiesPage() {
           {techCategories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
-              <GlassCard key={idx} interactive={false} className="border-slate-200 dark:border-gray-900 bg-white/70 border border-slate-100 dark:bg-gray-900/10 dark:border-gray-950 space-y-6 flex flex-col justify-between">
+              <GlassCard key={idx} interactive={false} className="border-white/08    space-y-6 flex flex-col justify-between">
                 <div className="space-y-4">
                   {/* Category Header */}
                   <div className="flex items-center space-x-3">
-                    <div className="p-2.5 rounded-lg bg-blue-500/10 text-[#00529b] dark:text-blue-400">
+                    <div className="p-2.5 rounded-lg bg-yellow-500/10 text-[#F5C200] ">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <h3 className="font-bold text-slate-900 dark:text-white text-base sm:text-lg">{cat.title}</h3>
+                    <h3 className="font-bold text-white  text-base sm:text-lg">{cat.title}</h3>
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-gray-500 leading-relaxed">{cat.desc}</p>
+                  <p className="text-xs text-white/40  leading-relaxed">{cat.desc}</p>
                 </div>
 
                 {/* Tech Chips */}
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-200 dark:border-gray-900">
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/08 ">
                   {cat.techs.map((tech, i) => (
                     <span 
                       key={i} 
-                      className="bg-slate-50 dark:bg-gray-950 border border-slate-200 dark:border-gray-800 rounded px-2.5 py-1 text-xs text-slate-700 dark:text-gray-300 font-mono"
+                      className="bg-[#07070f]  border border-white/08  rounded px-2.5 py-1 text-xs text-white/80  font-mono"
                     >
                       {tech}
                     </span>
@@ -89,9 +89,9 @@ export default function TechnologiesPage() {
         </div>
 
         {/* Standard note */}
-        <div className="rounded-3xl bg-indigo-950/20 border border-[#00529b]/20 p-8 sm:p-12 text-center max-w-4xl mx-auto">
+        <div className="border-t border-white/[0.06] p-8 sm:p-12 text-center max-w-4xl mx-auto">
           <h3 className="text-xl sm:text-2xl font-bold mb-4">Have an Existing System?</h3>
-          <p className="text-slate-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          <p className="text-white/80  text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             We integrate with legacy architectures, databases, and custom third-party APIs. We perform full code reviews and security audits to bridge outdated applications with modern AI automation pipelines safely.
           </p>
         </div>

@@ -29,162 +29,88 @@ async function main() {
 
   // 2. Seed Services
   const servicesData = [
-    {
-      slug: "artificial-intelligence",
-      title: "Artificial Intelligence",
-      category: "Artificial Intelligence",
-      description: "Custom Machine Learning, Generative AI models, and Intelligent agent integrations tailored for enterprise challenges.",
-      icon: "Brain",
-      features: JSON.stringify([
-        "Generative AI & LLMs",
-        "Custom AI Agents",
-        "Retrieval Augmented Generation (RAG)",
-        "Computer Vision & OCR",
-        "Fine Tuning & Prompt Engineering"
-      ]),
-      techStack: JSON.stringify(["OpenAI API", "Gemini API", "Claude API", "LangChain", "LlamaIndex", "Pinecone", "ChromaDB"])
-    },
-    {
-      slug: "ai-automation",
-      title: "AI & Workflow Automation",
-      category: "AI Automation",
-      description: "Automate complex business processes, document ingestion, and repetitive work patterns using advanced AI orchestration.",
-      icon: "Cpu",
-      features: JSON.stringify([
-        "Workflow Automation (n8n/Make/Zapier)",
-        "WhatsApp & Email Automation",
-        "CRM & ERP Automation",
-        "Invoice & HR Automation"
-      ]),
-      techStack: JSON.stringify(["n8n", "Make.com", "Zapier", "WhatsApp API", "Resend", "Google Sheets"])
-    },
-    {
-      slug: "software-development",
-      title: "Enterprise Software Development",
-      category: "Software Development",
-      description: "End-to-end custom application development, scalable SaaS, core enterprise ERPs, and bespoke CRM implementations.",
-      icon: "Code",
-      features: JSON.stringify([
-        "Custom SaaS Development",
-        "Enterprise ERP & CRMs",
-        "HRMS & Inventory Systems",
-        "Business Billing Solutions"
-      ]),
-      techStack: JSON.stringify(["Next.js", "React", "TypeScript", "Node.js", "Express", "Prisma", "PostgreSQL"])
-    },
-    {
-      slug: "website-development",
-      title: "Web Application & Website Development",
-      category: "Website Development",
-      description: "Stunning, high-conversion corporate web assets and e-commerce architectures built with state-of-the-art technologies.",
-      icon: "Globe",
-      features: JSON.stringify([
-        "Corporate Websites",
-        "E-commerce & Marketplaces",
-        "Admin Dashboards & CMS",
-        "Optimized Landing Pages"
-      ]),
-      techStack: JSON.stringify(["Next.js", "Tailwind CSS", "Framer Motion", "GSAP", "Sanity CMS", "Payload CMS"])
-    },
-    {
-      slug: "mobile-applications",
-      title: "Mobile Application Development",
-      category: "Mobile Applications",
-      description: "Engaging and high-performing iOS and Android applications developed utilizing modern cross-platform frameworks.",
-      icon: "Smartphone",
-      features: JSON.stringify([
-        "Cross-platform Apps (Flutter & React Native)",
-        "Native Android & iOS Apps",
-        "App Store & Play Store Deployment",
-        "Offline-first Mobile Apps"
-      ]),
-      techStack: JSON.stringify(["Flutter", "React Native", "Dart", "TypeScript", "Firebase", "Apple App Store", "Google Play Store"])
-    },
-    {
-      slug: "cybersecurity",
-      title: "Cybersecurity & Security Assessment",
-      category: "Cybersecurity",
-      description: "Proactive penetration testing, auditing, cloud posture protection, and threat response to secure your assets.",
-      icon: "ShieldAlert",
-      features: JSON.stringify([
-        "Penetration Testing & Auditing",
-        "Network & Web App Security",
-        "Cloud Security Configuration",
-        "Threat Intelligence & SOC"
-      ]),
-      techStack: JSON.stringify(["Kali Linux", "Burp Suite", "OWASP ZAP", "Wireshark", "Nmap", "AWS GuardDuty"])
-    },
-    {
-      slug: "cloud-solutions",
-      title: "Cloud Infrastructure & DevOps",
-      category: "Cloud Solutions",
-      description: "Automated server setups, containerization, and continuous delivery pipelines optimized for performance and cost.",
-      icon: "Cloud",
-      features: JSON.stringify([
-        "AWS, Azure & Google Cloud Setup",
-        "Docker & Kubernetes Containerization",
-        "DevOps & CI/CD Pipelines",
-        "Infrastructure as Code"
-      ]),
-      techStack: JSON.stringify(["AWS", "Google Cloud", "Docker", "Kubernetes", "GitHub Actions", "Terraform", "Nginx"])
-    },
-    {
-      slug: "data-engineering",
-      title: "Data Engineering & Analytics",
-      category: "Data Engineering",
-      description: "ETL pipelines, data warehousing, and business intelligence panels highlighting key performance indicators.",
-      icon: "BarChart3",
-      features: JSON.stringify([
-        "Business Intelligence & Dashboards",
-        "Power BI & Tableau Reporting",
-        "Data Pipelines & ETL Processes",
-        "Big Data Analytics"
-      ]),
-      techStack: JSON.stringify(["Power BI", "Tableau", "Apache Spark", "Python", "SQL", "Snowflake", "dbt"])
-    },
-    {
-      slug: "iot-solutions",
-      title: "IoT & Embedded Automation",
-      category: "IoT Solutions",
-      description: "Custom firmware, microcontroller integrations, and remote sensing equipment configured to talk to web panels.",
-      icon: "CpuIcon",
-      features: JSON.stringify([
-        "ESP32, Arduino & Raspberry Pi Integration",
-        "Industrial IoT & Automation",
-        "Custom Embedded Systems",
-        "Hardware-Software Integration"
-      ]),
-      techStack: JSON.stringify(["ESP32", "Arduino", "Raspberry Pi", "C++", "MQTT", "Node-RED", "Raspbian"])
-    },
-    {
-      slug: "blockchain",
-      title: "Blockchain & Web3 Development",
-      category: "Blockchain",
-      description: "Decentralized applications, transparent smart contracts, token launches, and multi-sig wallet support.",
-      icon: "Link",
-      features: JSON.stringify([
-        "Smart Contract Development",
-        "Custom Wallet Integration",
-        "Token & NFT Development",
-        "NFT Marketplaces"
-      ]),
-      techStack: JSON.stringify(["Solidity", "Hardhat", "Ethers.js", "Web3.js", "MetaMask", "Ethereum", "Polygon"])
-    },
-    {
-      slug: "digital-marketing",
-      title: "Digital Marketing & SEO",
-      category: "Digital Marketing",
-      description: "Boost digital outreach using search optimization, LinkedIn targeting, paid advertising campaigns, and marketing setups.",
-      icon: "Megaphone",
-      features: JSON.stringify([
-        "Search Engine Optimization (SEO)",
-        "Google & Meta Ads Management",
-        "LinkedIn & B2B Marketing",
-        "Email & Content Marketing"
-      ]),
-      techStack: JSON.stringify(["Google Ads", "Meta Ads Manager", "LinkedIn Campaign Manager", "Google Analytics 4", "Semrush", "Mailchimp"])
-    }
-  ];
+  {
+    "slug": "ai-machine-learning",
+    "title": "AI & Machine Learning",
+    "category": "Artificial Intelligence",
+    "description": "Custom machine learning models, predictive intelligence, neural networks, and domain-tuned algorithms engineered to turn complex business data into automated competitive advantages.",
+    "icon": "Brain",
+    "features": "[\"Custom Predictive Modeling\",\"Natural Language Processing (NLP)\",\"Computer Vision & Recognition\",\"Model Fine-Tuning & Deployment\",\"Real-Time Inference Pipelines\"]",
+    "techStack": "[\"PyTorch\",\"TensorFlow\",\"Python\",\"Hugging Face\",\"Scikit-Learn\"]"
+  },
+  {
+    "slug": "web-development",
+    "title": "Web Development",
+    "category": "Web Platforms",
+    "description": "High-performance, ultra-fast modern web applications, client portals, and responsive digital interfaces built for seamless user experiences and high conversion.",
+    "icon": "Globe",
+    "features": "[\"Next.js 15 & React 19 Architectures\",\"High-Conversion UI/UX Design\",\"Server-Side Rendering (SSR) & Edge Caching\",\"SEO & Core Web Vitals Optimization\",\"Mobile-First Responsive Layouts\"]",
+    "techStack": "[\"Next.js\",\"React\",\"TypeScript\",\"Tailwind CSS\",\"Node.js\"]"
+  },
+  {
+    "slug": "software-development",
+    "title": "Software Development",
+    "category": "Software Engineering",
+    "description": "Bespoke full-cycle software development from system architecture to secure production deployment, built with scalable codebases and zero-trust engineering.",
+    "icon": "Code",
+    "features": "[\"Bespoke System Architectures\",\"High-Concurrency Microservices & APIs\",\"Modular Database Schema Design\",\"Cross-Platform Native & Hybrid Applications\",\"Automated CI/CD & Testing Pipelines\"]",
+    "techStack": "[\"TypeScript\",\"Node.js\",\"Go\",\"PostgreSQL\",\"Docker\"]"
+  },
+  {
+    "slug": "ai-agents",
+    "title": "AI Agents",
+    "category": "Autonomous Systems",
+    "description": "Autonomous multi-agent ecosystems that reason, execute tasks, research, interact with third-party tools, and automate complex cognitive business operations 24/7.",
+    "icon": "Bot",
+    "features": "[\"Autonomous Decision-Making Agents\",\"Tool-Calling & Multi-Agent Collaboration\",\"Retrieval-Augmented Generation (RAG)\",\"Customer Support & Sales AI Agents\",\"Continuous Memory & Learning Systems\"]",
+    "techStack": "[\"LangChain\",\"OpenAI API\",\"Claude API\",\"LlamaIndex\",\"Pinecone\"]"
+  },
+  {
+    "slug": "automation",
+    "title": "Automation",
+    "category": "Workflow Automation",
+    "description": "End-to-end enterprise workflow automation that connects disjointed applications, eliminates repetitive manual labor, and synchronizes mission-critical business data.",
+    "icon": "Zap",
+    "features": "[\"Cross-Platform System Integration\",\"n8n, Make & Zapier Enterprise Workflows\",\"Automated Document Processing & Invoicing\",\"WhatsApp & Omnichannel Alert Bots\",\"Scheduled Batch Processing & ETL Pipelines\"]",
+    "techStack": "[\"n8n\",\"Make.com\",\"Zapier\",\"WhatsApp API\",\"Python\"]"
+  },
+  {
+    "slug": "data-analytics",
+    "title": "Data Analytics",
+    "category": "Data Intelligence",
+    "description": "Transform raw data into real-time business intelligence with interactive executive dashboards, automated reporting pipelines, and predictive revenue analytics.",
+    "icon": "BarChart3",
+    "features": "[\"Real-Time Executive BI Dashboards\",\"ETL Data Pipelines & Warehousing\",\"Cohort & Customer Retention Analytics\",\"Revenue Forecasting & Operational Metrics\",\"Automated Scheduled Data Reports\"]",
+    "techStack": "[\"PostgreSQL\",\"ClickHouse\",\"PowerBI\",\"Python\",\"Apache Superset\"]"
+  },
+  {
+    "slug": "crm-solutions",
+    "title": "CRM Solutions",
+    "category": "Enterprise Platforms",
+    "description": "Custom Customer Relationship Management systems built to streamline pipeline tracking, automate lead follow-ups, unify communications, and drive deal closures.",
+    "icon": "Users",
+    "features": "[\"End-to-End Sales Pipeline Tracking\",\"Automated Lead Capture & Smart Routing\",\"Integrated Email & WhatsApp Communication\",\"Custom Contact Lifecycle Management\",\"Detailed Performance & Conversion Reporting\"]",
+    "techStack": "[\"React\",\"Next.js\",\"Node.js\",\"PostgreSQL\",\"Prisma\"]"
+  },
+  {
+    "slug": "erp-solutions",
+    "title": "ERP Solutions",
+    "category": "Enterprise Platforms",
+    "description": "Comprehensive Enterprise Resource Planning systems designed to integrate inventory tracking, supply chain, financial accounting, HR operations, and order fulfillment.",
+    "icon": "Database",
+    "features": "[\"Centralized Inventory & Warehouse Tracking\",\"Financial Accounting & Automated Ledger Sync\",\"Supply Chain & Vendor Management Hubs\",\"Human Resources & Employee Attendance Portals\",\"Role-Based Granular Access & Audit Logs\"]",
+    "techStack": "[\"PostgreSQL\",\"TypeScript\",\"Node.js\",\"Redis\",\"Docker\"]"
+  },
+  {
+    "slug": "custom-technology-services",
+    "title": "Custom Technology Services",
+    "category": "Specialized Engineering",
+    "description": "Specialized technical consulting, legacy system refactoring, cloud infrastructure migration, API architecture design, and zero-trust security audits tailored to unique challenges.",
+    "icon": "Terminal",
+    "features": "[\"Cloud Infrastructure & DevOps (AWS / GCP)\",\"Legacy Codebase Modernization & Refactoring\",\"Penetration Testing & Zero-Trust Security Audits\",\"Third-Party API & Hardware Protocol Integrations\",\"High-Availability 24/7 SLA Engineering Support\"]",
+    "techStack": "[\"AWS\",\"Kubernetes\",\"Docker\",\"Linux\",\"Terraform\"]"
+  }
+];
 
   for (const s of servicesData) {
     await prisma.service.upsert({

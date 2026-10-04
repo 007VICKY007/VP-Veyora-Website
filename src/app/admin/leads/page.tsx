@@ -136,7 +136,7 @@ export default function LeadsTrackerPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "PENDING": return "bg-indigo-500/10 text-indigo-400 border-indigo-500/20";
-      case "CONTACTED": return "bg-blue-500/10 text-blue-400 border-blue-500/20";
+      case "CONTACTED": return "bg-yellow-500/10 text-yellow-500 border-blue-500/20";
       case "IN_PROGRESS": return "bg-purple-500/10 text-purple-400 border-purple-500/20";
       case "CLOSED_WON": return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
       case "CLOSED_LOST": return "bg-red-500/10 text-red-400 border-red-500/20";

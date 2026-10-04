@@ -6,14 +6,14 @@ import { LinkedInIcon, GitHubIcon, InstagramIcon } from "@/components/shared/Soc
 
 export default function ContactPage() {
   return (
-    <div className="bg-transparent text-slate-900 dark:text-white min-h-screen py-20 px-4">
+    <div className="bg-transparent text-white  min-h-screen py-20 px-4">
       <div className="max-w-6xl mx-auto space-y-16">
         
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#00529b] dark:text-blue-400">Get in Touch</span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Contact VP Enterpriceses</h1>
-          <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#F5C200] ">Get in Touch</span>
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Contact VP Veyora Private Limited</h1>
+          <p className="text-white/60  text-lg leading-relaxed">
             Ready to initiate a custom development sprint or automate your database workflows? Connect with us below.
           </p>
         </div>
@@ -25,56 +25,56 @@ export default function ContactPage() {
           <div className="lg:col-span-2 space-y-6">
             
             {/* Direct Channels */}
-            <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 space-y-4 text-xs sm:text-sm">
-              <h4 className="font-bold text-sm uppercase tracking-wider text-[#00529b] dark:text-blue-400">Direct Inquiries</h4>
+            <GlassCard interactive={false} className="border-white/08  space-y-4 text-xs sm:text-sm">
+              <h4 className="font-bold text-sm uppercase tracking-wider text-[#F5C200] ">Direct Inquiries</h4>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
-                  <Mail className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
+                  <Mail className="h-5 w-5 text-[#F5C200]  shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs text-slate-500 dark:text-gray-500 block">General Business</span>
-                    <a href="mailto:contact@vpenterpriceses.com" className="text-slate-900 dark:text-white hover:underline font-semibold">contact@vpenterpriceses.com</a>
+                    <span className="text-xs text-white/40  block">General Business</span>
+                    <a href="mailto:vpveyora@gmail.com" className="text-white  hover:underline font-semibold">vpveyora@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <Mail className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
+                  <Mail className="h-5 w-5 text-[#F5C200]  shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs text-slate-500 dark:text-gray-500 block">Project Sales</span>
-                    <a href="mailto:sales@vpenterpriceses.com" className="text-slate-900 dark:text-white hover:underline font-semibold">sales@vpenterpriceses.com</a>
+                    <span className="text-xs text-white/40  block">Project Sales</span>
+                    <a href="mailto:vpveyora@gmail.com" className="text-white  hover:underline font-semibold">vpveyora@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <Mail className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
+                  <Mail className="h-5 w-5 text-[#F5C200]  shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs text-slate-500 dark:text-gray-500 block">Customer Support</span>
-                    <a href="mailto:support@vpenterpriceses.com" className="text-slate-900 dark:text-white hover:underline font-semibold">support@vpenterpriceses.com</a>
+                    <span className="text-xs text-white/40  block">Customer Support</span>
+                    <a href="mailto:vpveyora@gmail.com" className="text-white  hover:underline font-semibold">vpveyora@gmail.com</a>
                   </div>
                 </li>
               </ul>
             </GlassCard>
 
             {/* Calling Details */}
-            <GlassCard interactive={false} className="border-slate-200 dark:border-gray-900 space-y-4 text-xs sm:text-sm">
-              <h4 className="font-bold text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">Phone & Support Hours</h4>
+            <GlassCard interactive={false} className="border-white/08  space-y-4 text-xs sm:text-sm">
+              <h4 className="font-bold text-sm uppercase tracking-wider text-white/40">Phone & Support Hours</h4>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
-                  <Phone className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
+                  <Phone className="h-5 w-5 text-[#F5C200]  shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs text-slate-500 dark:text-gray-500 block">Phone / WhatsApp</span>
-                    <a href="tel:+919488890697" className="text-slate-900 dark:text-white hover:underline font-semibold">+91 9488890697</a>
+                    <span className="text-xs text-white/40  block">Phone / WhatsApp</span>
+                    <a href="tel:+919488890697" className="text-white  hover:underline font-semibold">+91 9488890697</a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <Clock className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
+                  <Clock className="h-5 w-5 text-[#F5C200]  shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs text-slate-500 dark:text-gray-500 block">Working Hours</span>
-                    <span className="text-slate-900 dark:text-white font-semibold">Mon - Sat (9:00 AM - 7:00 PM IST)</span>
+                    <span className="text-xs text-white/40  block">Working Hours</span>
+                    <span className="text-white  font-semibold">Mon - Sat (9:00 AM - 7:00 PM IST)</span>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <MapPin className="h-5 w-5 text-[#00529b] dark:text-blue-400 shrink-0 mt-0.5" />
+                  <MapPin className="h-5 w-5 text-[#F5C200]  shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs text-slate-500 dark:text-gray-500 block">Location</span>
-                    <span className="text-slate-900 dark:text-white font-semibold">Tamil Nadu, India</span>
+                    <span className="text-xs text-white/40  block">Location</span>
+                    <span className="text-white  font-semibold">Tamil Nadu, India</span>
                   </div>
                 </li>
               </ul>
@@ -82,13 +82,13 @@ export default function ContactPage() {
 
             {/* Social wall */}
             <div className="flex justify-center lg:justify-start space-x-4 pt-2">
-              <a href="https://linkedin.com/company/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
+              <a href="https://linkedin.com/company/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/[0.04] hover:bg-[#F5C200]/08 rounded-full border border-white/08 hover:text-[#F5C200] text-white/60 transition-colors">
                 <LinkedInIcon className="h-5 w-5" />
               </a>
-              <a href="https://github.com/VPEnterpriceses" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
+              <a href="https://github.com/VPEnterpriceses" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/[0.04] hover:bg-[#F5C200]/08 rounded-full border border-white/08 hover:text-[#F5C200] text-white/60 transition-colors">
                 <GitHubIcon className="h-5 w-5" />
               </a>
-              <a href="https://instagram.com/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="p-3 bg-white hover:bg-blue-50/50 rounded-full border border-slate-200 hover:text-[#00529b] text-slate-600 transition-colors">
+              <a href="https://instagram.com/vpenterpriceses" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/[0.04] hover:bg-[#F5C200]/08 rounded-full border border-white/08 hover:text-[#F5C200] text-white/60 transition-colors">
                 <InstagramIcon className="h-5 w-5" />
               </a>
             </div>

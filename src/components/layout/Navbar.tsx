@@ -1,15 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Navigation Links
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const navLinks = [
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
@@ -19,76 +25,80 @@ export const Navbar = () => {
   ];
 
   const isActive = (path: string) => pathname === path;
-
-  // Don't show public navbar on admin pages
-  const isAdmin = pathname.startsWith("/admin");
-  if (isAdmin) return null;
+  if (pathname.startsWith("/admin")) return null;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/70 backdrop-blur-md transition-colors duration-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo / Brand */}
-          <Link href="/" className="flex items-center space-x-3">
-            <img src="/logo.jpg" alt="VP Enterpriceses Logo" className="h-9 w-9 object-contain rounded-lg shadow-sm" />
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00205b] to-[#00529b]">
-              VP Enterpriceses
-            </span>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled ? "glass-nav shadow-2xl shadow-black/50" : "bg-transparent border-b border-transparent"
+    }`}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
+
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="flex flex-col leading-tight">
+              <span className="text-base font-black tracking-tight text-white uppercase">
+                VP Veyora
+              </span>
+              <span className="text-[8px] font-medium tracking-[0.25em] uppercase text-white/35">
+                Private Limited · SaaS
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-[#00529b] ${
+                className={`text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-200 relative ${
                   isActive(link.href)
-                    ? "text-[#00529b] border-b-2 border-blue-600 pb-1"
-                    : "text-slate-600"
+                    ? "text-[#F5C200]"
+                    : "text-white/60 hover:text-white"
                 }`}
               >
                 {link.name}
+                {isActive(link.href) && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-px bg-[#F5C200]" />
+                )}
               </Link>
             ))}
           </nav>
 
-          {/* Action Area */}
-          <div className="hidden md:flex items-center space-x-4">
-            {/* CTA */}
+          {/* CTA */}
+          <div className="hidden md:flex items-center gap-4">
             <Link
               href="/contact"
-              className="rounded-full bg-gradient-to-r from-[#00205b] to-[#00529b] px-5 py-2 text-sm font-medium text-white shadow-lg shadow-blue-900/10 transition-all duration-200 hover:scale-105"
+              className="relative overflow-hidden bg-[#F5C200] text-[#05050d] font-bold text-xs uppercase tracking-[0.2em] px-6 py-3 transition-all duration-300 hover:bg-white hover:shadow-lg hover:shadow-[#F5C200]/25 hover:-translate-y-0.5"
             >
               Contact Us
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center space-x-2">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="rounded-md p-2 text-slate-600 hover:bg-slate-100"
-              aria-label="Toggle mobile menu"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden glass p-2.5 text-white hover:border-[#F5C200]/40 transition-all"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu Panel */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-b border-slate-200/50 bg-white px-4 pt-2 pb-4 space-y-1 sm:px-6 transition-colors duration-300">
+        <div className="md:hidden glass-nav border-t border-white/05 px-6 pt-4 pb-6 space-y-2">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`block rounded-md px-3 py-2 text-base font-medium ${
+              className={`block py-3 text-xs font-bold uppercase tracking-[0.15em] border-l-2 pl-4 transition-colors ${
                 isActive(link.href)
-                  ? "bg-blue-50/70 text-[#00529b]"
-                  : "text-slate-700 hover:bg-slate-50"
+                  ? "text-[#F5C200] border-[#F5C200]"
+                  : "text-white/55 border-transparent hover:text-white hover:border-white/30"
               }`}
             >
               {link.name}
@@ -97,7 +107,7 @@ export const Navbar = () => {
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center rounded-md bg-gradient-to-r from-[#00205b] to-[#00529b] px-4 py-2.5 text-base font-medium text-white shadow-md"
+            className="block w-full text-center bg-[#F5C200] text-[#05050d] font-bold text-xs uppercase tracking-[0.2em] py-3.5 mt-4"
           >
             Contact Us
           </Link>
