@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { ThemeToggle } from "@/components/shared/ThemeToggle";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +69,6 @@ export const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
             <Link
               href="/partners"
               className="relative overflow-hidden bg-brand text-inverse font-bold text-xs uppercase tracking-[0.18em] px-5 py-2.5 rounded-lg transition-all duration-300 hover:bg-white hover:shadow-lg hover:shadow-brand/25 hover:-translate-y-0.5"
@@ -93,10 +91,6 @@ export const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="lg:hidden glass-nav border-t border-subtle px-6 pt-4 pb-6 space-y-3">
-          <div className="flex items-center justify-between py-2 border-b border-subtle">
-            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-secondary">Display Mode</span>
-            <ThemeToggle />
-          </div>
           {navLinks.map((link) => (
             <Link
               key={link.name}
