@@ -14,24 +14,32 @@ export const FAQ = () => {
 
   const faqs: FAQItem[] = [
     {
-      question: "Who is behind VP Veyora Private Limited?",
-      answer: "Founded by Vignesh Pandiya, VP Veyora is an AI-first technology firm engineering custom software, workflow automation pipelines, and enterprise architectures."
+      question: "What does VP VEYORA do as an AI Automation Delivery Partner?",
+      answer: "We act as the specialized technical engineering arm for software agencies, CRM consultants, and growing businesses. We design and build custom AI workflows, autonomous triage agents, document and invoice extraction pipelines, and bidirectional system integrations connecting tools like HubSpot, Salesforce, SAP, QuickBooks, and internal databases."
     },
     {
-      question: "What core technology stacks do you deliver?",
-      answer: "We engineer AI automation (n8n, LangChain, OpenAI API), full-stack web platforms (Next.js 15, React 19, TypeScript, PostgreSQL), cloud infrastructure (AWS, Docker, Kubernetes), and enterprise cybersecurity audits."
+      question: "How does the white-label agency delivery model work?",
+      answer: "Under our white-label agreement, your agency sells AI automation services directly to your clients under your own brand. VP VEYORA provides the architecture, backend engineering, testing, and documentation silently. We sign strict non-disclosure agreements (NDAs), and all intellectual property developed belongs entirely to you or your client."
     },
     {
-      question: "What typical ROI can clients expect?",
-      answer: "Our automated workflow solutions typically eliminate 70–80% of repetitive operational tasks, reducing overhead and delivering a measurable return on investment within 90 days."
+      question: "How do you coordinate with international clients across different time zones?",
+      answer: "Our core engineering hub is located in Tamil Nadu, India (IST), which provides strong overlapping collaboration windows with the UK, Europe, UAE/Middle East, Singapore, and Australia, as well as morning overlap with US Eastern time. We utilize asynchronous documentation, Loom walkthroughs, and scheduled Slack/Zoom touchpoints to ensure rapid turnaround without communication lag."
     },
     {
-      question: "How do you guarantee data security and compliance?",
-      answer: "Every system undergoes strict zero-trust security audits, role-based access controls, encrypted data pipelines, and OWASP-compliant vulnerability assessments."
+      question: "How do you prevent AI hallucinations or unintended autonomous actions?",
+      answer: "We strictly adhere to a supervised 'Human-in-the-Loop' architecture. We never give LLMs unchecked authority over critical financial transactions, external communications, or database deletion. Workflows include deterministic schema validation, automated math checks, confidence scoring thresholds, and exception queues where ambiguous items must be reviewed and approved by human operators."
     },
     {
-      question: "Do you provide ongoing support after deployment?",
-      answer: "Yes. We offer continuous SLA maintenance, security patch cycles, cloud performance monitoring, and iterative feature scaling."
+      question: "Can we start with a small Proof of Concept (PoC) before committing to a larger project?",
+      answer: "Yes. In fact, we recommend beginning with an initial Automation Audit (₹10,000–₹20,000 / $150–$250) or a focused Proof of Concept (₹25,000–₹60,000 / $350–$750) using synthetic sample datasets. This allows your team to test the extraction accuracy, schema structure, and integration mechanics with minimal financial risk before deploying to production."
+    },
+    {
+      question: "How are data privacy and credentials safeguarded?",
+      answer: "We follow industry-standard secret management best practices. API keys and credentials are stored exclusively in encrypted environment variables or secure vault managers—never exposed client-side. We encourage clients to provision scoped least-privilege API tokens and sign bilateral data protection agreements."
+    },
+    {
+      question: "Who owns the code, workflow definitions, and intellectual property?",
+      answer: "Upon milestone completion and settlement according to the Statement of Work (SOW), 100% of the bespoke code, n8n workflow JSONs, custom scripts, and integration assets belong exclusively to the client or agency partner. We retain zero proprietary lock-in on custom implementations."
     }
   ];
 
@@ -40,23 +48,23 @@ export const FAQ = () => {
   };
 
   return (
-    <section className="py-24 px-4 max-w-4xl mx-auto border-t border-white/[0.06]">
+    <section className="py-24 px-4 max-w-4xl mx-auto border-t border-subtle">
       {/* Header */}
       <div className="text-center mb-16 space-y-4">
-        <div className="inline-flex items-center space-x-2 rounded-full border border-[#F5C200]/20 bg-[#F5C200]/05 px-3.5 py-1 text-xs font-semibold text-[#F5C200]">
+        <div className="inline-flex items-center space-x-2 rounded-full border border-brand/20 bg-brand/5 px-3.5 py-1 text-xs font-semibold text-brand">
           <HelpCircle className="h-3.5 w-3.5" />
-          <span>FAQ</span>
+          <span>Clarity & Governance</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary">
           Frequently Asked Questions
         </h2>
-        <p className="text-white/50 text-sm max-w-md mx-auto">
-          Clear answers about our development process, tech stack, and partnership models.
+        <p className="text-secondary text-sm max-w-md mx-auto">
+          Direct, transparent answers regarding our delivery models, security protocols, and international partner workflow.
         </p>
       </div>
 
       {/* Accordion List */}
-      <div className="space-y-3">
+      <div className="space-y-3.5">
         {faqs.map((faq, index) => {
           const isOpen = activeIndex === index;
           return (
@@ -64,19 +72,20 @@ export const FAQ = () => {
               key={index}
               className={`rounded-xl border transition-all duration-300 ${
                 isOpen 
-                  ? "border-[#F5C200]/30 bg-white/[0.02]" 
-                  : "border-white/[0.06] bg-white/[0.01] hover:border-white/[0.12] hover:bg-white/[0.02]"
+                  ? "border-brand/40 bg-card shadow-lg" 
+                  : "border-glass bg-card/60 hover:border-brand/20"
               }`}
             >
               <button
                 onClick={() => toggleFAQ(index)}
                 className="flex w-full items-center justify-between p-5 sm:p-6 text-left focus:outline-none cursor-pointer"
+                aria-expanded={isOpen}
               >
-                <span className="text-sm sm:text-base font-semibold text-white/90">
+                <span className="text-sm sm:text-base font-semibold text-primary">
                   {faq.question}
                 </span>
                 <span className={`ml-4 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
-                  <ChevronDown className="h-4 w-4 text-[#F5C200]" />
+                  <ChevronDown className="h-4 w-4 text-brand" />
                 </span>
               </button>
 
@@ -88,7 +97,7 @@ export const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.25, ease: [0.21, 0.47, 0.32, 0.98] }}
                   >
-                    <div className="px-5 pb-6 sm:px-6 text-xs sm:text-sm text-white/60 leading-relaxed border-t border-white/[0.04] pt-4">
+                    <div className="px-5 pb-6 sm:px-6 text-xs sm:text-sm text-secondary leading-relaxed border-t border-subtle pt-4">
                       {faq.answer}
                     </div>
                   </motion.div>

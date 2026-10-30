@@ -1,163 +1,211 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { GlassCard } from "@/components/shared/GlassCard";
-import { Target, Eye, ShieldCheck, Heart, Award, ArrowRight, Mail } from "lucide-react";
+import { Target, Eye, ShieldCheck, ArrowRight, Mail, Handshake, Globe2, Cpu } from "lucide-react";
 import { LinkedInIcon, GitHubIcon } from "@/components/shared/SocialIcons";
+
+export const metadata: Metadata = {
+  title: "About VP VEYORA | AI Automation Delivery Partner",
+  description: "Learn about VP VEYORA PRIVATE LIMITED — an India-based technology company building AI automation workflows and agent systems for international agencies and enterprises.",
+  alternates: {
+    canonical: "https://vpveyora.com/about",
+  }
+};
 
 export default function AboutPage() {
   const values = [
-    { title: "Real Problem Solving", desc: "We believe software should resolve operational bottlenecks, cut down overhead, and deliver genuine corporate value, rather than just look good.", icon: Target },
-    { title: "AI-First Architectures", desc: "We build machine intelligence and agentic workflows directly into core database structures, making automation a native platform layer.", icon: Award },
-    { title: "Proactive Security", desc: "Security is non-negotiable. All SaaS portals, APIs, and systems undergo rigid network audits and ethical hacking checks before deploy.", icon: ShieldCheck },
-    { title: "Scalability & Speed", desc: "Using systems like Next.js 15, PostgreSQL, and AWS containerization, we ensure low latency under high concurrency.", icon: Heart }
+    { 
+      title: "Supervised Automation", 
+      desc: "We engineer deterministic human-in-the-loop checkpoints into every workflow. AI handles data extraction and synthesis; human operators retain control over critical business decisions.", 
+      icon: ShieldCheck 
+    },
+    { 
+      title: "Agency-First Alignment", 
+      desc: "We work as the quiet, reliable technical delivery arm for international digital agencies and consultancies, providing white-label code with 100% intellectual property transfer.", 
+      icon: Handshake 
+    },
+    { 
+      title: "Transparent Pragmatism", 
+      desc: "We avoid hype and unrealistic claims. We scope realistic, measurable workflows, benchmark on synthetic datasets first, and deliver predictable milestone outcomes.", 
+      icon: Target 
+    },
+    { 
+      title: "Robust Architecture", 
+      desc: "Using modern frameworks like Next.js, n8n, Python, and containerized microservices, our automations are built with retry queues, validation gates, and audit trails.", 
+      icon: Cpu 
+    }
   ];
 
   return (
-    <div className="bg-transparent text-white  min-h-screen py-20 px-4">
-      <div className="max-w-6xl mx-auto space-y-20">
+    <div className="bg-base text-primary min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto space-y-24">
         
         {/* Header Section */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#F5C200] ">VP Veyora Private Limited</span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Our Organization & Vision</h1>
-          <p className="text-white/60  text-lg sm:text-xl leading-relaxed">
-            VP Veyora Private Limited is an AI-first technology company founded by Vignesh Pandiya. We engineer custom software and automate workflows to help startups and enterprises scale.
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-4 py-1.5 text-xs font-semibold text-brand">
+            <Globe2 className="h-3.5 w-3.5" />
+            <span>Company Profile</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+            Your Dedicated <span className="text-gradient">AI Automation Delivery Partner</span>
+          </h1>
+          <p className="text-secondary text-base sm:text-lg leading-relaxed">
+            VP VEYORA PRIVATE LIMITED is an India-based technology company engineering supervised AI workflows, autonomous agents, and system integrations for growing businesses and international software agencies.
+          </p>
+        </div>
+
+        {/* Global Positioning & Presence Note */}
+        <div className="rounded-2xl border border-glass bg-card/60 p-8 sm:p-10 space-y-4 max-w-4xl mx-auto text-center">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand">
+            International Delivery Model
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-primary">
+            Engineering From India, Serving Globally
+          </h2>
+          <p className="text-secondary text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
+            Headquartered in Tamil Nadu, India, we collaborate closely with clients across the <strong>United Kingdom, United States, United Arab Emirates, Singapore, Australia, and Europe</strong>. We provide enterprise-grade technical delivery, time-zone overlapping communication, and competitive commercial structures.
           </p>
         </div>
 
         {/* Mission and Vision Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <GlassCard interactive={false} className="space-y-4 border-[#F5C200]/20">
-            <div className="inline-flex p-3 rounded-xl bg-yellow-500/10 text-[#F5C200] ">
+          <GlassCard interactive={false} className="space-y-4 border-glass p-8">
+            <div className="inline-flex p-3 rounded-xl bg-brand/10 text-brand border border-brand/20">
               <Target className="h-6 w-6" />
             </div>
-            <h3 className="text-2xl font-bold text-white ">Our Mission</h3>
-            <p className="text-white/60  leading-relaxed text-sm sm:text-base">
-              Helping businesses automate, innovate, and grow using Artificial Intelligence and modern software technologies. We build automated data loops, custom LLM models, and secure ERP/CRM databases that release workers from tedious admin workloads.
+            <h3 className="text-xl font-bold text-primary">Our Mission</h3>
+            <p className="text-secondary leading-relaxed text-xs sm:text-sm">
+              To turn repetitive manual operations into supervised, intelligent AI workflows that save time, reduce clerical overhead, and free human professionals to focus on high-leverage strategic growth.
             </p>
           </GlassCard>
 
-          <GlassCard interactive={false} className="space-y-4 border-purple-500/20">
-            <div className="inline-flex p-3 rounded-xl bg-sky-500/10 text-white/40">
+          <GlassCard interactive={false} className="space-y-4 border-glass p-8">
+            <div className="inline-flex p-3 rounded-xl bg-brand/10 text-brand border border-brand/20">
               <Eye className="h-6 w-6" />
             </div>
-            <h3 className="text-2xl font-bold text-white ">Our Vision</h3>
-            <p className="text-white/60  leading-relaxed text-sm sm:text-base">
-              To become one of India's leading AI and Digital Transformation companies delivering world-class enterprise solutions. We aim to bridge the gap between abstract academic AI research and real-world industrial software execution.
+            <h3 className="text-xl font-bold text-primary">Our Vision</h3>
+            <p className="text-secondary leading-relaxed text-xs sm:text-sm">
+              To become the most dependable and technically rigorous white-label AI delivery partner for software agencies and technology consultancies internationally, recognized for honest scoping and zero-fluff execution.
             </p>
           </GlassCard>
         </div>
 
-        {/* Founder Spotlights */}
-        <div className="border-t border-white/08 pt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+        {/* Core Values */}
+        <div className="space-y-8">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand">
+              Engineering Ethos
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-primary">
+              Core Principles Behind Our Delivery
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((v, i) => (
+              <div key={i} className="rounded-xl border border-glass bg-card p-6 space-y-3">
+                <div className="inline-flex p-2.5 rounded-lg bg-brand/10 text-brand border border-brand/20">
+                  <v.icon className="h-4 w-4" />
+                </div>
+                <h4 className="text-sm font-bold text-primary">{v.title}</h4>
+                <p className="text-xs text-secondary leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Founder & Lead Architect */}
+        <div className="border-t border-subtle pt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Image / Name Card */}
-            <div className="lg:col-span-2">
-              <GlassCard className="border-white/08/60 shadow-xl hover:shadow-[#F5C200]/10 hover:border-[#F5C200]/35 transition-all duration-300 p-8 flex flex-col items-center text-center space-y-6">
-                <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-tr from-[#1a1a1a] to-[#D4A800] rounded-full blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                  <div className="relative h-40 w-40 rounded-full bg-gradient-to-tr from-[#1a1a1a] to-[#F5C200] flex items-center justify-center text-white text-5xl font-bold font-mono shadow-md border border-white/08/50 transform hover:scale-105 transition-transform duration-300 select-none">
-                    VP
-                  </div>
+            <div className="lg:col-span-5">
+              <GlassCard className="border-glass p-8 flex flex-col items-center text-center space-y-6">
+                <div className="relative h-36 w-36 rounded-full bg-gradient-to-tr from-[#1a1a1a] to-brand flex items-center justify-center text-inverse text-4xl font-black font-mono shadow-xl border border-brand/30">
+                  VP
                 </div>
                 
                 <div className="space-y-1">
-                  <h3 className="text-2xl font-bold text-white">Vignesh Pandiya</h3>
-                  <p className="text-sm font-semibold text-[#F5C200]">Founder & CEO, Lead Architect</p>
-                  <p className="text-xs text-white/40">Tamil Nadu, India</p>
+                  <h3 className="text-2xl font-bold text-primary">Vignesh Pandiya</h3>
+                  <p className="text-xs font-mono font-bold text-brand uppercase tracking-wider">
+                    Founder & CEO · Lead Systems Architect
+                  </p>
+                  <p className="text-xs text-muted">Tamil Nadu, India</p>
                 </div>
 
                 <div className="flex space-x-3 pt-2">
-                  <a href="https://linkedin.com/in/vigneshpandiya" target="_blank" rel="noopener noreferrer" className="p-2.5 hover:bg-[#F5C200]/08 text-white/60 hover:text-[#F5C200] rounded-full border border-white/08 transition-colors" aria-label="LinkedIn Profile">
+                  <a 
+                    href="https://linkedin.com/in/vigneshpandiya" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="p-2.5 rounded-lg border border-glass text-secondary hover:text-brand hover:border-brand/40 transition-colors"
+                    aria-label="LinkedIn Profile"
+                  >
                     <LinkedInIcon size={16} className="h-4 w-4" />
                   </a>
-                  <a href="https://github.com/vigneshpandiyag" target="_blank" rel="noopener noreferrer" className="p-2.5 hover:bg-[#F5C200]/08 text-white/60 hover:text-[#F5C200] rounded-full border border-white/08 transition-colors" aria-label="GitHub Profile">
+                  <a 
+                    href="https://github.com/vigneshpandiyag" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="p-2.5 rounded-lg border border-glass text-secondary hover:text-brand hover:border-brand/40 transition-colors"
+                    aria-label="GitHub Profile"
+                  >
                     <GitHubIcon size={16} className="h-4 w-4" />
                   </a>
-                  <a href="mailto:vpveyora@gmail.com" className="p-2.5 hover:bg-[#F5C200]/08 text-white/60 hover:text-[#F5C200] rounded-full border border-white/08 transition-colors" aria-label="Email Founder">
+                  <a 
+                    href="mailto:vpveyora@gmail.com" 
+                    className="p-2.5 rounded-lg border border-glass text-secondary hover:text-brand hover:border-brand/40 transition-colors"
+                    aria-label="Email Founder"
+                  >
                     <Mail className="h-4 w-4" />
                   </a>
                 </div>
               </GlassCard>
             </div>
 
-            {/* Founder Biography */}
-            <div className="lg:col-span-3 space-y-6">
-              <div className="space-y-2 text-center lg:text-left">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#F5C200]">Executive Leadership</span>
-                <h3 className="text-3xl font-extrabold tracking-tight text-white">Leading with Innovation First</h3>
+            {/* Founder Biography & Commitment */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="space-y-2">
+                <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand">Executive Leadership</span>
+                <h3 className="text-3xl font-extrabold tracking-tight text-primary">
+                  Engineering Practical Solutions for Growing Enterprises
+                </h3>
               </div>
               
-              <p className="text-white/60 leading-relaxed text-sm sm:text-base">
-                Under the strategic leadership of Vignesh Pandiya, VP Veyora Private Limited functions as a premier technology partner, engineering robust AI solutions and custom enterprise architectures that drive digital transformation. We specialize in building intelligent automation frameworks, scalable software ecosystems, and secure cloud infrastructures that empower organizations to modernize workflows and unlock new growth avenues.
+              <p className="text-secondary leading-relaxed text-xs sm:text-sm">
+                Founded by Vignesh Pandiya, VP VEYORA was established to bridge the gap between speculative AI trends and dependable enterprise software execution. We engineer workflow automations that companies can rely on for daily production workloads without fear of unpredictable outputs or system downtime.
               </p>
               
-              <p className="text-white/60 leading-relaxed text-sm sm:text-base">
-                Rather than deploying generic integrations, we establish high-trust, long-term partnerships with our clients. We combine rigorous cybersecurity protocols with advanced artificial intelligence implementations to deliver zero-trust, high-concurrency systems that align perfectly with complex business objectives and compliance standards.
+              <p className="text-secondary leading-relaxed text-xs sm:text-sm">
+                As a lead systems architect, Vignesh personally oversees the technical feasibility assessments, schema designs, and validation logic for every agency partnership and direct client engagement. We maintain direct, engineer-to-engineer communication with zero sales fluff.
               </p>
 
-              {/* Founder Quote / Vision Statement */}
-              <div className="border-l-2 border-[#F5C200] pl-4 italic text-white/80 text-sm sm:text-base py-2">
-                "Our mission is to bridge the gap between complex technological capabilities and actual business outcomes. We don't just build software; we engineer competitive advantages through intelligent automation and secure, scalable design."
+              <div className="p-4 rounded-xl border border-brand/20 bg-brand/5 border-l-4 border-l-brand">
+                <p className="text-xs text-primary italic leading-relaxed">
+                  &ldquo;Our goal is straightforward: deliver rock-solid automation pipelines that save hours every single day, while giving our agency partners the confidence to pitch AI services knowing their technical delivery is in reliable hands.&rdquo;
+                </p>
               </div>
 
-              {/* Enterprise Trust Indicators / Expertise Tags */}
-              <div className="space-y-3 pt-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/30 block">Core Enterprise Capabilities</span>
-                <div className="flex flex-wrap gap-2 text-xs font-semibold text-white/70">
-                  <span className="bg-white/[0.03] border border-white/[0.08] px-3.5 py-1.5 rounded-lg">AI Solutions</span>
-                  <span className="bg-white/[0.03] border border-white/[0.08] px-3.5 py-1.5 rounded-lg">Enterprise Software</span>
-                  <span className="bg-white/[0.03] border border-white/[0.08] px-3.5 py-1.5 rounded-lg">Cloud & DevOps</span>
-                  <span className="bg-white/[0.03] border border-white/[0.08] px-3.5 py-1.5 rounded-lg">Cybersecurity</span>
-                  <span className="bg-white/[0.03] border border-white/[0.08] px-3.5 py-1.5 rounded-lg">Global Delivery</span>
-                  <span className="bg-white/[0.03] border border-white/[0.08] px-3.5 py-1.5 rounded-lg">Client Success</span>
-                </div>
+              <div className="pt-2 flex flex-wrap gap-4">
+                <Link
+                  href="/partners"
+                  className="inline-flex items-center gap-2 bg-brand text-inverse font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg hover:bg-white transition-all shadow-md"
+                >
+                  <span>Discuss an Agency Partnership</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 glass border border-glass text-primary font-semibold text-xs uppercase tracking-wider px-6 py-3 rounded-lg hover:border-brand/40 hover:text-brand transition-all"
+                >
+                  <span>Schedule Architecture Discussion</span>
+                </Link>
               </div>
+
             </div>
 
           </div>
-        </div>
-
-        {/* Core Values Section */}
-        <div className="border-t border-white/08  pt-20 space-y-12">
-          <div className="text-center space-y-2">
-            <h2 className="text-3xl font-bold text-white ">Our Core Principles</h2>
-            <p className="text-white/60  text-sm max-w-lg mx-auto">The foundations of how we structure packages, build files, and manage client relations.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((v, idx) => {
-              const ValIcon = v.icon;
-              return (
-                <GlassCard key={idx} className="space-y-4 hover:border-[#F5C200]/20">
-                  <div className="inline-flex p-2.5 rounded-lg bg-yellow-500/10 text-[#F5C200] ">
-                    <ValIcon className="h-5 w-5" />
-                  </div>
-                  <h4 className="font-bold text-white  text-lg">{v.title}</h4>
-                  <p className="text-sm text-white/60  leading-relaxed">{v.desc}</p>
-                </GlassCard>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* CTA — minimal, no background box */}
-        <div className="border-t border-white/[0.06] pt-16 text-center space-y-5">
-          <div className="w-10 h-px bg-[#F5C200] mx-auto" />
-          <h3 className="text-2xl sm:text-3xl font-bold text-white">
-            Ready to start your project?
-          </h3>
-          <p className="text-white/40 max-w-md mx-auto text-sm">
-            Schedule a consultation with our team.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-[#F5C200] px-8 py-3.5 text-sm font-bold text-[#05050d] hover:bg-white transition-colors duration-300"
-          >
-            <span>Let's Connect</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
 
       </div>

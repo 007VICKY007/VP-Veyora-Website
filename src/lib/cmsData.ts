@@ -64,18 +64,6 @@ export interface CareerItem {
   status: "OPEN" | "CLOSED";
 }
 
-export interface PricingPlanItem {
-  id: string;
-  name: string;
-  price: string;
-  billingPeriod: string;
-  description: string;
-  features: string[] | string;
-  buttonText: string;
-  buttonUrl: string;
-  featured: boolean;
-}
-
 export const fallbackServices: ServiceItem[] = [
   {
     "id": "s1",
@@ -281,17 +269,17 @@ export const fallbackPortfolio: PortfolioItem[] = [
   {
     id: "p1",
     slug: "enterprise-ai-automation-engine",
-    title: "Enterprise AI Automation Engine",
-    category: "AI Automation",
-    client: "Alpha Logistics",
-    description: "Automating invoice processing and logistics workflow using n8n and Generative AI, reducing manual processing time by 85%.",
-    challenge: "Client processed 10,000+ invoices manually every month, causing shipping delays, manual errors, and high operational costs.",
-    solution: "Built an end-to-end automated pipeline using n8n, OpenAI API, and custom Document AI to ingest, categorize, extract fields, and write into the core ERP.",
+    title: "Document AI & Invoice Extraction Pipeline",
+    category: "Automation Demonstration (Synthetic Dataset)",
+    client: "Illustrative Architecture Demo",
+    description: "Automated document ingestion, OCR field extraction, schema validation, and ERP synchronization designed for accounts payable workflows.",
+    challenge: "Manual processing of variable-format vendor invoices introduces severe bottleneck delays, transcript errors, and missing PO audit trails.",
+    solution: "Engineered a human-in-the-loop pipeline combining LLM field extractors, confidence threshold gates, automated math validations, and ERP webhooks.",
     results: {
-      "Time Saved": "85%",
-      "Accuracy": "99.2%",
-      "Monthly Savings": "₹4,50,000",
-      "ROI achieved": "300% in 3 Months"
+      "Dataset": "Synthetic 500+ invoices",
+      "Field Extraction": "Structured JSON schema",
+      "Confidence Gate": "Human review if <90%",
+      "Target Output": "Accounting / ERP webhook"
     },
     imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
     featured: true
@@ -299,23 +287,22 @@ export const fallbackPortfolio: PortfolioItem[] = [
   {
     id: "p2",
     slug: "global-saas-platform-edtech",
-    title: "Global SaaS Platform for EdTech",
-    category: "Software Development",
-    client: "EduLearn Inc",
-    description: "A comprehensive SaaS platform built using Next.js, PostgreSQL, and Node.js for managing online classrooms, curriculum, and billing.",
-    challenge: "Existing student management systems were sluggish, non-responsive, and crashed when active concurrent sessions exceeded 5,000.",
-    solution: "Re-architected the web application as a Next.js single-page application with microservices, leveraging AWS RDS PostgreSQL replication and Redis caching.",
+    title: "Autonomous Inbound Lead Qualification & CRM Sync",
+    category: "AI Agent Demonstration (Synthetic Dataset)",
+    client: "Illustrative Architecture Demo",
+    description: "Real-time inbound lead analysis, requirement parsing, priority scoring, and instant CRM staging with escalation to sales reps.",
+    challenge: "High-volume inbound inquiries across multiple channels often lead to delayed response times and cluttered CRM pipelines with low-intent spam.",
+    solution: "Built an intelligent triage agent utilizing prompt-chaining and structured outputs to evaluate intent, match ICP criteria, and trigger calendar links.",
     results: {
-      "Daily Active Users": "50,000+",
-      "Response Latency": "<100ms",
-      "Server Resource Cost": "-40%",
-      "System Uptime": "99.99%"
+      "Input Format": "Web forms & email webhooks",
+      "Evaluation": "ICP match & urgency score",
+      "Escalation": "Instant Slack & CRM alerts",
+      "Next Action": "Automated meeting booking"
     },
     imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
-    websiteUrl: "https://edulearn-demo.vpenterpriceses.com",
+    websiteUrl: "https://vpveyora.com/demos",
     featured: true
-  },
-
+  }
 ];
 
 export const fallbackBlogs: BlogItem[] = [
@@ -372,28 +359,8 @@ Ensure your NextAuth setup uses host-checked cookies, secure cookies, and correc
   }
 ];
 
-export const fallbackTestimonials: TestimonialItem[] = [
-  {
-    id: "t1",
-    name: "Rajesh Kumar",
-    role: "Chief Technology Officer",
-    company: "Alpha Logistics",
-    feedback: "VP Veyora Private Limited transformed our operations. Their AI automation solution saved us hundreds of hours monthly and has been incredibly stable and robust.",
-    rating: 5,
-    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
-    featured: true
-  },
-  {
-    id: "t2",
-    name: "Ananya Sen",
-    role: "Founder",
-    company: "EduLearn Inc",
-    feedback: "Working with Vignesh and his team was a breeze. They delivered our SaaS product ahead of schedule and with top-tier code quality. Highly recommended!",
-    rating: 5,
-    avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
-    featured: true
-  }
-];
+// Verified client testimonials will be populated as written customer authorizations are signed.
+export const fallbackTestimonials: TestimonialItem[] = [];
 
 export const fallbackCareers: CareerItem[] = [
   {
@@ -436,56 +403,4 @@ export const fallbackCareers: CareerItem[] = [
   }
 ];
 
-export const fallbackPricing: PricingPlanItem[] = [
-  {
-    id: "pr1",
-    name: "Startup Launchpad",
-    price: "₹15,000",
-    billingPeriod: "one-time",
-    description: "Perfect for startups and small businesses looking to establish a premium web presence and generate leads.",
-    features: [
-      "Single Page Premium Design",
-      "Fully Responsive Web Layout",
-      "Basic SEO Optimization",
-      "Contact & Lead Capture Form",
-      "1 Month Support & Handoff"
-    ],
-    buttonText: "Request Consultation",
-    buttonUrl: "/contact",
-    featured: false
-  },
-  {
-    id: "pr2",
-    name: "Growth Automation",
-    price: "₹25,000",
-    billingPeriod: "one-time",
-    description: "Ideal for companies needing automated business workflows, custom dashboards, and specialized web tools.",
-    features: [
-      "Up to 5 Pages Modern Website",
-      "Basic AI Workflow Automation (n8n/Make)",
-      "PostgreSQL Database Integrations",
-      "Lead Status Analytics Dashboard",
-      "3 Months Support & Maintenance"
-    ],
-    buttonText: "Schedule Call",
-    buttonUrl: "/contact",
-    featured: true
-  },
-  {
-    id: "pr3",
-    name: "Enterprise Solutions",
-    price: "Custom Quote",
-    billingPeriod: "custom",
-    description: "For corporate organizations requiring tailored AI agents, extensive SaaS apps, and comprehensive security testing.",
-    features: [
-      "Custom AI Agents & RAG Integration",
-      "End-to-End Core Workflow Automation",
-      "Cloud Infrastructure setup (AWS/DevOps)",
-      "Cybersecurity Penetration Audit",
-      "Dedicated SLA Support Package"
-    ],
-    buttonText: "Contact Sales Team",
-    buttonUrl: "/contact",
-    featured: false
-  }
-];
+

@@ -4,14 +4,12 @@ import {
   fallbackPortfolio, 
   fallbackBlogs, 
   fallbackTestimonials, 
-  fallbackCareers, 
-  fallbackPricing,
+  fallbackCareers,
   ServiceItem,
   PortfolioItem,
   BlogItem,
   TestimonialItem,
-  CareerItem,
-  PricingPlanItem
+  CareerItem
 } from "./cmsData";
 
 export async function getSiteSettings(): Promise<Record<string, string>> {
@@ -19,9 +17,9 @@ export async function getSiteSettings(): Promise<Record<string, string>> {
     const settings = await db.siteSetting.findMany();
     if (!settings || settings.length === 0) {
       return {
-        "homepage.hero.title": "Engineering AI Solutions for Tomorrow",
-        "homepage.hero.subtitle": "Helping businesses automate, innovate, and grow using Artificial Intelligence and modern software technologies.",
-        "homepage.about.text": "VP Veyora Private Limited is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, enterprise applications, cloud infrastructure, and cybersecurity solutions."
+        "homepage.hero.title": "Turn Repetitive Business Operations into Intelligent AI Workflows.",
+        "homepage.hero.subtitle": "VP VEYORA helps software agencies and growing businesses automate manual processes with AI agents, intelligent workflows, and custom system integrations. From initial discovery to deployment and ongoing support, we build practical automation solutions that save time and simplify operations.",
+        "homepage.about.text": "VP Veyora Private Limited is an India-based technology company delivering custom AI automation, intelligent agents, and workflow systems for international agencies and growing enterprises across the UK, USA, UAE, Singapore, Australia, and Europe."
       };
     }
     return settings.reduce((acc, curr) => {
@@ -31,9 +29,9 @@ export async function getSiteSettings(): Promise<Record<string, string>> {
   } catch (e) {
     console.warn("DB site settings fetch failed, using fallback:", e);
     return {
-      "homepage.hero.title": "Engineering AI Solutions for Tomorrow",
-      "homepage.hero.subtitle": "Helping businesses automate, innovate, and grow using Artificial Intelligence and modern software technologies.",
-      "homepage.about.text": "VP Veyora Private Limited is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, enterprise applications, cloud infrastructure, and cybersecurity solutions."
+      "homepage.hero.title": "Turn Repetitive Business Operations into Intelligent AI Workflows.",
+      "homepage.hero.subtitle": "VP VEYORA helps software agencies and growing businesses automate manual processes with AI agents, intelligent workflows, and custom system integrations. From initial discovery to deployment and ongoing support, we build practical automation solutions that save time and simplify operations.",
+      "homepage.about.text": "VP Veyora Private Limited is an India-based technology company delivering custom AI automation, intelligent agents, and workflow systems for international agencies and growing enterprises across the UK, USA, UAE, Singapore, Australia, and Europe."
     };
   }
 }
@@ -108,19 +106,5 @@ export async function getCareers(): Promise<CareerItem[]> {
   } catch (e) {
     console.warn("DB careers fetch failed, using fallback:", e);
     return fallbackCareers;
-  }
-}
-
-export async function getPricingPlans(): Promise<PricingPlanItem[]> {
-  try {
-    const plans = await db.pricingPlan.findMany();
-    if (!plans || plans.length === 0) return fallbackPricing;
-    return plans.map(p => ({
-      ...p,
-      features: typeof p.features === "string" ? JSON.parse(p.features) : p.features
-    }));
-  } catch (e) {
-    console.warn("DB pricing plans fetch failed, using fallback:", e);
-    return fallbackPricing;
   }
 }

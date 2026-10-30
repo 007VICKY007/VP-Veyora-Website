@@ -3,9 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Cpu, ShieldCheck, TrendingUp } from "lucide-react";
-import { Counter } from "../shared/MotionWrappers";
-import { TypewriterText } from "../shared/RunningText";
+import { ArrowRight } from "lucide-react";
 
 export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,26 +24,21 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-transparent"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-base"
       style={{
-        background: `
-          radial-gradient(ellipse 80% 60% at var(--mx, 50%) var(--my, 40%), rgba(245,194,0,0.06) 0%, transparent 60%),
-          radial-gradient(ellipse 60% 80% at 80% 20%, rgba(100,60,200,0.08) 0%, transparent 50%),
-          radial-gradient(ellipse 50% 50% at 20% 80%, rgba(0,100,255,0.05) 0%, transparent 50%),
-          #05050d
-        `,
+        background: "var(--overlay-gradient)",
         "--mx": "50%",
         "--my": "40%",
       } as React.CSSProperties}
     >
       {/* Atmospheric glow orbs */}
-      <div className="absolute top-1/4 right-1/4 h-[500px] w-[500px] rounded-full bg-[#F5C200]/8 glow-blur animate-glow" />
+      <div className="absolute top-1/4 right-1/4 h-[500px] w-[500px] rounded-full bg-brand/8 glow-blur animate-glow" />
       <div className="absolute bottom-1/3 left-1/5 h-[400px] w-[400px] rounded-full bg-purple-600/8 glow-blur animate-glow" style={{ animationDelay: "2s" }} />
       <div className="absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-900/10 glow-blur animate-glow" style={{ animationDelay: "4s" }} />
 
       {/* Grid overlay */}
       <div className="absolute inset-0 opacity-[0.015]" style={{
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
+        backgroundImage: `linear-gradient(var(--border-subtle) 1px, transparent 1px), linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px)`,
         backgroundSize: "80px 80px"
       }} />
 
@@ -61,90 +54,116 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
             className="space-y-8"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-3 glass px-4 py-2 rounded-full border border-[#F5C200]/20">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#F5C200] animate-pulse" />
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#F5C200]/80">
-                VP Veyora · SaaS Based Company
+            <div className="inline-flex items-center gap-3 glass px-4 py-2 rounded-full border border-brand/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-brand">
+                Your AI Automation Delivery Partner
               </span>
             </div>
 
-            {/* Headline with running letter typewriter */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
-              <span className="text-white">Engineering</span><br />
-              <span className="text-gradient">AI Solutions</span><br />
-              <span className="text-white/80">for </span>
-              <TypewriterText
-                words={["Tomorrow.", "Modern Scale.", "Automation.", "Enterprise SaaS.", "Growth."]}
-                className="text-[#F5C200] glow-gold-text"
-              />
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
+              {title || (
+                <>
+                  Turn Repetitive Business Operations into <br className="hidden sm:inline" />
+                  <span className="text-gradient">Intelligent AI Workflows.</span>
+                </>
+              )}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-white/50 leading-relaxed max-w-md">
-              {subtitle || "Building intelligent technology for growing businesses worldwide — custom software, cloud, AI automation, and cybersecurity."}
+            <p className="text-base sm:text-lg text-secondary leading-relaxed max-w-xl">
+              {subtitle || "VP VEYORA helps software agencies and growing businesses automate manual processes with AI agents, intelligent workflows, and custom system integrations. From initial discovery to deployment and ongoing support, we build practical automation solutions that save time and simplify operations."}
             </p>
 
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-4 pt-2">
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2.5 bg-[#F5C200] text-[#05050d] font-bold text-sm uppercase tracking-[0.15em] px-8 py-4 hover:bg-white transition-all duration-300 hover:shadow-2xl hover:shadow-[#F5C200]/20 hover:-translate-y-0.5"
+                href="/partners"
+                className="group inline-flex items-center gap-2.5 bg-brand text-inverse font-bold text-xs uppercase tracking-[0.18em] px-7 py-4 hover:bg-white transition-all duration-300 hover:shadow-2xl hover:shadow-brand/20 hover:-translate-y-0.5 rounded-lg"
               >
-                Get Started
+                Discuss a Partnership
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/services"
-                className="inline-flex items-center gap-2 glass border border-white/10 text-white/70 font-semibold text-sm uppercase tracking-[0.15em] px-8 py-4 hover:text-white hover:border-[#F5C200]/30 transition-all duration-300"
+                href="/demos"
+                className="inline-flex items-center gap-2 glass border border-glass text-primary font-semibold text-xs uppercase tracking-[0.18em] px-7 py-4 hover:border-brand/40 hover:text-brand transition-all duration-300 rounded-lg"
               >
-                Explore Services
+                Explore Live Demos
+              </Link>
+              <Link
+                href="/contact"
+                className="text-xs font-semibold text-muted hover:text-brand transition-colors uppercase tracking-[0.15em] underline underline-offset-4"
+              >
+                Request an Automation Audit
               </Link>
             </div>
 
-            {/* Stats row with animated counter */}
-            <div className="flex gap-8 pt-4 border-t border-white/05">
-              {[
-                { val: "50+", label: "Projects Delivered" },
-                { val: "3×", label: "Avg Client Growth" },
-                { val: "30+", label: "SaaS Apps Built" },
-              ].map((s) => (
-                <Counter
-                  key={s.label}
-                  value={s.val}
-                  label={s.label}
-                  className="text-2xl font-black text-[#F5C200]"
-                />
-              ))}
+            {/* Target Delivery Regions */}
+            <div className="pt-6 border-t border-subtle flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted">
+              <span className="font-semibold uppercase tracking-wider text-primary">Delivery Footprint:</span>
+              <span>United States</span>
+              <span className="text-brand">·</span>
+              <span>United Kingdom</span>
+              <span className="text-brand">·</span>
+              <span>UAE</span>
+              <span className="text-brand">·</span>
+              <span>Singapore</span>
+              <span className="text-brand">·</span>
+              <span>Australia</span>
+              <span className="text-brand">·</span>
+              <span>Europe</span>
             </div>
           </motion.div>
 
-          {/* Right — Minimal Tech Cards */}
+          {/* Right — Live Architecture Flow Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-2 gap-4"
+            className="rounded-2xl border border-glass bg-card/80 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl relative overflow-hidden"
           >
-            {[
-              { icon: Brain, label: "AI & Machine Learning", desc: "Autonomous agents, RAG, LLM pipelines", glow: true },
-              { icon: TrendingUp, label: "Workflow Automation", desc: "n8n, Make.com, operational efficiency", glow: false },
-              { icon: Cpu, label: "Custom SaaS Systems", desc: "Enterprise CRM, ERP, modern portals", glow: false },
-              { icon: ShieldCheck, label: "Cybersecurity Audits", desc: "Pentest, zero-trust, security posture", glow: true },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + i * 0.1 }}
-                className="rounded-xl border border-white/[0.08] bg-white/[0.015] p-6 hover:border-[#F5C200]/40 hover:bg-white/[0.03] transition-all duration-300 group cursor-default"
-              >
-                <div className={`inline-flex p-2.5 mb-4 rounded-lg transition-transform duration-300 group-hover:scale-110 ${item.glow ? "bg-[#F5C200]/10 border border-[#F5C200]/20" : "bg-white/05 border border-white/08"}`}>
-                  <item.icon className={`h-5 w-5 ${item.glow ? "text-[#F5C200]" : "text-white/50"}`} />
+            <div className="flex items-center justify-between pb-4 border-b border-subtle">
+              <div className="flex items-center gap-2.5">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-primary">
+                  Workflow Execution Pipeline
+                </span>
+              </div>
+              <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-brand/10 text-brand border border-brand/20">
+                Human-in-the-Loop Active
+              </span>
+            </div>
+
+            {/* Pipeline Steps */}
+            <div className="space-y-3.5">
+              {[
+                { step: "01", name: "Inbound Ingestion", desc: "Webhook, email attachments, PDF/invoices, or REST payload", tag: "Received" },
+                { step: "02", name: "AI Extraction & Triage", desc: "LLM schema parsing, entity normalization & intent scoring", tag: "99.2% Conf" },
+                { step: "03", name: "Validation & Human Gate", desc: "Business rules check & discrepancy escalation review", tag: "Supervised" },
+                { step: "04", name: "System Integration", desc: "Automated write to CRM, ERP, database, and Slack notifications", tag: "Completed" },
+              ].map((item, idx) => (
+                <div key={idx} className="p-3.5 rounded-xl border border-glass bg-base/50 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-bold text-brand">{item.step}</span>
+                    <div>
+                      <h4 className="text-xs font-bold text-primary">{item.name}</h4>
+                      <p className="text-[11px] text-muted">{item.desc}</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-secondary whitespace-nowrap">
+                    {item.tag}
+                  </span>
                 </div>
-                <h3 className="text-sm font-bold text-white mb-1.5 leading-tight group-hover:text-[#F5C200] transition-colors">{item.label}</h3>
-                <p className="text-xs text-white/40 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+              ))}
+            </div>
+
+            <div className="pt-4 border-t border-subtle flex items-center justify-between text-xs text-secondary">
+              <span>Engineered by VP VEYORA</span>
+              <Link href="/demos" className="text-brand hover:underline font-semibold inline-flex items-center gap-1">
+                Test Live Simulator &rarr;
+              </Link>
+            </div>
           </motion.div>
         </div>
 
@@ -155,8 +174,8 @@ export const Hero = ({ title, subtitle }: { title: string; subtitle: string }) =
           transition={{ delay: 1.2 }}
           className="absolute bottom-8 left-6 lg:left-8 flex flex-col items-center gap-2"
         >
-          <span className="text-[10px] tracking-[0.3em] uppercase text-white/25 rotate-0">Scroll</span>
-          <div className="w-px h-12" />
+          <span className="text-[10px] tracking-[0.3em] uppercase text-muted rotate-0">Scroll</span>
+          <div className="w-px h-12 bg-brand" />
         </motion.div>
       </div>
     </section>

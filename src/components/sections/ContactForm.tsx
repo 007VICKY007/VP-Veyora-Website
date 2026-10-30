@@ -1,55 +1,45 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, RefreshCw } from "lucide-react";
 
-export const ContactForm = () => {
+interface ContactFormProps {
+  initialInquiryType?: string;
+  initialService?: string;
+}
+
+export const ContactForm: React.FC<ContactFormProps> = ({ 
+  initialInquiryType = "Client Project",
+  initialService = ""
+}) => {
   const [formData, setFormData] = useState({
     name: "",
-    companyName: "",
-    email: "",
-    phone: "",
+    businessEmail: "",
+    company: "",
     country: "",
-    service: "Artificial Intelligence",
-    budget: "₹50,000 - ₹1,50,000",
-    timeline: "1-3 Months",
-    message: "",
+    inquiryType: initialInquiryType,
+    serviceScope: initialService,
+    problemDescription: "",
+    preferredMeetingTime: "",
+    // Spam protection honeypot (should remain empty for real humans)
+    botField: ""
   });
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  const servicesList = [
-    "Artificial Intelligence",
-    "AI Automation",
-    "Software Development",
-    "Website Development",
-    "Mobile Applications",
-    "Cybersecurity",
-    "Cloud Solutions",
-    "Data Engineering",
-    "IoT Solutions",
-    "Blockchain",
-    "Digital Marketing",
+  const inquiryTypes = [
+    "Client Project",
+    "White-label Partnership",
+    "Joint Delivery",
+    "Referral Partnership",
+    "Other"
   ];
 
-  const budgetsList = [
-    "< ₹50,000",
-    "₹50,000 - ₹1,50,000",
-    "₹1,50,000 - ₹5,00,000",
-    "₹5,00,000 - ₹10,00,000",
-    "Custom / Enterprise Quote (> ₹10,00,000)",
-  ];
-
-  const timelinesList = [
-    "< 1 Month (Fast Track)",
-    "1 - 3 Months",
-    "3 - 6 Months",
-    "6+ Months / Retainer",
-  ];
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -59,203 +49,235 @@ export const ContactForm = () => {
     setLoading(true);
     setError("");
 
+    // Spam honeypot check
+    if (formData.botField) {
+      // Silently reject bots without error
+      setLoading(false);
+      setSuccess(true);
+      return;
+    }
+
+    // Client-side validation
+    if (!formData.name.trim() || !formData.businessEmail.trim() || !formData.company.trim() || !formData.country.trim() || !formData.problemDescription.trim()) {
+      setError("Please complete all required fields (Name, Business Email, Company, Country, and Business Need).");
+      setLoading(false);
+      return;
+    }
+
+    // Basic email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.businessEmail)) {
+      setError("Please provide a valid business email address.");
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.businessEmail,
+          companyName: formData.company,
+          country: formData.country,
+          inquiryType: formData.inquiryType,
+          service: formData.serviceScope || formData.inquiryType,
+          message: formData.problemDescription,
+          preferredMeetingTime: formData.preferredMeetingTime
+        }),
       });
 
       const result = await response.json();
 
-      if (response.ok) {
+      if (response.ok && result.success) {
         setSuccess(true);
         setFormData({
           name: "",
-          companyName: "",
-          email: "",
-          phone: "",
+          businessEmail: "",
+          company: "",
           country: "",
-          service: "Artificial Intelligence",
-          budget: "₹50,000 - ₹1,50,000",
-          timeline: "1-3 Months",
-          message: "",
+          inquiryType: initialInquiryType,
+          serviceScope: "",
+          problemDescription: "",
+          preferredMeetingTime: "",
+          botField: ""
         });
       } else {
-        setError(result.error || "Something went wrong. Please try again.");
+        setError(result.error || "Unable to send your inquiry. Please try again or email us directly at vpveyora@gmail.com.");
       }
     } catch (err) {
-      console.error(err);
-      setError("Network error. Please verify your internet connection and try again.");
+      console.error("Submission error:", err);
+      setError("Network connection issue. Please retry or contact us directly at vpveyora@gmail.com.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="w-full rounded-xl border border-white/[0.08] bg-white/[0.015] p-6 sm:p-8 backdrop-blur-md shadow-2xl shadow-black/50 transition-all duration-300">
+    <div className="w-full rounded-2xl border border-glass bg-card/90 p-6 sm:p-10 backdrop-blur-xl shadow-2xl transition-all duration-300">
       {success ? (
-        <div className="text-center py-12 space-y-4">
-          <div className="inline-flex rounded-full bg-green-500/15 p-4 text-green-400">
-            <CheckCircle2 className="h-16 w-16" />
+        <div className="text-center py-12 space-y-5">
+          <div className="inline-flex rounded-full bg-emerald-500/10 p-4 text-emerald-400 border border-emerald-500/20">
+            <CheckCircle2 className="h-12 w-12" />
           </div>
-          <h3 className="text-2xl font-bold text-white ">Inquiry Sent Successfully!</h3>
-          <p className="text-white/60  max-w-md mx-auto leading-relaxed">
-            Thank you for reaching out to VP Veyora Private Limited. Founder Vignesh Pandiya or one of our system specialists will review your submission and contact you within 24 hours.
+          <h3 className="text-2xl font-bold text-primary">Inquiry Received Successfully</h3>
+          <p className="text-secondary text-sm max-w-md mx-auto leading-relaxed">
+            Thank you for reaching out to VP VEYORA. Our solutions engineering team will review your requirements and respond within 24 business hours to discuss scoping or schedule a discovery call.
           </p>
           <button
             onClick={() => setSuccess(false)}
-            className="mt-6 inline-flex items-center space-x-2 rounded-full border border-white/08  bg-white/[0.04]  px-6 py-2.5 text-sm font-semibold text-white/80  hover:text-white "
+            className="mt-4 inline-flex items-center space-x-2 rounded-lg border border-glass bg-base/50 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-primary hover:text-brand transition-colors"
           >
-            Send Another Message
+            Submit Another Inquiry
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+          
+          {/* Honeypot field (hidden from screen readers & users) */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="botField">Leave this field blank</label>
+            <input
+              type="text"
+              id="botField"
+              name="botField"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formData.botField}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {/* Full Name */}
-            <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-semibold text-white/80 ">Full Name *</label>
+            <div className="space-y-1.5">
+              <label htmlFor="name" className="text-xs font-semibold text-secondary">
+                Full Name <span className="text-brand">*</span>
+              </label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 required
+                placeholder="e.g. John Doe"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your Name"
-                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
+                className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
               />
             </div>
 
-            {/* Company Name */}
-            <div className="space-y-2">
-              <label htmlFor="companyName" className="text-sm font-semibold text-white/80 ">Company Name</label>
-              <input
-                type="text"
-                id="companyName"
-                name="companyName"
-                value={formData.companyName}
-                onChange={handleChange}
-                placeholder="Your Company Name"
-                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
-              />
-            </div>
-
-            {/* Email Address */}
-            <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-semibold text-white/80 ">Email Address *</label>
+            {/* Business Email */}
+            <div className="space-y-1.5">
+              <label htmlFor="businessEmail" className="text-xs font-semibold text-secondary">
+                Business Email <span className="text-brand">*</span>
+              </label>
               <input
                 type="email"
-                id="email"
-                name="email"
+                id="businessEmail"
+                name="businessEmail"
                 required
-                value={formData.email}
+                placeholder="e.g. john@company.com"
+                value={formData.businessEmail}
                 onChange={handleChange}
-                placeholder="Your Email Address"
-                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
+                className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
               />
             </div>
+          </div>
 
-            {/* Phone Number */}
-            <div className="space-y-2">
-              <label htmlFor="phone" className="text-sm font-semibold text-white/80 ">Phone / WhatsApp</label>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {/* Company Name */}
+            <div className="space-y-1.5">
+              <label htmlFor="company" className="text-xs font-semibold text-secondary">
+                Company / Agency Name <span className="text-brand">*</span>
+              </label>
               <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
+                type="text"
+                id="company"
+                name="company"
+                required
+                placeholder="e.g. Apex Digital Ltd"
+                value={formData.company}
                 onChange={handleChange}
-                placeholder="Your Phone / WhatsApp Number"
-                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
+                className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
               />
             </div>
 
             {/* Country */}
-            <div className="space-y-2">
-              <label htmlFor="country" className="text-sm font-semibold text-white/80 ">Country</label>
+            <div className="space-y-1.5">
+              <label htmlFor="country" className="text-xs font-semibold text-secondary">
+                Country / Region <span className="text-brand">*</span>
+              </label>
               <input
                 type="text"
                 id="country"
                 name="country"
+                required
+                placeholder="e.g. United Kingdom, USA, UAE..."
                 value={formData.country}
                 onChange={handleChange}
-                placeholder="Your Country"
-                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
+                className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
               />
             </div>
-
-            {/* Selected Service */}
-            <div className="space-y-2">
-              <label htmlFor="service" className="text-sm font-semibold text-white/80 ">Service Needed *</label>
-              <select
-                id="service"
-                name="service"
-                required
-                value={formData.service}
-                onChange={handleChange}
-                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  focus:border-[#F5C200] focus:outline-none [&>option]:bg-[#07070f] "
-              >
-                {servicesList.map((serviceName) => (
-                  <option key={serviceName} value={serviceName}>{serviceName}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Budget Range */}
-            <div className="space-y-2">
-              <label htmlFor="budget" className="text-sm font-semibold text-white/80 ">Estimated Budget *</label>
-              <select
-                id="budget"
-                name="budget"
-                required
-                value={formData.budget}
-                onChange={handleChange}
-                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  focus:border-[#F5C200] focus:outline-none [&>option]:bg-[#07070f] "
-              >
-                {budgetsList.map((budgetValue) => (
-                  <option key={budgetValue} value={budgetValue}>{budgetValue}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Project Timeline */}
-            <div className="space-y-2">
-              <label htmlFor="timeline" className="text-sm font-semibold text-white/80 ">Project Timeline *</label>
-              <select
-                id="timeline"
-                name="timeline"
-                required
-                value={formData.timeline}
-                onChange={handleChange}
-                className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  focus:border-[#F5C200] focus:outline-none [&>option]:bg-[#07070f] "
-              >
-                {timelinesList.map((timeValue) => (
-                  <option key={timeValue} value={timeValue}>{timeValue}</option>
-                ))}
-              </select>
-            </div>
           </div>
 
-          {/* Project Message */}
-          <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-semibold text-white/80 ">Project Details *</label>
+          {/* Inquiry Type */}
+          <div className="space-y-1.5">
+            <label htmlFor="inquiryType" className="text-xs font-semibold text-secondary">
+              Inquiry Type <span className="text-brand">*</span>
+            </label>
+            <select
+              id="inquiryType"
+              name="inquiryType"
+              value={formData.inquiryType}
+              onChange={handleChange}
+              className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
+            >
+              {inquiryTypes.map((type) => (
+                <option key={type} value={type} className="bg-[#0c0c1a] text-primary">
+                  {type}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Business Problem Description */}
+          <div className="space-y-1.5">
+            <label htmlFor="problemDescription" className="text-xs font-semibold text-secondary">
+              Brief Description of the Business Problem / Requirement <span className="text-brand">*</span>
+            </label>
             <textarea
-              id="message"
-              name="message"
+              id="problemDescription"
+              name="problemDescription"
               required
               rows={4}
-              value={formData.message}
+              placeholder="Describe your current manual process, systems to connect (e.g. HubSpot, SAP, n8n, Slack), and expected timeline..."
+              value={formData.problemDescription}
               onChange={handleChange}
-              placeholder="Outline your application features, automated workflows, dashboard requirements, or specific target systems..."
-              className="w-full rounded-xl border border-white/08   px-4 py-3 text-sm text-white  placeholder-gray-600 focus:border-[#F5C200] focus:outline-none"
-            ></textarea>
+              className="w-full rounded-lg border border-glass bg-base p-3.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors leading-relaxed"
+            />
           </div>
 
-          {/* Error Banner */}
+          {/* Optional Preferred Meeting Time */}
+          <div className="space-y-1.5">
+            <label htmlFor="preferredMeetingTime" className="text-xs font-semibold text-secondary">
+              Preferred Meeting Time & Timezone (Optional)
+            </label>
+            <input
+              type="text"
+              id="preferredMeetingTime"
+              name="preferredMeetingTime"
+              placeholder="e.g. Tuesdays 2:00 PM GMT / Weekdays morning EST"
+              value={formData.preferredMeetingTime}
+              onChange={handleChange}
+              className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
+            />
+          </div>
+
+          {/* Error Message */}
           {error && (
-            <div className="flex items-center space-x-2 rounded-xl bg-red-500/10 p-4 text-sm text-red-400 border border-red-500/20">
-              <AlertCircle className="h-5 w-5 shrink-0" />
+            <div className="p-3.5 rounded-lg border border-rose-500/30 bg-rose-500/10 flex items-start gap-2.5 text-xs text-rose-300">
+              <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-rose-400" />
               <span>{error}</span>
             </div>
           )}
@@ -264,17 +286,25 @@ export const ContactForm = () => {
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full items-center justify-center space-x-2 rounded-lg bg-[#F5C200] px-6 py-4 text-xs font-bold uppercase tracking-[0.15em] text-[#05050d] hover:bg-white focus:outline-none disabled:opacity-50 hover:shadow-lg hover:shadow-[#F5C200]/20 transition-all duration-300 cursor-pointer"
+            className="w-full inline-flex items-center justify-center gap-2 bg-brand text-inverse font-bold text-xs uppercase tracking-[0.18em] py-4 rounded-lg hover:bg-white transition-all duration-300 disabled:opacity-50 shadow-lg shadow-brand/15"
           >
             {loading ? (
-              <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#05050d] border-t-transparent"></span>
+              <>
+                <RefreshCw className="h-4 w-4 animate-spin" />
+                <span>Transmitting Inquiry...</span>
+              </>
             ) : (
               <>
-                <span>Submit Inquiry</span>
                 <Send className="h-4 w-4" />
+                <span>Submit Inquiry</span>
               </>
             )}
           </button>
+
+          <p className="text-[11px] text-muted text-center leading-relaxed">
+            All inquiries are protected by mutual non-disclosure standards. We never sell or share contact details.
+          </p>
+
         </form>
       )}
     </div>

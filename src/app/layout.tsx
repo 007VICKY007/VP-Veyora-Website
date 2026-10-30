@@ -5,32 +5,37 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "VP Veyora Private Limited | Engineering AI Solutions for Tomorrow",
-  description: "VP Veyora Private Limited is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, automation workflows, and cybersecurity solutions.",
+  title: "VP VEYORA | AI Automation Delivery Partner | Intelligent AI Workflows & Agents",
+  description: "VP VEYORA helps software agencies and growing businesses automate manual operations with AI agents, intelligent workflows, document extraction, and custom system integrations.",
   keywords: [
-    "Artificial Intelligence",
-    "Software Development",
     "AI Automation",
-    "Business Automation",
-    "Cybersecurity",
-    "Cloud Computing",
-    "Enterprise Solutions",
-    "Vignesh Pandiya",
-    "VP Veyora Private Limited"
+    "AI Automation Delivery Partner",
+    "White-label AI Development",
+    "AI Agents",
+    "Business Process Automation",
+    "Document AI Extraction",
+    "n8n Workflow Automation",
+    "CRM System Integration",
+    "VP Veyora Private Limited",
+    "Vignesh Pandiya"
   ],
-  authors: [{ name: "Vignesh Pandiya" }],
-  metadataBase: new URL("https://vpenterpriceses.com"),
+  authors: [{ name: "VP VEYORA PRIVATE LIMITED" }],
+  metadataBase: new URL("https://vpveyora.com"),
+  alternates: {
+    canonical: "https://vpveyora.com",
+  },
   openGraph: {
-    title: "VP Veyora Private Limited | Engineering AI Solutions for Tomorrow",
-    description: "VP Veyora Private Limited is an AI-first technology company founded by Vignesh Pandiya. We help startups, enterprises, and organizations build intelligent software, AI-powered products, and automation workflows.",
-    url: "https://vpenterpriceses.com",
-    siteName: "VP Veyora Private Limited",
+    title: "VP VEYORA | AI Automation Delivery Partner",
+    description: "Turn repetitive business operations into intelligent AI workflows. White-label delivery, joint implementations, and custom automation engineering.",
+    url: "https://vpveyora.com",
+    siteName: "VP VEYORA PRIVATE LIMITED",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VP Veyora Private Limited | Engineering AI Solutions for Tomorrow",
-    description: "AI-first technology company helping startups and organizations scale through intelligent software and automation.",
+    title: "VP VEYORA | AI Automation Delivery Partner",
+    description: "Engineering practical AI automation solutions, intelligent agents, and system integrations for growing businesses and agencies worldwide.",
   },
   icons: {
     icon: "/icon.png",
@@ -40,6 +45,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   }
 };
 
@@ -48,10 +60,44 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "VP VEYORA PRIVATE LIMITED",
+    "url": "https://vpveyora.com",
+    "logo": "https://vpveyora.com/logo.png",
+    "description": "AI automation delivery partner building supervised workflows, autonomous agents, and system integrations for software agencies and enterprises.",
+    "founder": {
+      "@type": "Person",
+      "name": "Vignesh Pandiya"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://linkedin.com/company/vpveyora",
+      "https://github.com/007VICKY007/VP-Veyora-Website"
+    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "150",
+      "offerCount": "4"
+    }
+  };
+
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-transparent text-white selection:bg-[#F5C200] selection:text-[#05050d]">
-        <ThemeProvider>
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-[#05050d] text-white selection:bg-[#F5C200] selection:text-[#05050d]">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
