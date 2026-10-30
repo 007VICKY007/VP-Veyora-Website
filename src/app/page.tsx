@@ -1,9 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { 
-  getSiteSettings, 
-  getServices, 
-  getPortfolio 
+  getSiteSettings
 } from "@/lib/dataLoaders";
 import { Hero } from "@/components/sections/Hero";
 import { FAQ } from "@/components/sections/FAQ";
@@ -12,7 +10,8 @@ import { AutomationDemos } from "@/components/sections/AutomationDemos";
 import { 
   FadeIn, 
   StaggerContainer, 
-  StaggerItem 
+  StaggerItem,
+  HoverCard 
 } from "@/components/shared/MotionWrappers";
 import { RunningMarquee } from "@/components/shared/RunningText";
 import { 
@@ -20,101 +19,72 @@ import {
   Workflow, 
   FileText, 
   Users, 
-  Database, 
-  Terminal, 
   ArrowRight, 
   Zap, 
   Target, 
   Mail, 
   ShieldCheck, 
-  TrendingUp, 
-  Layers, 
   Clock, 
   Handshake, 
   CheckCircle2, 
-  Briefcase, 
-  Search, 
-  Cpu,
-  ExternalLink,
-  Sliders,
-  DollarSign
+  Sparkles,
+  Layers,
+  Terminal
 } from "lucide-react";
-import { LinkedInIcon } from "@/components/shared/SocialIcons";
 
 export default async function HomePage() {
   const settings = await getSiteSettings();
-  const portfolio = await getPortfolio();
 
   const heroTitle = settings["homepage.hero.title"] || "Turn Repetitive Business Operations into Intelligent AI Workflows.";
-  const heroSubtitle = settings["homepage.hero.subtitle"] || "VP VEYORA helps software agencies and growing businesses automate manual processes with AI agents, intelligent workflows, and custom system integrations. From initial discovery to deployment and ongoing support, we build practical automation solutions that save time and simplify operations.";
+  const heroSubtitle = settings["homepage.hero.subtitle"] || "VP VEYORA helps software agencies and growing businesses automate manual processes with AI agents, document extraction, and custom system integrations.";
 
-  // 6 Core Solutions as defined in Master Prompt Section 5
+  // 6 Core Solutions — Concise & High-Impact
   const coreSolutions = [
     {
       title: "AI Workflow Automation",
-      desc: "Connect disconnected systems into event-driven automated pipelines using tools like n8n, Make.com, or custom microservices with error handling.",
+      desc: "Connect disparate APIs and databases into resilient event-driven pipelines with automated retry logic.",
       icon: Workflow,
       href: "/solutions/ai-automation#lead-triage"
     },
     {
-      title: "AI Agents & Business Assistants",
-      desc: "Deploy autonomous conversational and task-oriented agents that qualify leads, categorize customer requests, and route inquiries intelligently.",
+      title: "Autonomous AI Agents",
+      desc: "Deploy intelligent triage agents that qualify inbound prospects and route customer tickets 24/7.",
       icon: Bot,
       href: "/solutions/ai-automation#support-assistants"
     },
     {
-      title: "Document Processing & Extraction",
-      desc: "Transform unstructured invoices, purchase orders, and PDF receipts into validated, schema-compliant JSON ready for accounting sync.",
+      title: "Document & Invoice OCR AI",
+      desc: "Extract unstructured invoice line items, dates, and amounts into validated accounting schemas.",
       icon: FileText,
       href: "/solutions/ai-automation#document-extraction"
     },
     {
-      title: "CRM & ERP Workflow Integration",
-      desc: "Synchronize customer records, deals, inventory, and invoices bidirectionally across HubSpot, Salesforce, SAP, QuickBooks, and internal portals.",
+      title: "CRM & ERP Synchronizers",
+      desc: "Eliminate manual data re-entry with live bidirectional bridges across HubSpot, Salesforce, and SAP.",
       icon: Users,
       href: "/solutions/ai-automation#crm-updates"
     },
     {
-      title: "API Integrations & Process Automation",
-      desc: "Engineer resilient webhook listeners, asynchronous message queues, and API translation layers between proprietary enterprise systems.",
+      title: "API Bridges & Webhook Ingestion",
+      desc: "High-throughput asynchronous message queues linking legacy databases with modern cloud apps.",
       icon: Zap,
       href: "/solutions/ai-automation#api-integrations"
     },
     {
-      title: "Custom AI-Powered Internal Tools",
-      desc: "Build secure internal portals, RAG knowledge-base search engines, and management dashboards tailored to your operational workflows.",
+      title: "Custom AI Internal Portals",
+      desc: "Bespoke operational dashboards and internal RAG knowledge-base search engines built for your team.",
       icon: Terminal,
       href: "/solutions/ai-automation#rag-search"
     }
   ];
 
-  // How We Work: 5 Stages (Discover → Prototype → Pilot → Deploy → Optimize)
+  // 5-Stage Delivery Process
   const deliveryStages = [
-    {
-      stage: "01",
-      title: "Discover",
-      desc: "Map existing manual bottlenecks, evaluate technical feasibility, inspect APIs, and define clear success criteria."
-    },
-    {
-      stage: "02",
-      title: "Prototype",
-      desc: "Build a rapid, isolated proof-of-concept using synthetic test datasets to validate prompt logic and schema outputs."
-    },
-    {
-      stage: "03",
-      title: "Pilot",
-      desc: "Connect integrations in a supervised staging environment with automated integrity checks and human approval gates."
-    },
-    {
-      stage: "04",
-      title: "Deploy",
-      desc: "Execute controlled production rollout with role-based access, error monitoring, dead-letter queues, and documentation."
-    },
-    {
-      stage: "05",
-      title: "Optimize",
-      desc: "Continuously monitor throughput, tune model parameters against schema drift, and support evolving operational needs."
-    }
+    { stage: "01", title: "Discover", desc: "Map bottleneck friction, audit API feasibility, and define success KPIs." },
+    { stage: "02", title: "Prototype", desc: "Rapid sandbox proof-of-concept benchmarked against synthetic edge cases." },
+    { stage: "03", title: "Pilot", desc: "Staged deployment with deterministic validation rules and human-in-the-loop gates." },
+    { stage: "04", title: "Deploy", desc: "Controlled production launch with role-based security, DLQ, and audit logs." },
+    { stage: "05", title: "Optimize", desc: "Continuous model tuning, schema drift monitoring, and proactive SLA support." }
   ];
 
   return (
@@ -123,246 +93,246 @@ export default async function HomePage() {
       {/* 1. Hero Section */}
       <Hero title={heroTitle} subtitle={heroSubtitle} />
 
-      {/* Running Marquee — Core Specializations & International Footprint */}
+      {/* Marquee Ticker */}
       <RunningMarquee 
-        speed={32}
+        speed={30}
         items={[
           "AI AUTOMATION DELIVERY PARTNER",
           "WHITE-LABEL AGENCY DELIVERY",
           "SUPERVISED HUMAN-IN-THE-LOOP",
-          "DOCUMENT & INVOICE OCR AI",
+          "DOCUMENT & INVOICE OCR",
           "CRM & ERP WORKFLOW BRIDGES",
           "SERVING UK · USA · UAE · EU · SG · AU",
           "VP VEYORA PRIVATE LIMITED"
         ]}
       />
 
-      {/* 2. Business Outcomes Section (Framed as Potential Benefits) */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
-        <FadeIn className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+      {/* 2. Business Outcomes — Lean & Vibrant */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
+        <FadeIn className="text-center max-w-2xl mx-auto space-y-3 mb-12">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand">
             Operational Value
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary">
             Targeted Business Outcomes
           </h2>
-          <p className="text-secondary text-sm sm:text-base leading-relaxed">
-            We engineer practical automation solutions designed to eliminate repetitive operational friction. These represent potential operational gains dependent on your current process maturity and baseline data:
+          <p className="text-secondary text-xs sm:text-sm">
+            Potential operational leverage achievable through supervised automation engineering:
           </p>
         </FadeIn>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             {
               icon: Clock,
-              title: "Reduced Repetitive Work",
-              desc: "Eliminate manual data re-entry, routine document transcription, and copy-pasting between disparate software tools."
+              title: "Zero Manual Re-entry",
+              desc: "Eliminate repetitive copy-pasting across disparate spreadsheets and portals."
             },
             {
               icon: Zap,
-              title: "Faster Processing Cycles",
-              desc: "Accelerate invoice reconciliation, inbound lead qualification, and customer inquiry turnaround from days to minutes."
+              title: "Instant Processing",
+              desc: "Turn hours of manual document transcription and triage into sub-minute pipelines."
             },
             {
               icon: ShieldCheck,
-              title: "Improved Workflow Visibility",
-              desc: "Gain transparent audit trails, structured validation logs, and instant notifications when edge-cases need human review."
+              title: "Supervised Integrity",
+              desc: "Deterministic validation gates ensure ambiguous records escalate to human operators."
             },
             {
               icon: Layers,
-              title: "Better System Integration",
-              desc: "Unify legacy databases, modern cloud SaaS, email inboxes, and internal messaging into synchronized operational workflows."
+              title: "Unified Software Stack",
+              desc: "Synchronize legacy ERPs, modern CRMs, email, and Slack into cohesive workflows."
             }
           ].map((item, idx) => (
             <StaggerItem key={idx}>
-              <div className="h-full rounded-2xl border border-glass bg-card p-7 space-y-4 hover:border-brand/35 transition-all duration-300">
-                <div className="inline-flex p-3 rounded-xl bg-brand/10 text-brand border border-brand/20">
+              <HoverCard className="h-full rounded-2xl border border-glass bg-card p-6 space-y-3 hover:border-brand/40 transition-colors">
+                <div className="inline-flex p-2.5 rounded-xl bg-brand/10 text-brand border border-brand/20">
                   <item.icon className="h-5 w-5" />
                 </div>
                 <h3 className="text-base font-bold text-primary">{item.title}</h3>
-                <p className="text-xs sm:text-sm text-secondary leading-relaxed">{item.desc}</p>
-              </div>
+                <p className="text-xs text-secondary leading-relaxed">{item.desc}</p>
+              </HoverCard>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </section>
 
-      {/* 3. Core Solutions Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
-        <FadeIn className="text-center mb-16 space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center space-x-2 rounded-full border border-brand/20 bg-brand/5 px-3.5 py-1 text-xs font-semibold text-brand">
+      {/* 3. Core Solutions — Interactive Vibrant Grid */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
+        <FadeIn className="text-center mb-12 space-y-3 max-w-2xl mx-auto">
+          <div className="inline-flex items-center space-x-2 rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-xs font-semibold text-brand">
             <Zap className="h-3.5 w-3.5" />
             <span>Specialized Capabilities</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary">
-            Core AI Automation Offerings
+            Engineered Automation Offerings
           </h2>
-          <p className="text-secondary text-sm sm:text-base leading-relaxed">
-            Our primary offering is AI automation and intelligent agents. We combine robust orchestration frameworks with deterministic validation gates.
+          <p className="text-secondary text-xs sm:text-sm">
+            Practical AI workflows built for stability, accuracy, and enterprise reliability.
           </p>
         </FadeIn>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {coreSolutions.map((sol, idx) => {
             const Icon = sol.icon;
             return (
               <StaggerItem key={idx}>
-                <div className="h-full rounded-2xl border border-glass bg-card p-8 flex flex-col justify-between hover:border-brand/40 transition-all duration-300 group">
-                  <div className="space-y-4">
-                    <div className="inline-flex p-3 rounded-xl bg-brand/10 text-brand border border-brand/20 group-hover:scale-105 transition-transform">
+                <HoverCard className="h-full rounded-2xl border border-glass bg-card p-6 flex flex-col justify-between hover:border-brand/40 transition-colors group">
+                  <div className="space-y-3">
+                    <div className="inline-flex p-2.5 rounded-xl bg-brand/10 text-brand border border-brand/20">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <h3 className="text-lg font-bold text-primary group-hover:text-brand transition-colors">
+                    <h3 className="text-base font-bold text-primary group-hover:text-brand transition-colors">
                       {sol.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-secondary leading-relaxed">
+                    <p className="text-xs text-secondary leading-relaxed">
                       {sol.desc}
                     </p>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-subtle">
+                  <div className="pt-4 mt-4 border-t border-subtle">
                     <Link
                       href={sol.href}
                       className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-brand hover:text-primary transition-colors"
                     >
-                      <span>Explore Technical Workflow</span>
+                      <span>Explore Workflow</span>
                       <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
-                </div>
+                </HoverCard>
               </StaggerItem>
             );
           })}
         </StaggerContainer>
 
-        <FadeIn delay={0.2} className="text-center pt-12">
+        <FadeIn delay={0.2} className="text-center pt-8">
           <Link
             href="/solutions/ai-automation"
-            className="inline-flex items-center space-x-2 border border-glass bg-card hover:bg-card-hover hover:border-brand/40 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-primary hover:text-brand transition-all rounded-lg"
+            className="inline-flex items-center space-x-2 border border-glass bg-card hover:bg-card-hover hover:border-brand/40 px-6 py-3 text-xs font-bold uppercase tracking-[0.15em] text-primary hover:text-brand transition-all rounded-lg"
           >
-            <span>View All Detailed Workflow Breakdowns</span>
+            <span>View All Detailed Architecture Schemas</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </FadeIn>
       </section>
 
-      {/* 4. Interactive Automation Demonstrations Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
+      {/* 4. Live Interactive Automation Demonstrations */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
         <AutomationDemos />
       </section>
 
-      {/* 5. How We Work: Discover → Prototype → Pilot → Deploy → Optimize */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
-        <FadeIn className="text-center mb-16 space-y-4 max-w-2xl mx-auto">
+      {/* 5. How We Work — 5 Clean Progressive Stages */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
+        <FadeIn className="text-center mb-12 space-y-3 max-w-2xl mx-auto">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand">
-            Proven Delivery Process
+            Process Discipline
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary">
-            How We Work
+            How We Deliver
           </h2>
-          <p className="text-secondary text-sm sm:text-base leading-relaxed">
-            A structured, disciplined 5-stage methodology designed to de-risk development and ensure system reliability before production launch.
+          <p className="text-secondary text-xs sm:text-sm">
+            A 5-stage engineering lifecycle designed to eliminate technical risk before production rollout.
           </p>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {deliveryStages.map((stage, idx) => (
-            <div
+            <HoverCard
               key={idx}
-              className="rounded-2xl border border-glass bg-card p-6 flex flex-col justify-between space-y-4 hover:border-brand/35 transition-all group"
+              className="rounded-2xl border border-glass bg-card p-5 flex flex-col justify-between space-y-3 hover:border-brand/35 transition-colors group"
             >
-              <div className="space-y-3">
-                <span className="text-xs font-mono font-bold text-brand block">
+              <div className="space-y-2.5">
+                <span className="text-[11px] font-mono font-bold text-brand block">
                   STAGE {stage.stage}
                 </span>
-                <h3 className="text-base font-bold text-primary group-hover:text-brand transition-colors">
+                <h3 className="text-sm font-bold text-primary group-hover:text-brand transition-colors">
                   {stage.title}
                 </h3>
                 <p className="text-xs text-secondary leading-relaxed">
                   {stage.desc}
                 </p>
               </div>
-              <div className="pt-3 border-t border-subtle">
+              <div className="pt-2.5 border-t border-subtle">
                 <span className="text-[10px] font-mono text-muted flex items-center gap-1.5">
                   <CheckCircle2 className="h-3 w-3 text-brand" />
-                  <span>Quality Milestone</span>
+                  <span>Verified</span>
                 </span>
               </div>
-            </div>
+            </HoverCard>
           ))}
         </div>
       </section>
 
-      {/* 6. Partnership Program Highlight */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
-        <div className="rounded-3xl border border-glass bg-gradient-to-b from-card to-card/60 p-8 sm:p-14 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      {/* 6. Agency Partner Program Banner */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
+        <div className="rounded-3xl border border-glass bg-gradient-to-b from-card to-card/60 p-8 sm:p-12 relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-3.5 py-1 text-xs font-semibold text-brand">
+            <div className="lg:col-span-8 space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-xs font-semibold text-brand">
                 <Handshake className="h-3.5 w-3.5" />
-                <span>Agency Collaboration</span>
+                <span>Agency Partnerships</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-black text-primary leading-tight">
                 Deliver AI Automation to Your Clients <br />
                 <span className="text-gradient">Without Building an AI Team.</span>
               </h2>
-              <p className="text-secondary text-sm sm:text-base leading-relaxed max-w-xl">
-                We partner with software development agencies, CRM consultants, and IT service providers across the UK, USA, UAE, and Europe. Expand your service revenue with white-label delivery, joint implementations, and referral models.
+              <p className="text-secondary text-xs sm:text-sm leading-relaxed max-w-xl">
+                We partner with digital agencies, CRM consultants, and IT MSPs in the UK, USA, UAE, and Europe. Expand your client retainers with white-label execution, joint delivery, and strict NDA protection.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="p-3.5 rounded-xl border border-glass bg-base/50">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                <div className="p-3 rounded-xl border border-glass bg-base/50">
                   <h4 className="text-xs font-bold text-primary">White-Label</h4>
-                  <p className="text-[11px] text-muted mt-1">We build silently under your agency brand</p>
+                  <p className="text-[11px] text-muted mt-0.5">Delivered under your brand</p>
                 </div>
-                <div className="p-3.5 rounded-xl border border-glass bg-base/50">
+                <div className="p-3 rounded-xl border border-glass bg-base/50">
                   <h4 className="text-xs font-bold text-primary">Joint Delivery</h4>
-                  <p className="text-[11px] text-muted mt-1">Co-engineering on complex client briefs</p>
+                  <p className="text-[11px] text-muted mt-0.5">Co-engineered implementations</p>
                 </div>
-                <div className="p-3.5 rounded-xl border border-glass bg-base/50">
+                <div className="p-3 rounded-xl border border-glass bg-base/50">
                   <h4 className="text-xs font-bold text-primary">Referral Model</h4>
-                  <p className="text-[11px] text-muted mt-1">Agreed fees under formal contract</p>
+                  <p className="text-[11px] text-muted mt-0.5">Contractual referral fee structure</p>
                 </div>
               </div>
 
-              <div className="pt-4 flex flex-wrap gap-4">
+              <div className="pt-3 flex flex-wrap gap-3">
                 <Link
                   href="/partners"
-                  className="inline-flex items-center gap-2 bg-brand text-inverse font-bold text-xs uppercase tracking-[0.18em] px-7 py-3.5 rounded-lg hover:bg-white transition-all shadow-lg shadow-brand/20"
+                  className="inline-flex items-center gap-2 bg-[#F5C200] text-[#05050d] font-black text-xs uppercase tracking-[0.18em] px-6 py-3 rounded-lg hover:bg-white transition-all shadow-md"
                 >
                   <span>Explore Partner Program</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/partners#partner-form"
-                  className="inline-flex items-center gap-2 glass border border-glass text-primary font-semibold text-xs uppercase tracking-[0.18em] px-7 py-3.5 rounded-lg hover:border-brand/40 hover:text-brand transition-all"
+                  className="inline-flex items-center gap-2 glass border border-glass text-primary font-bold text-xs uppercase tracking-[0.18em] px-6 py-3 rounded-lg hover:border-brand/40 hover:text-brand transition-all"
                 >
-                  <span>Inquire Now</span>
+                  <span>Inquire as Partner</span>
                 </Link>
               </div>
             </div>
 
-            <div className="lg:col-span-5 rounded-2xl border border-glass bg-base/80 p-6 sm:p-8 space-y-4">
+            <div className="lg:col-span-4 rounded-2xl border border-glass bg-base/70 p-6 space-y-3">
               <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-brand">
-                Ideal Partner Criteria
+                Key Safeguards
               </h4>
-              <ul className="space-y-3 text-xs text-secondary">
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                  <span>Digital agencies looking to offer AI without adding fixed salary overhead</span>
+              <ul className="space-y-2.5 text-xs text-secondary">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
+                  <span>100% intellectual property assigned upon settlement</span>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                  <span>CRM / ERP consultants who need custom n8n or Python automation hooks</span>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
+                  <span>Strict bilateral non-disclosure agreement (NDA)</span>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                  <span>IT MSPs upgrading enterprise clients with RAG bots and document extractors</span>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
+                  <span>Direct engineer-to-engineer communication</span>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                  <span>Full intellectual property assignment & strict bilateral NDAs signed upfront</span>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
+                  <span>Time-zone overlap with UK, USA, UAE & Europe</span>
                 </li>
               </ul>
             </div>
@@ -371,129 +341,65 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 7. Automation Demonstrations & Example Use Cases (Clear Synthetic Labels) */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
-        <FadeIn className="text-center mb-16 space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center space-x-2 rounded-full border border-brand/20 bg-brand/5 px-3.5 py-1 text-xs font-semibold text-brand">
-            <Layers className="h-3.5 w-3.5" />
-            <span>Demonstrations & Use Cases</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary">
-            Featured Automation Demonstrations
-          </h2>
-          <p className="text-secondary text-sm sm:text-base leading-relaxed">
-            Representative architectural implementations built on synthetic datasets to showcase ingestion, classification, and validation mechanics.
-          </p>
-        </FadeIn>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {portfolio.slice(0, 2).map((item) => {
-            const results = typeof item.results === "string" ? {} : item.results;
-            return (
-              <FadeIn key={item.id} className="rounded-2xl border border-glass bg-card overflow-hidden flex flex-col justify-between hover:border-brand/40 transition-all duration-300">
-                <div>
-                  <div 
-                    className="h-48 w-full bg-cover bg-center border-b border-subtle"
-                    style={{ backgroundImage: `url(${item.imageUrl})` }}
-                  />
-                  <div className="p-7 space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold text-brand uppercase tracking-widest">
-                        {item.category}
-                      </span>
-                      <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-muted">
-                        Synthetic Dataset
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-bold text-primary">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-secondary leading-relaxed">{item.description}</p>
-                    
-                    <div className="grid grid-cols-2 gap-3 pt-4 border-t border-subtle">
-                      {Object.entries(results).map(([key, value]) => (
-                        <div key={key} className="p-2.5 rounded-lg bg-base/50 border border-glass">
-                          <span className="text-[10px] uppercase tracking-wider text-muted block font-mono">{key}</span>
-                          <p className="text-xs font-bold text-primary mt-0.5 font-mono">{value}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="px-7 pb-7 pt-2">
-                  <Link
-                    href={`/portfolio/${item.slug}`}
-                    className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-brand hover:text-primary transition-colors"
-                  >
-                    <span>Inspect Architecture Blueprint</span>
-                    <ExternalLink className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </FadeIn>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 8. Indicative Engagement Models Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
-        <FadeIn className="text-center mb-16 space-y-4 max-w-2xl mx-auto">
+      {/* 7. Indicative Engagement Packages */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
+        <FadeIn className="text-center mb-12 space-y-3 max-w-2xl mx-auto">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand">
             Engagement Tiers
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary">
             Service Engagement Packages
           </h2>
-          <p className="text-secondary text-sm sm:text-base leading-relaxed">
-            Indicative pricing hypotheses based on typical project scopes. Final quotes subject to API requirements, volume, and SLA support.
+          <p className="text-secondary text-xs sm:text-sm">
+            Indicative initial scopes. Final pricing confirmed after technical audit based on endpoints and volume.
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             {
               title: "Discovery & Audit",
               tag: "Assessment",
-              price: "$150 – $250",
+              priceUSD: "$150 – $250",
               priceINR: "₹10,000 – ₹20,000",
-              desc: "Workflow feasibility analysis, tech stack audit & architecture roadmap."
+              desc: "Workflow feasibility analysis, tech audit & architecture roadmap."
             },
             {
               title: "Proof of Concept",
               tag: "Prototype",
-              price: "$350 – $750",
+              priceUSD: "$350 – $750",
               priceINR: "₹25,000 – ₹60,000",
-              desc: "Single automated workflow using synthetic test data in a working web sandbox."
+              desc: "Single automated workflow in a working web sandbox with synthetic data."
             },
             {
               title: "Automation Pilot",
               tag: "Production",
-              price: "$800 – $2,000",
+              priceUSD: "$800 – $2,000",
               priceINR: "₹60,000 – ₹1,50,000",
               desc: "End-to-end multi-system workflow connected to live CRM, ERP, and alerts."
             },
             {
               title: "Retainer SLA",
               tag: "Monthly",
-              price: "Scoped Monthly",
+              priceUSD: "Scoped Monthly",
               priceINR: "Scoped Monthly",
-              desc: "Continuous model tuning, API maintenance, and dedicated monthly sprint hours."
+              desc: "Continuous model tuning, API maintenance, and dedicated sprint hours."
             }
           ].map((pkg, idx) => (
-            <div key={idx} className="rounded-2xl border border-glass bg-card p-6 space-y-4 flex flex-col justify-between hover:border-brand/35 transition-all">
-              <div className="space-y-3">
-                <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-brand px-2.5 py-0.5 rounded bg-brand/10 border border-brand/20">
+            <HoverCard key={idx} className="rounded-2xl border border-glass bg-card p-6 space-y-3 flex flex-col justify-between hover:border-brand/40 transition-colors">
+              <div className="space-y-2.5">
+                <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-brand px-2 py-0.5 rounded bg-brand/10 border border-brand/20">
                   {pkg.tag}
                 </span>
                 <h3 className="text-base font-bold text-primary">{pkg.title}</h3>
-                <div className="py-1">
-                  <span className="text-xl font-black font-mono text-primary">{pkg.price}</span>
+                <div>
+                  <span className="text-lg font-black font-mono text-primary">{pkg.priceUSD}</span>
                   <span className="text-[11px] text-muted font-mono block">({pkg.priceINR})</span>
                 </div>
                 <p className="text-xs text-secondary leading-relaxed">{pkg.desc}</p>
               </div>
 
-              <div className="pt-4 border-t border-subtle">
+              <div className="pt-3 border-t border-subtle">
                 <Link
                   href="/pricing"
                   className="text-xs font-bold uppercase tracking-wider text-brand hover:text-primary transition-colors flex items-center justify-between"
@@ -502,31 +408,31 @@ export default async function HomePage() {
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
-            </div>
+            </HoverCard>
           ))}
         </div>
       </section>
 
-      {/* 9. FAQ Section */}
+      {/* 8. FAQ Section */}
       <FAQ />
 
-      {/* 10. Direct Contact / Lead Generation Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      {/* 9. Direct Contact / Lead Generation Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-subtle">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          <FadeIn className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center space-x-2 rounded-full border border-brand/20 bg-brand/5 px-3.5 py-1 text-xs font-semibold text-brand">
+          <FadeIn className="lg:col-span-5 space-y-5">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-xs font-semibold text-brand">
               <Mail className="h-3.5 w-3.5" />
               <span>Direct Inquiries</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-primary leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary leading-tight">
               Start Your <span className="text-gradient">Automation Project</span>
             </h2>
-            <p className="text-secondary text-sm sm:text-base leading-relaxed">
-              Tell us about your business process or agency partnership goals. Our solutions engineering team will review your requirements and respond within 24 business hours.
+            <p className="text-secondary text-xs sm:text-sm leading-relaxed">
+              Share your business bottleneck or agency partnership goals. Our solutions engineering team will review requirements and reply within 24 business hours.
             </p>
             
-            <div className="space-y-3.5 text-xs sm:text-sm text-secondary pt-4 border-t border-subtle">
+            <div className="space-y-3 text-xs text-secondary pt-3 border-t border-subtle">
               <p className="flex items-center gap-2">
                 <span className="text-muted uppercase text-[10px] tracking-wider w-24">Direct Email</span>
                 <a href="mailto:vpveyora@gmail.com" className="text-brand hover:underline font-mono">vpveyora@gmail.com</a>
@@ -536,24 +442,17 @@ export default async function HomePage() {
                 <span className="text-primary">Tamil Nadu, India</span>
               </p>
               <p className="flex items-center gap-2">
-                <span className="text-muted uppercase text-[10px] tracking-wider w-24">Working Hours</span>
+                <span className="text-muted uppercase text-[10px] tracking-wider w-24">Hours</span>
                 <span className="text-primary">Mon – Sat (9:00 AM – 7:00 PM IST)</span>
               </p>
               <p className="flex items-center gap-2">
-                <span className="text-muted uppercase text-[10px] tracking-wider w-24">Focus Markets</span>
-                <span className="text-primary">UK, USA, UAE, Singapore, Australia, Europe</span>
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl border border-glass bg-card/60 space-y-2 text-xs text-muted">
-              <span className="font-bold text-primary block">Transparent Company Profile:</span>
-              <p className="leading-relaxed">
-                VP VEYORA PRIVATE LIMITED is an India-based technology engineering company delivering custom AI automation solutions, intelligent agents, and software platforms for international clients and agency partners.
+                <span className="text-muted uppercase text-[10px] tracking-wider w-24">Target Markets</span>
+                <span className="text-primary">UK, USA, UAE, SG, AU, Europe</span>
               </p>
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.2} direction="left" className="lg:col-span-7">
+          <FadeIn delay={0.15} direction="left" className="lg:col-span-7">
             <ContactForm />
           </FadeIn>
 

@@ -18,7 +18,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
   delay = 0,
   direction = "up",
   distance = 24,
-  duration = 0.6,
+  duration = 0.5,
 }) => {
   const getInitialPosition = () => {
     switch (direction) {
@@ -45,7 +45,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
       transition={{
         duration,
         delay,
-        ease: [0.21, 0.47, 0.32, 0.98],
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
     >
@@ -58,7 +58,7 @@ export const StaggerContainer: React.FC<{
   children: React.ReactNode;
   className?: string;
   staggerDelay?: number;
-}> = ({ children, className = "", staggerDelay = 0.1 }) => {
+}> = ({ children, className = "", staggerDelay = 0.08 }) => {
   return (
     <motion.div
       initial="hidden"
@@ -86,13 +86,14 @@ export const StaggerItem: React.FC<{
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 16 },
         visible: {
           opacity: 1,
           y: 0,
           transition: {
-            duration: 0.5,
-            ease: [0.21, 0.47, 0.32, 0.98],
+            type: "spring",
+            stiffness: 300,
+            damping: 24,
           },
         },
       }}
@@ -103,59 +104,47 @@ export const StaggerItem: React.FC<{
   );
 };
 
-export const Counter: React.FC<{
-  value: string;
-  label?: string;
+export const HoverCard: React.FC<{
+  children: React.ReactNode;
   className?: string;
-}> = ({ value, label, className = "" }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-40px" });
-  const [displayValue, setDisplayValue] = useState("0");
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    // Check if numeric
-    const numericMatch = value.match(/([0-9.]+)/);
-    if (!numericMatch) {
-      setDisplayValue(value);
-      return;
-    }
-
-    const targetNumber = parseFloat(numericMatch[0]);
-    const prefix = value.slice(0, numericMatch.index);
-    const suffix = value.slice((numericMatch.index || 0) + numericMatch[0].length);
-
-    let start = 0;
-    const duration = 1200;
-    const startTime = performance.now();
-
-    const update = (now: number) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      // easeOutExpo
-      const easedProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      const current = start + (targetNumber - start) * easedProgress;
-
-      const formatted = Number.isInteger(targetNumber)
-        ? Math.round(current).toString()
-        : current.toFixed(1);
-
-      setDisplayValue(`${prefix}${formatted}${suffix}`);
-
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        setDisplayValue(value);
-      }
-    };
-
-    requestAnimationFrame(update);
-  }, [isInView, value]);
-
+  onClick?: () => void;
+}> = ({ children, className = "", onClick }) => {
   return (
-    <div ref={ref} className={className}>
-      <span>{displayValue}</span>
-      {label && <div className="text-xs text-white/40 uppercase tracking-wider mt-1">{label}</div>}
-    </div>
+    <motion.div
+      whileHover={{ y: -5, scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
+      transition={{
+        type: "spring",
+        stiffness: 400,
+        damping: 25,
+      }}
+      onClick={onClick}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+export const ScaleIn: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}> = ({ children, className = "", delay = 0 }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.92 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{
+        type: "spring",
+        stiffness: 320,
+        damping: 22,
+        delay,
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
   );
 };
