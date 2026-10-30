@@ -47,9 +47,9 @@ export const AiThreeScene: React.FC = () => {
     const width = container.clientWidth;
     const height = container.clientHeight;
 
-    // ── 1. SCENE & CAMERA ──
+    // ── 1. SCENE & CAMERA (Clean Architectural Studio Light) ──
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0a0e1c, 0.045);
+    scene.fog = new THREE.FogExp2(0xffffff, 0.03);
 
     const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
     camera.position.set(0, 0.6, 6.4);
@@ -62,78 +62,46 @@ export const AiThreeScene: React.FC = () => {
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.25;
+    renderer.toneMappingExposure = 1.1;
     container.appendChild(renderer.domElement);
 
     const mainGroup = new THREE.Group();
     scene.add(mainGroup);
 
-    // ── 2. PROCEDURAL CELESTIAL TEXTURE GENERATOR ──
-    // Generates a smooth, photographic lunar / gas-giant planet texture in memory
-    const canvas = document.createElement("canvas");
-    canvas.width = 1024;
-    canvas.height = 512;
-    const ctx = canvas.getContext("2d");
-    if (ctx) {
-      // Base celestial atmospheric gradient
-      const grad = ctx.createLinearGradient(0, 0, 0, 512);
-      grad.addColorStop(0, "#1e293b");
-      grad.addColorStop(0.3, "#334155");
-      grad.addColorStop(0.6, "#475569");
-      grad.addColorStop(0.85, "#cbd5e1");
-      grad.addColorStop(1, "#f8fafc");
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, 1024, 512);
-
-      // Subtle atmospheric cloud bands
-      for (let i = 0; i < 40; i++) {
-        const y = Math.random() * 512;
-        const h = 4 + Math.random() * 18;
-        const alpha = 0.05 + Math.random() * 0.12;
-        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-        ctx.fillRect(0, y, 1024, h);
-      }
-    }
-    const planetTexture = new THREE.CanvasTexture(canvas);
-    planetTexture.wrapS = THREE.RepeatWrapping;
-    planetTexture.wrapT = THREE.ClampToEdgeWrapping;
-
-    // ── 3. CELESTIAL PLANET SPHERE (Inspired by EOSAI) ──
+    // ── 2. CELESTIAL PLANET SPHERE ──
     const sphereGroup = new THREE.Group();
     sphereGroup.position.set(0.1, 0.35, -0.1);
 
     const sphereGeo = new THREE.SphereGeometry(1.05, 64, 64);
     const sphereMat = new THREE.MeshStandardMaterial({
-      map: planetTexture,
-      roughness: 0.35,
-      metalness: 0.15,
-      emissive: 0x0f172a,
-      emissiveIntensity: 0.4
+      color: 0x18181b, // sleek graphite
+      roughness: 0.3,
+      metalness: 0.8
     });
     const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
     sphereGroup.add(sphereMesh);
 
-    // Luminous atmospheric glow halo
-    const glowGeo = new THREE.SphereGeometry(1.09, 32, 32);
-    const glowMat = new THREE.MeshBasicMaterial({
-      color: 0x38bdf8,
+    // Fine wireframe geodesic energy cage in yellow
+    const wireGeo = new THREE.IcosahedronGeometry(1.09, 2);
+    const wireMat = new THREE.MeshBasicMaterial({
+      color: 0xffe500,
+      wireframe: true,
       transparent: true,
-      opacity: 0.12,
-      side: THREE.BackSide
+      opacity: 0.35
     });
-    const glowMesh = new THREE.Mesh(glowGeo, glowMat);
-    sphereGroup.add(glowMesh);
+    const wireMesh = new THREE.Mesh(wireGeo, wireMat);
+    sphereGroup.add(wireMesh);
 
     mainGroup.add(sphereGroup);
 
-    // ── 4. ARCHITECTURAL MONOLITH ARCHWAY (Warm Titanium & Stone) ──
+    // ── 3. ARCHITECTURAL MONOLITH ARCHWAY (Minimalist Architectural White & Stone) ──
     const archGroup = new THREE.Group();
     archGroup.position.set(-0.15, 0.3, -0.4);
 
     const stoneMaterial = new THREE.MeshStandardMaterial({
-      color: 0x1e2638,
-      roughness: 0.28,
-      metalness: 0.72
+      color: 0xf1f5f9, // crisp slate pearl
+      roughness: 0.2,
+      metalness: 0.2
     });
 
     // Left Pillar
@@ -159,7 +127,7 @@ export const AiThreeScene: React.FC = () => {
     plinth.position.set(0, -1.88, 0);
     archGroup.add(plinth);
 
-    // Warm golden hairline contour line inside portal
+    // Signature Canary Yellow Hairline Contour inside portal
     const archLineGeo = new THREE.BufferGeometry().setFromPoints([
       new THREE.Vector3(-0.98, -1.8, 0.31),
       new THREE.Vector3(-0.98, 1.55, 0.31),
@@ -167,93 +135,60 @@ export const AiThreeScene: React.FC = () => {
       new THREE.Vector3(0.98, -1.8, 0.31)
     ]);
     const archLineMat = new THREE.LineBasicMaterial({
-      color: 0xf5c200,
+      color: 0xffe500,
       transparent: true,
-      opacity: 0.55
+      opacity: 0.95
     });
     const archLine = new THREE.Line(archLineGeo, archLineMat);
     archGroup.add(archLine);
 
     mainGroup.add(archGroup);
 
-    // ── 5. SATURN CELESTIAL ORBITAL RING ──
+    // ── 4. CANARY YELLOW SATURN CELESTIAL ORBITAL RING ──
     const ringGroup = new THREE.Group();
     ringGroup.position.copy(sphereGroup.position);
     ringGroup.rotation.x = Math.PI * 0.36; // Tilted angle
     ringGroup.rotation.y = Math.PI * 0.06;
 
-    // Elegant thin primary ring
-    const ringGeo1 = new THREE.RingGeometry(1.65, 1.68, 96);
+    // Thin crisp canary yellow primary ring
+    const ringGeo1 = new THREE.RingGeometry(1.62, 1.66, 96);
     const ringMat1 = new THREE.MeshBasicMaterial({
-      color: 0xfde047,
+      color: 0xffe500,
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.75
+      opacity: 0.95
     });
     const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
     ringGroup.add(ring1);
 
-    // Wider outer celestial ring
-    const ringGeo2 = new THREE.RingGeometry(1.78, 2.05, 96);
+    // Secondary fine outer orbit
+    const ringGeo2 = new THREE.RingGeometry(1.85, 1.87, 96);
     const ringMat2 = new THREE.MeshBasicMaterial({
-      color: 0x38bdf8,
+      color: 0x111827,
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.22
+      opacity: 0.25
     });
     const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
     ringGroup.add(ring2);
 
-    // Fine third halo perimeter
-    const ringGeo3 = new THREE.RingGeometry(2.2, 2.22, 96);
-    const ringMat3 = new THREE.MeshBasicMaterial({
-      color: 0xffffff,
-      side: THREE.DoubleSide,
-      transparent: true,
-      opacity: 0.35
-    });
-    const ring3 = new THREE.Mesh(ringGeo3, ringMat3);
-    ringGroup.add(ring3);
-
     mainGroup.add(ringGroup);
 
-    // ── 6. CINEMATIC WATER REFLECTIVE BASE PLANE ──
-    const waterGeo = new THREE.PlaneGeometry(10, 6, 32, 32);
-    const waterMat = new THREE.MeshStandardMaterial({
-      color: 0x070b16,
-      roughness: 0.15,
-      metalness: 0.9,
-      transparent: true,
-      opacity: 0.85
-    });
-    const waterMesh = new THREE.Mesh(waterGeo, waterMat);
-    waterMesh.rotation.x = -Math.PI / 2;
-    waterMesh.position.set(0, -1.95, 0);
-    mainGroup.add(waterMesh);
-
-    // ── 7. WARM DAWN & CELESTIAL LIGHTING ──
-    // Ambient light with soft twilight slate tone
-    const ambientLight = new THREE.AmbientLight(0x1e293b, 1.6);
+    // ── 5. LIGHTING ──
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2.2);
     scene.add(ambientLight);
 
-    // Warm sunrise directional key light (Golden hour sun)
-    const sunLight = new THREE.DirectionalLight(0xffedd5, 3.4);
-    sunLight.position.set(-3.5, 2.5, 4.0);
+    const sunLight = new THREE.DirectionalLight(0xffffff, 2.8);
+    sunLight.position.set(-3.5, 4.0, 4.0);
     scene.add(sunLight);
 
-    // Golden dawn rim light from behind archway
-    const sunriseRim = new THREE.PointLight(0xf59e0b, 4.5, 8);
-    sunriseRim.position.set(0, 0.4, -1.8);
-    scene.add(sunriseRim);
-
-    // Subtle celestial cyan sky fill
-    const skyFill = new THREE.DirectionalLight(0x38bdf8, 1.8);
-    skyFill.position.set(3.5, 1.5, 2.0);
-    scene.add(skyFill);
+    const yellowRim = new THREE.PointLight(0xffe500, 3.5, 8);
+    yellowRim.position.set(0, 0.4, -1.8);
+    scene.add(yellowRim);
 
     setIsLoaded(true);
 
-    // ── 8. MOUSE PARALLAX & ANIMATION LOOP ──
+    // ── 6. MOUSE PARALLAX & ANIMATION LOOP ──
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
@@ -276,17 +211,14 @@ export const AiThreeScene: React.FC = () => {
       animationId = requestAnimationFrame(animate);
       const elapsedTime = (performance.now() - startTime) * 0.001;
 
-      // Smooth camera / mainGroup mouse parallax interpolation
       targetX += (mouseX * 0.3 - targetX) * 0.05;
       targetY += (mouseY * 0.2 - targetY) * 0.05;
 
       mainGroup.rotation.y = targetX * 0.4 + Math.sin(elapsedTime * 0.12) * 0.04;
       mainGroup.rotation.x = -targetY * 0.25;
 
-      // Slow planetary axial rotation
       sphereMesh.rotation.y = elapsedTime * 0.05;
-
-      // Slow orbital ring precession
+      wireMesh.rotation.y = -elapsedTime * 0.08;
       ringGroup.rotation.z = elapsedTime * 0.035;
 
       renderer.render(scene, camera);
@@ -314,37 +246,28 @@ export const AiThreeScene: React.FC = () => {
       }
       renderer.dispose();
       sphereGeo.dispose();
-      glowGeo.dispose();
+      wireGeo.dispose();
       pillarGeo.dispose();
       lintelGeo.dispose();
       plinthGeo.dispose();
       ringGeo1.dispose();
       ringGeo2.dispose();
-      ringGeo3.dispose();
-      waterGeo.dispose();
       sphereMat.dispose();
-      glowMat.dispose();
+      wireMat.dispose();
       stoneMaterial.dispose();
       ringMat1.dispose();
       ringMat2.dispose();
-      ringMat3.dispose();
-      waterMat.dispose();
-      planetTexture.dispose();
     };
   }, []);
 
   return (
-    <div className="relative w-full h-[520px] sm:h-[620px] lg:h-[680px] flex items-center justify-center">
+    <div className="relative w-full h-[500px] sm:h-[600px] lg:h-[650px] flex items-center justify-center">
       {/* Three.js Canvas Container */}
       <div 
         ref={mountRef} 
         className="w-full h-full cursor-grab active:cursor-grabbing select-none"
-        aria-label="Cinematic 3D Neural Portal & Celestial Core"
+        aria-label="3D AI Monolith & Kinetic Core"
       />
-
-      {/* Atmospheric Dawn Horizon Soft Gradient */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#080b14] via-transparent to-transparent opacity-90" />
-      <div className="absolute inset-x-0 bottom-0 h-28 pointer-events-none bg-gradient-to-t from-[#080b14] to-transparent" />
 
       {/* Interactive Telemetry Hotspots */}
       {isLoaded && hotspots.map((spot) => {
@@ -355,33 +278,33 @@ export const AiThreeScene: React.FC = () => {
             style={{ left: `${spot.xPercent}%`, top: `${spot.yPercent}%` }}
             className="absolute -translate-x-1/2 -translate-y-1/2 z-20 group"
           >
-            {/* Pulsing Radar Pin */}
+            {/* Pulsing Yellow Radar Pin */}
             <button
               onClick={() => setActiveHotspot(isActive ? null : spot.id)}
               className="relative flex items-center justify-center p-2 focus:outline-none"
               aria-label={spot.title}
             >
-              <span className="absolute h-6 w-6 rounded-full bg-amber-400/30 animate-ping" />
-              <span className="relative flex h-3.5 w-3.5 items-center justify-center rounded-full border border-white/90 bg-amber-400 shadow-[0_0_12px_#f5c200]">
+              <span className="absolute h-6 w-6 rounded-full bg-[#ffe500]/40 animate-ping" />
+              <span className="relative flex h-3.5 w-3.5 items-center justify-center rounded-full border border-black bg-[#ffe500] shadow-md">
                 <span className="h-1.5 w-1.5 rounded-full bg-black" />
               </span>
             </button>
 
             {/* Hover / Active Telemetry Tooltip */}
-            <div className={`absolute left-6 top-1/2 -translate-y-1/2 w-52 sm:w-64 pointer-events-none transition-all duration-300 ${
+            <div className={`absolute left-6 top-1/2 -translate-y-1/2 w-52 sm:w-64 pointer-events-none transition-all duration-200 ${
               isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
             }`}>
-              <div className="rounded-xl border border-white/15 bg-black/85 backdrop-blur-xl p-3.5 shadow-2xl space-y-1">
+              <div className="rounded-xl border border-gray-200 bg-white/95 backdrop-blur-xl p-3.5 shadow-editorial space-y-1">
                 <div className="flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-amber-300 font-bold">
+                  <span className="h-2 w-2 rounded-full bg-[#ffe500] border border-black" />
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-black font-extrabold">
                     System Telemetry
                   </span>
                 </div>
-                <h4 className="text-xs font-bold text-white leading-tight">
+                <h4 className="text-xs font-bold text-[#0a0a0a] leading-tight">
                   {spot.title}
                 </h4>
-                <p className="text-[11px] text-white/70 leading-tight">
+                <p className="text-[11px] text-gray-600 leading-tight">
                   {spot.subtitle}
                 </p>
               </div>
@@ -390,42 +313,42 @@ export const AiThreeScene: React.FC = () => {
         );
       })}
 
-      {/* Floating Architectural HUD Spec Card */}
-      <div className="absolute left-4 bottom-8 sm:left-6 sm:bottom-10 z-20 max-w-[280px] sm:max-w-[310px] rounded-2xl border border-white/15 bg-[#0a0f1d]/80 backdrop-blur-xl p-4 sm:p-5 shadow-2xl hidden sm:block pointer-events-auto hover:border-amber-400/40 transition-colors">
-        <div className="flex items-center justify-between border-b border-white/10 pb-2.5 mb-2.5">
+      {/* Floating Architectural HUD Spec Card (Styled like Brochure Info Block) */}
+      <div className="absolute left-4 bottom-6 sm:left-6 sm:bottom-8 z-20 max-w-[280px] sm:max-w-[310px] rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-xl p-4 sm:p-5 shadow-editorial hidden sm:block pointer-events-auto hover:border-black transition-colors">
+        <div className="flex items-center justify-between border-b border-gray-100 pb-2.5 mb-2.5">
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/80 font-bold">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-800 font-bold">
               SYS ARCHITECTURE v3.4
             </span>
           </div>
-          <span className="text-[9px] font-mono text-amber-400 font-bold">
-            ONLINE
+          <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#ffe500] text-black font-bold">
+            2026 ACTIVE
           </span>
         </div>
 
-        <div className="space-y-1.5 text-[11px] font-mono text-white/75">
+        <div className="space-y-1.5 text-[11px] font-mono text-gray-700">
           <div className="flex justify-between">
-            <span className="text-white/40">Studio:</span>
-            <span className="text-white font-medium">VP VEYORA LABS</span>
+            <span className="text-gray-400">Studio:</span>
+            <span className="text-black font-medium">VP VEYORA LABS</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-white/40">Engine:</span>
-            <span className="text-amber-300 font-medium">Autonomous Agent Swarms</span>
+            <span className="text-gray-400">Engine:</span>
+            <span className="text-black font-medium">Autonomous Agent Swarms</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-white/40">Markets:</span>
-            <span className="text-white font-medium">UK · USA · UAE · EU · AUS</span>
+            <span className="text-gray-400">Markets:</span>
+            <span className="text-black font-medium">UK · USA · UAE · EU · AUS</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-white/40">Latency:</span>
-            <span className="text-emerald-400 font-medium">&lt; 120ms Real-time</span>
+            <span className="text-gray-400">Latency:</span>
+            <span className="text-emerald-600 font-medium">&lt; 120ms Real-time</span>
           </div>
         </div>
 
-        <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] text-white/50">
+        <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-mono">
           <span>Enterprise Bilateral NDA</span>
-          <span className="text-amber-400 font-mono">100% IP Handover</span>
+          <span className="text-black font-bold">100% IP Handover</span>
         </div>
       </div>
 

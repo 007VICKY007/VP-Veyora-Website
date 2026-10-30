@@ -89,15 +89,15 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="dark h-full antialiased" suppressHydrationWarning>
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#05050d] text-white selection:bg-[#F5C200] selection:text-[#05050d]">
-        <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" enableSystem={false}>
+      <body className="min-h-full flex flex-col bg-white text-[#0a0a0a] selection:bg-[#ffe500] selection:text-black">
+        <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light" enableSystem={false}>
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />

@@ -2,75 +2,79 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { AiThreeScene } from "./AiThreeScene";
 
 export const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#080b14] pt-24 sm:pt-28 pb-16">
+    <section id="hero" className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden bg-white pt-24 sm:pt-28 pb-16">
       
-      {/* ── Background Giant Display Watermark Typography (Inspired by ZROBIM reference) ── */}
+      {/* ── Background Geometric Polygonal Hairlines (Inspired by Brochure Cover) ── */}
+      <div className="absolute inset-0 bg-geometric-lines opacity-100 pointer-events-none" />
+      
+      {/* Giant Background Watermark (Inspired by Company Profile Cover) */}
       <div 
         aria-hidden="true"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full select-none pointer-events-none flex justify-center items-center overflow-hidden z-0"
       >
-        <span className="text-[18vw] font-black uppercase tracking-[-0.04em] text-white/[0.025] whitespace-nowrap">
-          INTELLIGENCE
+        <span className="text-[17vw] font-black uppercase tracking-[-0.04em] text-gray-900/[0.025] whitespace-nowrap">
+          AUTOMATION
         </span>
       </div>
 
-      {/* Atmospheric Dawn & Celestial Horizon Radial Glows (Inspired by EOSAI reference) */}
-      <div className="absolute top-1/3 left-1/4 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 bg-amber-500/[0.07] rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/4 right-1/4 w-[650px] h-[650px] bg-sky-500/[0.06] rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-t from-amber-600/[0.05] via-sky-600/[0.04] to-transparent blur-[120px] pointer-events-none" />
-      <div className="absolute inset-0 bg-grid-cyber opacity-[0.025] pointer-events-none" />
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
 
-          {/* Left Column: Editorial & Storytelling (Inspired by EOSAI & ZROBIM) */}
+          {/* Left Column: Editorial Company Profile Layout */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 space-y-6 sm:space-y-7 text-left"
           >
-            {/* Agency metadata tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.22em] text-white/75 font-medium">
-                01 / AI Automation Delivery Partner
+            {/* Year & Category Badge Row (Matching Brochure 2026 Tag) */}
+            <div className="flex items-center gap-3">
+              <span className="px-2.5 py-1 rounded bg-[#ffe500] text-black font-mono font-black text-[11px] tracking-wider uppercase shadow-xs">
+                2026
               </span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50/80 text-[11px] font-mono uppercase tracking-[0.2em] text-gray-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                <span>01 / AI Automation Delivery Partner</span>
+              </div>
             </div>
 
-            {/* Monumental Editorial Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-black tracking-[-0.03em] text-white leading-[1.04]">
+            {/* Monumental Headline with Yellow Highlighter Block */}
+            <h1 className="text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-black tracking-[-0.03em] text-[#0a0a0a] leading-[1.04]">
               Turn Repetitive <br className="hidden sm:inline" />
               Operations Into <br />
-              <span className="font-serif italic font-normal text-gradient-gold">
-                Intelligent Reality.
+              <span className="relative inline-block mt-2">
+                <span className="bg-[#ffe500] text-black px-3.5 py-0.5 rounded-lg font-black shadow-xs">
+                  Intelligent Reality.
+                </span>
               </span>
             </h1>
 
-            {/* Delicate hairline rule */}
-            <div className="w-16 h-[1.5px] bg-gradient-to-r from-amber-400 via-amber-300 to-transparent" />
+            {/* Sub-headline (Matching "GROW YOUR BUSINESS TO THE NEXT LEVEL") */}
+            <p className="text-xs sm:text-sm font-mono font-bold tracking-[0.2em] uppercase text-gray-400">
+              Grow Your Business Operations To The Next Level
+            </p>
 
-            {/* Concise narrative */}
-            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-xl">
+            {/* Narrative description */}
+            <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed max-w-xl">
               VP VEYORA engineers autonomous AI agents, multi-system workflow pipelines, and custom enterprise integrations. We transform repetitive manual bottlenecks into reliable, self-driving digital infrastructure.
             </p>
 
-            {/* Agency CTA Action Buttons */}
+            {/* Action CTA Buttons (High contrast Black + Yellow Arrow) */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <a
                   href="#services"
-                  className="group inline-flex items-center gap-3.5 pl-2 pr-6 py-2 rounded-full border border-white/20 hover:border-amber-400/80 bg-white/[0.04] hover:bg-white/[0.08] transition-all backdrop-blur-md shadow-lg shadow-black/40"
+                  className="group inline-flex items-center gap-3.5 pl-3 pr-6 py-2 rounded-full bg-[#0a0a0a] hover:bg-black text-white transition-all shadow-md"
                 >
-                  <div className="h-10 w-10 rounded-full border border-amber-400/40 bg-amber-400/15 text-amber-300 group-hover:bg-amber-400 group-hover:text-black flex items-center justify-center transition-all shadow-sm">
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                  <div className="h-9 w-9 rounded-full bg-[#ffe500] text-black flex items-center justify-center transition-transform group-hover:rotate-45">
+                    <ArrowRight className="h-4 w-4" />
                   </div>
-                  <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white group-hover:text-amber-300 transition-colors">
+                  <span className="text-xs font-mono font-bold uppercase tracking-[0.18em]">
                     Explore Capabilities
                   </span>
                 </a>
@@ -79,7 +83,7 @@ export const Hero = () => {
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <a
                   href="#partners"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-mono font-bold text-xs uppercase tracking-[0.18em] text-white/80 hover:text-white border border-white/10 hover:border-white/30 bg-white/[0.02] hover:bg-white/[0.05] transition-all backdrop-blur-md"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-mono font-bold text-xs uppercase tracking-[0.18em] text-[#0a0a0a] border border-gray-300 hover:border-black bg-white hover:bg-gray-50 transition-all shadow-xs"
                 >
                   <span>Partner With Us</span>
                 </a>
@@ -87,13 +91,13 @@ export const Hero = () => {
             </div>
 
             {/* Telemetry & Geographic footprint */}
-            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center gap-y-2 gap-x-6 text-[11px] font-mono text-white/45">
+            <div className="pt-6 border-t border-gray-200 flex flex-wrap items-center gap-y-2 gap-x-6 text-[11px] font-mono text-gray-500">
               <div className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                <span className="text-white/70">UK · USA · UAE · SG · AUS · EU</span>
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="text-gray-800 font-medium">UK · USA · UAE · SG · AUS · EU</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-amber-400/90">LATENCY &lt;120MS</span>
+                <span className="text-black font-bold">LATENCY &lt;120MS</span>
                 <span>·</span>
                 <span>ENTERPRISE NDA</span>
               </div>
@@ -101,11 +105,11 @@ export const Hero = () => {
 
           </motion.div>
 
-          {/* Right Column: Three.js Interactive 3D Portal & Spec Card */}
+          {/* Right Column: 3D Architectural AI Visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 relative flex items-center justify-center"
           >
             <AiThreeScene />
@@ -114,18 +118,8 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Subtle Scroll Indicator with Glowing Tracer (Inspired by EOSAI reference) */}
-      <div className="absolute left-6 bottom-6 hidden lg:flex items-center gap-3 select-none pointer-events-none">
-        <span className="text-[9px] font-mono uppercase tracking-[0.3em] text-white/30 rotate-180 [writing-mode:vertical-lr]">
-          SCROLL
-        </span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-amber-400 via-amber-400/40 to-transparent relative">
-          <span className="absolute top-0 -left-[1.5px] h-1 w-1 rounded-full bg-amber-400 shadow-[0_0_8px_#f5c200] animate-pulse" />
-        </div>
-      </div>
-
-      {/* Bottom subtle border divider */}
-      <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      {/* Bottom hairline divider */}
+      <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gray-200" />
     </section>
   );
 };

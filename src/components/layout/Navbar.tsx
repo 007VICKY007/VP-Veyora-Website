@@ -29,16 +29,16 @@ export const Navbar = () => {
   if (pathname.startsWith("/admin")) return null;
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? "bg-[#080b14]/90 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-3.5" 
-        : "bg-transparent py-5 border-b border-white/5"
+        ? "bg-white/95 backdrop-blur-xl border-b border-gray-200/80 shadow-sm py-3" 
+        : "bg-white/80 backdrop-blur-md py-4 border-b border-gray-100"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
 
-          {/* Left: Capsule Pill Navigation (Inspired by ZROBIM reference) */}
-          <nav className="hidden lg:flex items-center gap-1.5 p-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md">
+          {/* Left: Capsule Pill Navigation (Inspired by Editorial Table of Contents) */}
+          <nav className="hidden lg:flex items-center gap-1 p-1 rounded-full border border-gray-200 bg-gray-50/80">
             {navCapsules.map((capsule) => {
               const isActive = activeTab === capsule.id;
               return (
@@ -46,10 +46,10 @@ export const Navbar = () => {
                   key={capsule.id}
                   href={capsule.href}
                   onClick={() => setActiveTab(capsule.id)}
-                  className={`px-4 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-[0.18em] transition-all duration-300 ${
+                  className={`px-4 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-[0.16em] transition-all duration-200 ${
                     isActive
-                      ? "bg-white text-black font-bold shadow-md shadow-white/20"
-                      : "text-white/70 hover:text-white hover:bg-white/10"
+                      ? "bg-[#0a0a0a] text-white font-bold shadow-sm"
+                      : "text-gray-600 hover:text-black hover:bg-gray-200/60"
                   }`}
                 >
                   {capsule.name}
@@ -58,42 +58,39 @@ export const Navbar = () => {
             })}
           </nav>
 
-          {/* Center: Brand Typography & Geometric Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-9 w-9 rounded-xl bg-gradient-to-tr from-amber-400 via-amber-200 to-sky-400 p-[1.5px] shadow-lg shadow-amber-500/20 group-hover:shadow-amber-400/40 transition-shadow">
-              <div className="h-full w-full bg-[#0a0e1c] rounded-[10px] flex items-center justify-center font-black font-mono text-amber-400 text-sm">
-                VP
-              </div>
+          {/* Center: Brand Typography & Geometric Yellow Cube Mark */}
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="relative h-8 w-8 rounded-lg bg-[#ffe500] p-1 shadow-sm flex items-center justify-center font-black font-mono text-black text-xs">
+              VP
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-sm sm:text-base font-black tracking-[0.16em] uppercase text-white group-hover:text-amber-200 transition-colors">
+              <span className="text-sm sm:text-base font-black tracking-[0.16em] uppercase text-[#0a0a0a]">
                 VP Veyora
               </span>
-              <span className="text-[8px] font-mono font-bold tracking-[0.3em] uppercase text-amber-400/90">
+              <span className="text-[8px] font-mono font-bold tracking-[0.25em] uppercase text-gray-500">
                 AI Delivery Partner
               </span>
             </div>
           </Link>
 
-          {/* Right: Contact link & Luxury Circular Arrow Pill Button */}
-          <div className="hidden sm:flex items-center gap-4">
+          {/* Right: Contact link & Editorial Black Pill with Yellow Arrow */}
+          <div className="hidden sm:flex items-center gap-5">
             <a
               href="#contact"
-              className="text-xs font-mono font-bold uppercase tracking-[0.16em] text-white/70 hover:text-white transition-colors"
+              className="text-xs font-mono font-bold uppercase tracking-[0.16em] text-gray-600 hover:text-black transition-colors"
             >
               Contact
             </a>
 
-            {/* Circular Arrow Pill CTA */}
             <a
               href="#partners"
-              className="group flex items-center gap-2 pl-4 pr-1.5 py-1.5 rounded-full border border-white/20 hover:border-amber-400/80 bg-white/[0.04] hover:bg-white/[0.08] transition-all backdrop-blur-md"
+              className="group flex items-center gap-2.5 pl-4 pr-1.5 py-1.5 rounded-full bg-[#0a0a0a] hover:bg-black transition-all shadow-sm"
             >
-              <span className="text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-white group-hover:text-amber-200 transition-colors">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-white">
                 Partner With Us
               </span>
-              <div className="h-7 w-7 rounded-full bg-amber-400 group-hover:bg-white text-black flex items-center justify-center transition-colors shadow-sm">
-                <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <div className="h-7 w-7 rounded-full bg-[#ffe500] text-black flex items-center justify-center transition-transform group-hover:rotate-45">
+                <ArrowUpRight className="h-4 w-4" />
               </div>
             </a>
           </div>
@@ -102,13 +99,13 @@ export const Navbar = () => {
           <div className="lg:hidden flex items-center gap-2">
             <a
               href="#partners"
-              className="sm:hidden px-3 py-1.5 rounded-full bg-amber-400 text-black font-mono font-bold text-[10px] uppercase tracking-wider"
+              className="sm:hidden px-3 py-1.5 rounded-full bg-[#ffe500] text-black font-mono font-bold text-[10px] uppercase tracking-wider"
             >
               Partner
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-full border border-white/10 bg-white/5 text-white hover:text-amber-300 focus:outline-none"
+              className="p-2 rounded-lg border border-gray-200 bg-gray-50 text-black focus:outline-none"
               aria-label="Toggle navigation"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -120,7 +117,7 @@ export const Navbar = () => {
 
       {/* Mobile Slide-down Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-[#080b14]/98 backdrop-blur-2xl border-t border-white/10 px-6 py-6 space-y-4">
+        <div className="lg:hidden bg-white border-t border-gray-200 px-6 py-6 space-y-4 shadow-lg">
           <div className="space-y-1">
             {navCapsules.map((capsule) => (
               <a
@@ -130,7 +127,7 @@ export const Navbar = () => {
                   setActiveTab(capsule.id);
                   setIsOpen(false);
                 }}
-                className="block py-2.5 text-xs font-mono font-bold uppercase tracking-[0.18em] text-white/80 hover:text-amber-300 border-b border-white/5 transition-colors"
+                className="block py-2.5 text-xs font-mono font-bold uppercase tracking-[0.18em] text-gray-800 hover:text-black border-b border-gray-100 transition-colors"
               >
                 {capsule.name}
               </a>
@@ -138,7 +135,7 @@ export const Navbar = () => {
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="block py-2.5 text-xs font-mono font-bold uppercase tracking-[0.18em] text-white/80 hover:text-amber-300 border-b border-white/5 transition-colors"
+              className="block py-2.5 text-xs font-mono font-bold uppercase tracking-[0.18em] text-gray-800 hover:text-black border-b border-gray-100 transition-colors"
             >
               Contact
             </a>
@@ -148,7 +145,7 @@ export const Navbar = () => {
             <a
               href="#partners"
               onClick={() => setIsOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 text-black font-mono font-bold text-xs uppercase tracking-[0.18em] shadow-lg shadow-amber-500/20"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#ffe500] text-black font-mono font-bold text-xs uppercase tracking-[0.18em] shadow-sm"
             >
               <span>Discuss a Partnership</span>
               <ArrowUpRight className="h-4 w-4" />
