@@ -31,7 +31,7 @@ export const Navbar = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled 
-        ? "bg-[#04040c]/85 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-3.5" 
+        ? "bg-[#080b14]/90 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-3.5" 
         : "bg-transparent py-5 border-b border-white/5"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,22 +60,22 @@ export const Navbar = () => {
 
           {/* Center: Brand Typography & Geometric Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-9 w-9 rounded-xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-pink-500 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/40 transition-shadow">
-              <div className="h-full w-full bg-[#050614] rounded-[10px] flex items-center justify-center font-black font-mono text-cyan-400 text-sm">
+            <div className="relative h-9 w-9 rounded-xl bg-gradient-to-tr from-amber-400 via-amber-200 to-sky-400 p-[1.5px] shadow-lg shadow-amber-500/20 group-hover:shadow-amber-400/40 transition-shadow">
+              <div className="h-full w-full bg-[#0a0e1c] rounded-[10px] flex items-center justify-center font-black font-mono text-amber-400 text-sm">
                 VP
               </div>
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-sm sm:text-base font-black tracking-[0.16em] uppercase text-white group-hover:text-cyan-300 transition-colors">
+              <span className="text-sm sm:text-base font-black tracking-[0.16em] uppercase text-white group-hover:text-amber-200 transition-colors">
                 VP Veyora
               </span>
-              <span className="text-[8px] font-mono font-bold tracking-[0.3em] uppercase text-cyan-400/90">
+              <span className="text-[8px] font-mono font-bold tracking-[0.3em] uppercase text-amber-400/90">
                 AI Delivery Partner
               </span>
             </div>
           </Link>
 
-          {/* Right: Contact link & Ghost Circular Arrow Pill Button */}
+          {/* Right: Contact link & Luxury Circular Arrow Pill Button */}
           <div className="hidden sm:flex items-center gap-4">
             <a
               href="#contact"
@@ -84,15 +84,15 @@ export const Navbar = () => {
               Contact
             </a>
 
-            {/* Circular Arrow Pill CTA (Inspired by EOSAI / ZROBIM) */}
+            {/* Circular Arrow Pill CTA */}
             <a
               href="#partners"
-              className="group flex items-center gap-2 pl-4 pr-1.5 py-1.5 rounded-full border border-white/20 hover:border-cyan-400/60 bg-white/[0.04] hover:bg-white/[0.08] transition-all backdrop-blur-md"
+              className="group flex items-center gap-2 pl-4 pr-1.5 py-1.5 rounded-full border border-white/20 hover:border-amber-400/80 bg-white/[0.04] hover:bg-white/[0.08] transition-all backdrop-blur-md"
             >
-              <span className="text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-white group-hover:text-cyan-300 transition-colors">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-[0.18em] text-white group-hover:text-amber-200 transition-colors">
                 Partner With Us
               </span>
-              <div className="h-7 w-7 rounded-full bg-cyan-400 group-hover:bg-white text-black flex items-center justify-center transition-colors shadow-sm">
+              <div className="h-7 w-7 rounded-full bg-amber-400 group-hover:bg-white text-black flex items-center justify-center transition-colors shadow-sm">
                 <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
             </a>
@@ -102,13 +102,13 @@ export const Navbar = () => {
           <div className="lg:hidden flex items-center gap-2">
             <a
               href="#partners"
-              className="sm:hidden px-3 py-1.5 rounded-full bg-cyan-400 text-black font-mono font-bold text-[10px] uppercase tracking-wider"
+              className="sm:hidden px-3 py-1.5 rounded-full bg-amber-400 text-black font-mono font-bold text-[10px] uppercase tracking-wider"
             >
               Partner
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-full border border-white/10 bg-white/5 text-white hover:text-cyan-300 focus:outline-none"
+              className="p-2 rounded-full border border-white/10 bg-white/5 text-white hover:text-amber-300 focus:outline-none"
               aria-label="Toggle navigation"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -120,7 +120,7 @@ export const Navbar = () => {
 
       {/* Mobile Slide-down Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-[#04040c]/95 backdrop-blur-2xl border-t border-white/10 px-6 py-6 space-y-4">
+        <div className="lg:hidden bg-[#080b14]/98 backdrop-blur-2xl border-t border-white/10 px-6 py-6 space-y-4">
           <div className="space-y-1">
             {navCapsules.map((capsule) => (
               <a
@@ -130,7 +130,7 @@ export const Navbar = () => {
                   setActiveTab(capsule.id);
                   setIsOpen(false);
                 }}
-                className="block py-2.5 text-xs font-mono font-bold uppercase tracking-[0.18em] text-white/80 hover:text-cyan-300 border-b border-white/5 transition-colors"
+                className="block py-2.5 text-xs font-mono font-bold uppercase tracking-[0.18em] text-white/80 hover:text-amber-300 border-b border-white/5 transition-colors"
               >
                 {capsule.name}
               </a>
@@ -138,7 +138,7 @@ export const Navbar = () => {
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="block py-2.5 text-xs font-mono font-bold uppercase tracking-[0.18em] text-white/80 hover:text-cyan-300 border-b border-white/5 transition-colors"
+              className="block py-2.5 text-xs font-mono font-bold uppercase tracking-[0.18em] text-white/80 hover:text-amber-300 border-b border-white/5 transition-colors"
             >
               Contact
             </a>
@@ -148,7 +148,7 @@ export const Navbar = () => {
             <a
               href="#partners"
               onClick={() => setIsOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-cyan-400 via-teal-300 to-cyan-400 text-black font-mono font-bold text-xs uppercase tracking-[0.18em] shadow-lg shadow-cyan-500/20"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 text-black font-mono font-bold text-xs uppercase tracking-[0.18em] shadow-lg shadow-amber-500/20"
             >
               <span>Discuss a Partnership</span>
               <ArrowUpRight className="h-4 w-4" />

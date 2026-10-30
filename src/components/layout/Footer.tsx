@@ -21,14 +21,14 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[#020208] border-t border-white/10 text-white/60">
+    <footer className="relative bg-[#060912] border-t border-white/10 text-white/60">
       {/* Top subtle hairline divider */}
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent" />
 
       {/* Global Timezones Telemetry Bar (Agency Editorial Feature) */}
       <div className="border-b border-white/5 py-4 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">
-          <div className="flex items-center gap-2 text-cyan-400">
+          <div className="flex items-center gap-2 text-amber-400">
             <Globe2 className="h-3.5 w-3.5" />
             <span>Active International Operating Windows</span>
           </div>
@@ -50,12 +50,12 @@ export const Footer = () => {
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-cyan-400 via-indigo-500 to-pink-500 p-[1.5px]">
-                <div className="h-full w-full bg-[#050512] rounded-[6px] flex items-center justify-center font-black font-mono text-cyan-400 text-xs">
+              <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-amber-400 via-yellow-200 to-sky-400 p-[1.5px]">
+                <div className="h-full w-full bg-[#0a0e1c] rounded-[6px] flex items-center justify-center font-black font-mono text-amber-400 text-xs">
                   VP
                 </div>
               </div>
-              <span className="text-base font-black tracking-[0.16em] text-white uppercase">
+              <span className="text-base font-black tracking-[0.16em] text-white uppercase group-hover:text-amber-200 transition-colors">
                 VP Veyora
               </span>
             </Link>
@@ -69,7 +69,7 @@ export const Footer = () => {
                 href="https://linkedin.com/company/vpveyora" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-white/60 hover:text-cyan-400 hover:border-cyan-400/40 transition-colors"
+                className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-white/60 hover:text-amber-400 hover:border-amber-400/40 transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon className="h-4 w-4" />
@@ -78,7 +78,7 @@ export const Footer = () => {
                 href="https://github.com/007VICKY007/VP-Veyora-Website" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-white/60 hover:text-cyan-400 hover:border-cyan-400/40 transition-colors"
+                className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-white/60 hover:text-amber-400 hover:border-amber-400/40 transition-colors"
                 aria-label="GitHub"
               >
                 <GitHubIcon className="h-4 w-4" />
@@ -87,7 +87,7 @@ export const Footer = () => {
                 href="https://instagram.com/vpveyora" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-white/60 hover:text-cyan-400 hover:border-cyan-400/40 transition-colors"
+                className="p-2.5 rounded-full bg-white/[0.03] border border-white/10 text-white/60 hover:text-amber-400 hover:border-amber-400/40 transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon className="h-4 w-4" />
@@ -99,11 +99,11 @@ export const Footer = () => {
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-white">Capabilities</h4>
             <ul className="space-y-2 text-xs font-mono">
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">01 / AI Agents</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">02 / Workflow Automation</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">03 / AI Integrations</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">04 / Custom AI Solutions</a></li>
-              <li><a href="#ai-in-action" className="hover:text-cyan-400 transition-colors">Interactive Testbench</a></li>
+              <li><a href="#services" className="hover:text-amber-400 transition-colors">01 / AI Agents</a></li>
+              <li><a href="#services" className="hover:text-amber-400 transition-colors">02 / Workflow Automation</a></li>
+              <li><a href="#services" className="hover:text-amber-400 transition-colors">03 / AI Integrations</a></li>
+              <li><a href="#services" className="hover:text-amber-400 transition-colors">04 / Custom AI Solutions</a></li>
+              <li><a href="#ai-in-action" className="hover:text-amber-400 transition-colors">Interactive Testbench</a></li>
             </ul>
           </div>
 
@@ -112,15 +112,15 @@ export const Footer = () => {
             <h4 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-white">Direct Connect</h4>
             <ul className="space-y-2.5 text-xs font-mono">
               <li className="flex items-center gap-2.5">
-                <Mail className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
-                <a href="mailto:vpveyora@gmail.com" className="hover:text-cyan-400 text-white/80">vpveyora@gmail.com</a>
+                <Mail className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                <a href="mailto:vpveyora@gmail.com" className="hover:text-amber-400 text-white/80">vpveyora@gmail.com</a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="h-3.5 w-3.5 text-purple-400 shrink-0" />
-                <a href="https://wa.me/919488890697" className="hover:text-purple-400 text-white/80">+91 9488890697 (WhatsApp)</a>
+                <Phone className="h-3.5 w-3.5 text-sky-400 shrink-0" />
+                <a href="https://wa.me/919488890697" className="hover:text-sky-300 text-white/80">+91 9488890697 (WhatsApp)</a>
               </li>
               <li className="flex items-center gap-2.5">
-                <MapPin className="h-3.5 w-3.5 text-pink-400 shrink-0" />
+                <MapPin className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                 <span className="text-white/60">Tamil Nadu, India · Global Delivery</span>
               </li>
             </ul>
@@ -128,7 +128,7 @@ export const Footer = () => {
             <div className="pt-2">
               <a
                 href="#partners"
-                className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.16em] text-cyan-400 hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.16em] text-amber-400 hover:text-white transition-colors"
               >
                 <span>Agency Partner Inquiries</span>
                 <ArrowUpRight className="h-3 w-3" />
