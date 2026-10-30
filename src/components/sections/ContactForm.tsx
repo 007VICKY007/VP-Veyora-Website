@@ -160,7 +160,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 id="name"
                 name="name"
                 required
-                placeholder="e.g. John Doe"
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
@@ -177,7 +176,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 id="businessEmail"
                 name="businessEmail"
                 required
-                placeholder="e.g. john@company.com"
                 value={formData.businessEmail}
                 onChange={handleChange}
                 className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
@@ -196,7 +194,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 id="company"
                 name="company"
                 required
-                placeholder="e.g. Apex Digital Ltd"
                 value={formData.company}
                 onChange={handleChange}
                 className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
@@ -213,7 +210,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 id="country"
                 name="country"
                 required
-                placeholder="e.g. United Kingdom, USA, UAE..."
                 value={formData.country}
                 onChange={handleChange}
                 className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
@@ -251,7 +247,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               name="problemDescription"
               required
               rows={4}
-              placeholder="Describe your current manual process, systems to connect (e.g. HubSpot, SAP, n8n, Slack), and expected timeline..."
               value={formData.problemDescription}
               onChange={handleChange}
               className="w-full rounded-lg border border-glass bg-base p-3.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors leading-relaxed"
@@ -267,7 +262,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               type="text"
               id="preferredMeetingTime"
               name="preferredMeetingTime"
-              placeholder="e.g. Tuesdays 2:00 PM GMT / Weekdays morning EST"
               value={formData.preferredMeetingTime}
               onChange={handleChange}
               className="w-full rounded-lg border border-glass bg-base px-3.5 py-2.5 text-xs text-primary focus:border-brand focus:outline-none transition-colors"
