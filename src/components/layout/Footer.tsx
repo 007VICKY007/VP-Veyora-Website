@@ -3,8 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Mail, MapPin, Clock, ShieldCheck } from "lucide-react";
-import { LinkedInIcon, GitHubIcon, InstagramIcon, FacebookIcon, YouTubeIcon } from "../shared/SocialIcons";
+import { Mail, MapPin, Phone, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { LinkedInIcon, GitHubIcon, InstagramIcon } from "../shared/SocialIcons";
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -13,144 +13,103 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#030309] border-t border-white/05 text-secondary">
-      {/* Top gold line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#F5C200]/40 to-transparent" />
+    <footer className="relative bg-[#020208] border-t border-white/10 text-white/60">
+      {/* Top neon line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
 
-      {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#F5C200]/4 glow-blur pointer-events-none" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-
-          {/* Brand Column */}
-          <div className="lg:col-span-2 space-y-6">
+          {/* Brand Info */}
+          <div className="lg:col-span-5 space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="flex flex-col leading-tight">
-                <span className="text-lg font-black uppercase tracking-tight text-white">VP Veyora</span>
-                <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-brand">Private Limited</span>
+              <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-cyan-400 via-purple-500 to-pink-500 p-0.5">
+                <div className="h-full w-full bg-[#050512] rounded-[6px] flex items-center justify-center font-black font-mono text-cyan-400 text-xs">
+                  VP
+                </div>
               </div>
+              <span className="text-base font-black tracking-tight text-white uppercase">
+                VP Veyora
+              </span>
             </Link>
-            
-            <p className="text-xs sm:text-sm text-white/50 leading-relaxed max-w-sm">
-              Your AI Automation Delivery Partner. We engineer supervised AI workflows, autonomous agents, document extraction pipelines, and custom system integrations for software agencies and growing businesses worldwide.
+
+            <p className="text-xs text-white/50 leading-relaxed max-w-sm">
+              VP VEYORA PRIVATE LIMITED is an AI technology company building autonomous agents, workflow automations, and custom integrations for international software agencies and enterprises.
             </p>
 
-            <div className="p-3.5 rounded-xl border border-glass bg-white/[0.02] text-xs text-white/40 space-y-1">
-              <span className="font-semibold text-white/70 block uppercase text-[10px] tracking-wider">International Delivery Footprint:</span>
-              <p>United Kingdom · United States · UAE · Singapore · Australia · Europe</p>
-            </div>
-
-            <div className="flex gap-4 pt-2">
-              {[
-                { href: "https://linkedin.com/company/vpveyora", Icon: LinkedInIcon },
-                { href: "https://github.com/007VICKY007/VP-Veyora-Website", Icon: GitHubIcon },
-                { href: "https://instagram.com/vpveyora", Icon: InstagramIcon },
-                { href: "https://facebook.com/vpveyora", Icon: FacebookIcon },
-                { href: "https://youtube.com/@vpveyora", Icon: YouTubeIcon },
-              ].map(({ href, Icon }) => (
-                <a 
-                  key={href} 
-                  href={href} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white/30 hover:text-brand transition-colors duration-300"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+            <div className="flex gap-3 pt-1">
+              <a 
+                href="https://linkedin.com/company/vpveyora" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-cyan-400 hover:border-cyan-400/40 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <LinkedInIcon className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://github.com/007VICKY007/VP-Veyora-Website" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-cyan-400 hover:border-cyan-400/40 transition-colors"
+                aria-label="GitHub"
+              >
+                <GitHubIcon className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://instagram.com/vpveyora" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-cyan-400 hover:border-cyan-400/40 transition-colors"
+                aria-label="Instagram"
+              >
+                <InstagramIcon className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
-          {/* Solutions Column */}
-          <div className="space-y-4">
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">Solutions</h3>
+          {/* Quick Nav */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Navigation</h4>
+            <ul className="space-y-2 text-xs">
+              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Core Services</a></li>
+              <li><a href="#ai-in-action" className="hover:text-cyan-400 transition-colors">AI in Action Demo</a></li>
+              <li><a href="#partners" className="hover:text-cyan-400 transition-colors">Agency Partnership</a></li>
+              <li><a href="#contact" className="hover:text-cyan-400 transition-colors">Contact Engineering</a></li>
+            </ul>
+          </div>
+
+          {/* Contact Details */}
+          <div className="lg:col-span-4 space-y-3">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Direct Connect</h4>
             <ul className="space-y-2.5 text-xs">
-              {[
-                ["AI Workflow Automation", "/solutions/ai-automation#lead-triage"],
-                ["AI Agents & Assistants", "/solutions/ai-automation#support-assistants"],
-                ["Document & Invoice AI", "/solutions/ai-automation#document-extraction"],
-                ["CRM & ERP Sync", "/solutions/ai-automation#crm-updates"],
-                ["Internal RAG Search", "/solutions/ai-automation#rag-search"],
-                ["Automated Reporting", "/solutions/ai-automation#reporting-consolidation"],
-                ["API & System Bridges", "/solutions/ai-automation#api-integrations"],
-              ].map(([label, href]) => (
-                <li key={href}>
-                  <Link href={href} className="text-white/40 hover:text-brand transition-colors block">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Partnership & Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">Partnership & Demos</h3>
-            <ul className="space-y-2.5 text-xs">
-              {[
-                ["Partner Program", "/partners"],
-                ["White-label Delivery", "/partners#white-label"],
-                ["Joint Delivery", "/partners#joint-delivery"],
-                ["Referral Program", "/partners#referral"],
-                ["Interactive Demos", "/demos"],
-                ["Indicative Pricing", "/pricing"],
-                ["About VP VEYORA", "/about"],
-                ["Engineering Blog", "/blog"],
-              ].map(([label, href]) => (
-                <li key={href}>
-                  <Link href={href} className="text-white/40 hover:text-brand transition-colors block">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Operations & Legal Column */}
-          <div className="space-y-4">
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">Contact & Legal</h3>
-            <ul className="space-y-3 text-xs text-white/40">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
-                <span>Tamil Nadu, India</span>
+              <li className="flex items-center gap-2">
+                <Mail className="h-3.5 w-3.5 text-cyan-400" />
+                <a href="mailto:vpveyora@gmail.com" className="hover:text-cyan-400 font-mono">vpveyora@gmail.com</a>
               </li>
-              <li className="flex items-start gap-2.5">
-                <Mail className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
-                <a href="mailto:vpveyora@gmail.com" className="text-brand hover:underline font-mono">
-                  vpveyora@gmail.com
-                </a>
+              <li className="flex items-center gap-2">
+                <Phone className="h-3.5 w-3.5 text-purple-400" />
+                <a href="https://wa.me/919488890697" className="hover:text-purple-400 font-mono">+91 9488890697 (WhatsApp)</a>
               </li>
-              <li className="flex items-start gap-2.5">
-                <Clock className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
-                <span>Mon – Sat (9:00 AM – 7:00 PM IST)</span>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-3.5 w-3.5 text-pink-400" />
+                <span>Tamil Nadu, India · Serving Globally</span>
               </li>
             </ul>
-
-            <div className="pt-3 border-t border-white/05 space-y-1.5 text-[11px]">
-              <Link href="/privacy-policy" className="block text-white/30 hover:text-brand transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="block text-white/30 hover:text-brand transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="/refund-policy" className="block text-white/30 hover:text-brand transition-colors">
-                Refund & Cancellation Policy
-              </Link>
-            </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-12 mt-12 border-t border-white/05 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
+        {/* Bottom Legal Row */}
+        <div className="pt-10 mt-10 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
           <p>
-            &copy; {currentYear} VP VEYORA PRIVATE LIMITED. All rights reserved. Registered technology enterprise in Tamil Nadu, India.
+            &copy; {currentYear} VP VEYORA PRIVATE LIMITED. All rights reserved.
           </p>
-          <p className="flex items-center gap-1.5">
-            <ShieldCheck className="h-3.5 w-3.5 text-brand" />
-            <span>Contractual NDA & Enterprise Data Confidentiality Guaranteed</span>
-          </p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/refund-policy" className="hover:text-white transition-colors">Refund Policy</Link>
+          </div>
         </div>
       </div>
     </footer>

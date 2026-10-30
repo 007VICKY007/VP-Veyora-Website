@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,70 +17,65 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Solutions", href: "/solutions/ai-automation" },
-    { name: "Partner Program", href: "/partners" },
-    { name: "Demos", href: "/demos" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Services", href: "/#services" },
+    { name: "AI in Action", href: "/#ai-in-action" },
+    { name: "Partnerships", href: "/#partners" },
+    { name: "Contact", href: "/#contact" },
   ];
 
-  const isActive = (path: string) => pathname === path || (path !== "/" && pathname.startsWith(path));
   if (pathname.startsWith("/admin")) return null;
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled ? "glass-nav shadow-2xl shadow-black/50" : "bg-transparent border-b border-transparent"
+      scrolled ? "glass-nav shadow-2xl shadow-cyan-950/40" : "bg-transparent border-b border-transparent"
     }`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
 
-          {/* Logo */}
+          {/* Logo with futuristic glowing mark */}
           <Link href="/" className="flex items-center gap-3 group">
+            <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-cyan-400 via-purple-500 to-pink-500 p-0.5 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/40 transition-shadow">
+              <div className="h-full w-full bg-[#050512] rounded-[10px] flex items-center justify-center font-black font-mono text-cyan-400 text-sm">
+                VP
+              </div>
+            </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-base font-black tracking-tight text-primary uppercase">
+              <span className="text-base font-black tracking-tight text-white uppercase group-hover:text-cyan-300 transition-colors">
                 VP Veyora
               </span>
-              <span className="text-[8px] font-bold tracking-[0.25em] uppercase text-brand">
-                AI Automation Partner
+              <span className="text-[8px] font-mono font-bold tracking-[0.25em] uppercase text-cyan-400">
+                AI Technology
               </span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
                 href={link.href}
-                className={`text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-200 relative ${
-                  isActive(link.href)
-                    ? "text-brand"
-                    : "text-secondary hover:text-primary"
-                }`}
+                className="text-xs font-mono font-bold uppercase tracking-[0.16em] text-white/70 hover:text-cyan-300 transition-colors"
               >
                 {link.name}
-                {isActive(link.href) && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-px bg-brand" />
-                )}
-              </Link>
+              </a>
             ))}
           </nav>
 
-          {/* CTA Buttons */}
+          {/* Partner With Us CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <Link
-              href="/partners"
-              className="relative overflow-hidden bg-[#F5C200] text-[#05050d] font-black text-xs uppercase tracking-[0.18em] px-5 py-2.5 rounded-lg transition-all duration-300 hover:bg-white hover:text-[#05050d] shadow-md shadow-[#F5C200]/25 hover:-translate-y-0.5"
+            <a
+              href="#partners"
+              className="relative px-5 py-2.5 rounded-xl font-black font-mono text-xs uppercase tracking-[0.18em] text-black bg-gradient-to-r from-cyan-400 via-teal-300 to-cyan-400 hover:from-white hover:to-white transition-all shadow-md shadow-cyan-500/25 hover:-translate-y-0.5"
             >
-              Discuss Partnership
-            </Link>
+              Partner With Us
+            </a>
           </div>
 
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden glass p-2.5 text-primary hover:border-brand/40 transition-all rounded-lg"
+            className="md:hidden glass p-2.5 text-white hover:border-cyan-400/40 transition-all rounded-xl"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -90,28 +85,26 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden glass-nav border-t border-subtle px-6 pt-4 pb-6 space-y-3">
+        <div className="md:hidden glass-nav border-t border-white/10 px-6 pt-4 pb-6 space-y-3">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`block py-2 text-xs font-semibold uppercase tracking-[0.15em] transition-colors ${
-                isActive(link.href) ? "text-brand" : "text-secondary hover:text-primary"
-              }`}
+              className="block py-2 text-xs font-mono font-bold uppercase tracking-[0.15em] text-white/80 hover:text-cyan-300 transition-colors"
             >
               {link.name}
-            </Link>
+            </a>
           ))}
           <div className="pt-2">
-            <Link
-              href="/partners"
+            <a
+              href="#partners"
               onClick={() => setIsOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2 bg-[#F5C200] text-[#05050d] font-black text-xs uppercase tracking-[0.18em] py-3 rounded-lg shadow-md hover:bg-white transition-all"
+              className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-black font-mono text-xs uppercase tracking-[0.18em] py-3 rounded-xl shadow-md"
             >
-              <span>Discuss Partnership</span>
+              <span>Partner With Us</span>
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </a>
           </div>
         </div>
       )}
