@@ -68,6 +68,8 @@ body {
 .bg-card-hover { background-color: var(--card-bg-hover); }
 .bg-glass { background-color: var(--glass-bg); }
 .bg-glass-hover { background-color: var(--glass-bg-hover); }
+.bg-brand { background-color: var(--brand-gold); }
+.bg-brand-hover { background-color: var(--brand-gold-dk); }
 
 .border-subtle { border-color: var(--border-subtle); }
 .border-glass { border-color: var(--border-glass); }

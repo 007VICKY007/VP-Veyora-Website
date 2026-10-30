@@ -71,7 +71,7 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/partners"
-              className="relative overflow-hidden bg-brand text-inverse font-bold text-xs uppercase tracking-[0.18em] px-5 py-2.5 rounded-lg transition-all duration-300 hover:bg-white hover:shadow-lg hover:shadow-brand/25 hover:-translate-y-0.5"
+              className="relative overflow-hidden bg-[#F5C200] text-[#05050d] font-black text-xs uppercase tracking-[0.18em] px-5 py-2.5 rounded-lg transition-all duration-300 hover:bg-white hover:text-[#05050d] shadow-md shadow-[#F5C200]/25 hover:-translate-y-0.5"
             >
               Discuss Partnership
             </Link>
@@ -107,7 +107,7 @@ export const Navbar = () => {
             <Link
               href="/partners"
               onClick={() => setIsOpen(false)}
-              className="w-full inline-flex items-center justify-center gap-2 bg-brand text-inverse font-bold text-xs uppercase tracking-[0.18em] py-3 rounded-lg"
+              className="w-full inline-flex items-center justify-center gap-2 bg-[#F5C200] text-[#05050d] font-black text-xs uppercase tracking-[0.18em] py-3 rounded-lg shadow-md hover:bg-white transition-all"
             >
               <span>Discuss Partnership</span>
               <ArrowRight className="h-4 w-4" />
