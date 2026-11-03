@@ -2,24 +2,34 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AiThreeScene } from "./AiThreeScene";
+import { 
+  RunningLettersTicker, 
+  RunningLetterHeadline, 
+  RunningLetterHover 
+} from "../shared/RunningLetters";
 
 export const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden bg-white pt-24 sm:pt-28 pb-16">
+    <section id="hero" className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden bg-white pt-24 sm:pt-28 pb-12">
       
       {/* ── Background Geometric Polygonal Hairlines (Inspired by Brochure Cover) ── */}
       <div className="absolute inset-0 bg-geometric-lines opacity-100 pointer-events-none" />
       
-      {/* Giant Background Watermark (Inspired by Company Profile Cover) */}
+      {/* ── Running Letter Background Watermark (Infinite Horizontal Running Stream) ── */}
       <div 
         aria-hidden="true"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full select-none pointer-events-none flex justify-center items-center overflow-hidden z-0"
+        className="absolute top-1/2 left-0 -translate-y-1/2 w-full select-none pointer-events-none overflow-hidden z-0 opacity-[0.035]"
       >
-        <span className="text-[17vw] font-black uppercase tracking-[-0.04em] text-gray-900/[0.025] whitespace-nowrap">
-          AUTOMATION
-        </span>
+        <RunningLettersTicker
+          text="AUTOMATION • INTELLIGENCE • WORKFLOWS • AGENTS • ORCHESTRATION • SPEED • SCALE"
+          repeat={4}
+          speedSeconds={35}
+          direction="left"
+          className="text-[14vw] font-black text-gray-900 tracking-[-0.04em]"
+          separator="—"
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -38,19 +48,25 @@ export const Hero = () => {
                 2026
               </span>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50/80 text-[11px] font-mono uppercase tracking-[0.2em] text-gray-700">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>01 / AI Automation Delivery Partner</span>
               </div>
             </div>
 
-            {/* Monumental Headline with Yellow Highlighter Block */}
-            <h1 className="text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-black tracking-[-0.03em] text-[#0a0a0a] leading-[1.04]">
+            {/* Monumental Headline with Running Letter Animation */}
+            <h1 className="text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-black tracking-[-0.03em] text-[#0a0a0a] leading-[1.06]">
               Turn Repetitive <br className="hidden sm:inline" />
               Operations Into <br />
               <span className="relative inline-block mt-2">
-                <span className="bg-[#ffe500] text-black px-3.5 py-0.5 rounded-lg font-black shadow-xs">
-                  Intelligent Reality.
-                </span>
+                <RunningLetterHeadline
+                  words={[
+                    "Intelligent Reality.",
+                    "Autonomous Workflows.",
+                    "Automated Scale.",
+                    "Digital Precision."
+                  ]}
+                  intervalMs={3200}
+                />
               </span>
             </h1>
 
@@ -69,13 +85,13 @@ export const Hero = () => {
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <a
                   href="#services"
-                  className="group inline-flex items-center gap-3.5 pl-3 pr-6 py-2 rounded-full bg-[#0a0a0a] hover:bg-black text-white transition-all shadow-md"
+                  className="group inline-flex items-center gap-3.5 pl-3.5 pr-6 py-2 rounded-full bg-[#0a0a0a] hover:bg-black text-white transition-all shadow-md"
                 >
                   <div className="h-9 w-9 rounded-full bg-[#ffe500] text-black flex items-center justify-center transition-transform group-hover:rotate-45">
                     <ArrowRight className="h-4 w-4" />
                   </div>
                   <span className="text-xs font-mono font-bold uppercase tracking-[0.18em]">
-                    Explore Capabilities
+                    <RunningLetterHover text="Explore Capabilities" />
                   </span>
                 </a>
               </motion.div>
@@ -85,7 +101,7 @@ export const Hero = () => {
                   href="#partners"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-mono font-bold text-xs uppercase tracking-[0.18em] text-[#0a0a0a] border border-gray-300 hover:border-black bg-white hover:bg-gray-50 transition-all shadow-xs"
                 >
-                  <span>Partner With Us</span>
+                  <RunningLetterHover text="Partner With Us" />
                 </a>
               </motion.div>
             </div>
@@ -116,6 +132,18 @@ export const Hero = () => {
           </motion.div>
 
         </div>
+      </div>
+
+      {/* ── Running Letters Ticker Ribbon (Full Width Accent Bar) ── */}
+      <div className="mt-12 pt-4 pb-4 border-y border-gray-200 bg-gray-50/80">
+        <RunningLettersTicker
+          text="AUTONOMOUS AI AGENTS • WORKFLOW AUTOMATION • CRM & ERP INTEGRATIONS • 24/7 INTELLIGENCE • 100% IP HANDOVER • ZERO LATENCY"
+          repeat={5}
+          speedSeconds={28}
+          direction="left"
+          className="text-xs font-mono font-bold tracking-[0.2em] text-gray-800"
+          separator="✦"
+        />
       </div>
 
       {/* Bottom hairline divider */}
