@@ -121,7 +121,17 @@ export const Footer = () => {
               </li>
             </ul>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col gap-2">
+              <a
+                href={process.env.NEXT_PUBLIC_CRM_URL || "http://localhost:3001"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.16em] text-black hover:text-amber-600 transition-colors"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Launch Veyora CRM Portal</span>
+                <ArrowUpRight className="h-3 w-3" />
+              </a>
               <a
                 href="#partners"
                 className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-[0.16em] text-black hover:text-amber-600 transition-colors"

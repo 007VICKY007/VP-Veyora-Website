@@ -80,8 +80,8 @@ export const Hero = () => {
               VP VEYORA engineers autonomous AI agents, multi-system workflow pipelines, and custom enterprise integrations. We transform repetitive manual bottlenecks into reliable, self-driving digital infrastructure.
             </p>
 
-            {/* Action CTA Buttons (High contrast Black + Yellow Arrow) */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Action CTA Buttons (High contrast Black + Yellow Arrow + CRM Live SaaS Portal) */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <a
                   href="#services"
@@ -98,8 +98,22 @@ export const Hero = () => {
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <a
+                  href={process.env.NEXT_PUBLIC_CRM_URL || "http://localhost:3001"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2.5 px-5 py-3 rounded-full font-mono font-bold text-xs uppercase tracking-[0.18em] text-black bg-[#ffe500] hover:bg-[#ebd300] transition-all shadow-sm"
+                  title="Launch Veyora CRM Portal"
+                >
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Launch Veyora CRM</span>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 -rotate-45" />
+                </a>
+              </motion.div>
+
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <a
                   href="#partners"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-mono font-bold text-xs uppercase tracking-[0.18em] text-[#0a0a0a] border border-gray-300 hover:border-black bg-white hover:bg-gray-50 transition-all shadow-xs"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-mono font-bold text-xs uppercase tracking-[0.18em] text-[#0a0a0a] border border-gray-300 hover:border-black bg-white hover:bg-gray-50 transition-all shadow-xs"
                 >
                   <RunningLetterHover text="Partner With Us" />
                 </a>

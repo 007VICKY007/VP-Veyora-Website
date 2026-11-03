@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Hero } from "@/components/sections/Hero";
-import { AiInActionDemo } from "@/components/sections/AiInActionDemo";
+import { DemoShowcase } from "@/components/sections/DemoShowcase";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { 
   HoverCard, 
@@ -173,32 +173,32 @@ export default function HomePage() {
         </StaggerContainer>
       </section>
 
-      {/* 3. AI IN ACTION (Interactive Telemetry Testbench) */}
+      {/* 3. AI IN ACTION (Live Product Demos & Interactive Testbench) */}
       <section id="ai-in-action" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-gray-200">
         <FadeIn className="max-w-3xl mb-12 space-y-3">
           <div className="flex items-center gap-3">
             <span className="px-2.5 py-1 rounded bg-[#ffe500] text-black font-mono font-black text-[11px] tracking-wider uppercase">
-              03 / TESTBENCH
+              03 / PRODUCT DEMO & TESTBENCH
             </span>
             <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-gray-500">
-              Interactive Execution
+              Live Product Capabilities
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black tracking-[-0.03em] text-[#0a0a0a] leading-tight">
-            Live AI Workflow <br />
+            See Our AI Product <br />
             <span className="relative inline-block mt-1">
               <span className="bg-[#ffe500] text-black px-3.5 py-0.5 rounded-lg font-black">
-                Execution Architecture.
+                In Active Deployment.
               </span>
             </span>
           </h2>
           <p className="text-sm sm:text-base text-gray-600">
-            Simulate real-world business tasks and inspect how our multi-agent pipelines parse raw inputs, normalize data, and stage actions.
+            Watch our live product walkthrough video or run simulated real-world workflows to see how our autonomous multi-agent pipelines parse inputs, normalize data, and stage enterprise actions.
           </p>
         </FadeIn>
 
-        <AiInActionDemo />
+        <DemoShowcase />
       </section>
 
       {/* 4. PARTNERSHIPS SECTION (Inspired by Signature Yellow Page in Brochure) */}

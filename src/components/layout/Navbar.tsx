@@ -73,13 +73,26 @@ export const Navbar = () => {
             </div>
           </Link>
 
-          {/* Right: Contact link & Editorial Black Pill with Yellow Arrow */}
-          <div className="hidden sm:flex items-center gap-5">
+          {/* Right: Contact link, Veyora CRM Client Portal button & Editorial Black Pill */}
+          <div className="hidden sm:flex items-center gap-3 lg:gap-4">
             <a
               href="#contact"
               className="text-xs font-mono font-bold uppercase tracking-[0.16em] text-gray-600 hover:text-black transition-colors"
             >
               Contact
+            </a>
+
+            {/* Launch Veyora CRM / Client Portal Button */}
+            <a
+              href={process.env.NEXT_PUBLIC_CRM_URL || "http://localhost:3001"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ffe500] hover:bg-[#f5dc00] text-black font-mono font-bold text-[11px] uppercase tracking-[0.16em] shadow-sm transition-all hover:shadow"
+              title="Open Veyora CRM Client Portal"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Veyora CRM</span>
+              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
             <a
@@ -98,10 +111,14 @@ export const Navbar = () => {
           {/* Mobile Hamburger Toggle */}
           <div className="lg:hidden flex items-center gap-2">
             <a
-              href="#partners"
-              className="sm:hidden px-3 py-1.5 rounded-full bg-[#ffe500] text-black font-mono font-bold text-[10px] uppercase tracking-wider"
+              href={process.env.NEXT_PUBLIC_CRM_URL || "http://localhost:3001"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1.5 rounded-full bg-[#ffe500] text-black font-mono font-bold text-[10px] uppercase tracking-wider flex items-center gap-1 shadow-sm"
             >
-              Partner
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span>CRM</span>
+              <ArrowUpRight className="h-3 w-3" />
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -141,11 +158,21 @@ export const Navbar = () => {
             </a>
           </div>
 
-          <div className="pt-2">
+          <div className="pt-2 space-y-2">
+            <a
+              href={process.env.NEXT_PUBLIC_CRM_URL || "http://localhost:3001"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#ffe500] text-black font-mono font-bold text-xs uppercase tracking-[0.18em] shadow-sm"
+            >
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Launch Veyora CRM Portal</span>
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
             <a
               href="#partners"
               onClick={() => setIsOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#ffe500] text-black font-mono font-bold text-xs uppercase tracking-[0.18em] shadow-sm"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#0a0a0a] text-white font-mono font-bold text-xs uppercase tracking-[0.18em] shadow-sm"
             >
               <span>Discuss a Partnership</span>
               <ArrowUpRight className="h-4 w-4" />
