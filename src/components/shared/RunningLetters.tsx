@@ -90,7 +90,7 @@ export const RunningLetterHeadline: React.FC<RunningLetterHeadlineProps> = ({
   words,
   intervalMs = 3200,
   className = "",
-  highlightClassName = "bg-[#ffe500] text-black px-3.5 py-0.5 rounded-lg font-black shadow-xs",
+  highlightClassName = "bg-[#ffe500] text-black px-2.5 sm:px-3.5 py-0.5 rounded-lg font-black shadow-xs inline-flex flex-wrap items-center",
 }) => {
   const [index, setIndex] = useState(0);
 
@@ -105,23 +105,23 @@ export const RunningLetterHeadline: React.FC<RunningLetterHeadlineProps> = ({
   const currentWord = words[index];
 
   return (
-    <span className={`inline-block relative overflow-hidden align-middle ${className}`}>
+    <span className={`inline-block relative max-w-full align-middle ${className}`}>
       <AnimatePresence mode="wait">
         <motion.span
           key={currentWord}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0, y: -20, transition: { duration: 0.25 } }}
-          className={`inline-flex items-center ${highlightClassName}`}
+          exit={{ opacity: 0, y: -16, transition: { duration: 0.22 } }}
+          className={highlightClassName}
         >
           {currentWord.split("").map((char, charIdx) => (
             <motion.span
               key={`${currentWord}-${charIdx}`}
-              initial={{ y: 24, opacity: 0, rotateX: 60 }}
+              initial={{ y: 20, opacity: 0, rotateX: 60 }}
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{
-                duration: 0.38,
-                delay: charIdx * 0.03,
+                duration: 0.35,
+                delay: charIdx * 0.025,
                 type: "spring",
                 stiffness: 350,
                 damping: 24,

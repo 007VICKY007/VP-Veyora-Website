@@ -19,21 +19,21 @@ export const AiThreeScene: React.FC = () => {
   const hotspots: Hotspot[] = [
     {
       id: "portal",
-      xPercent: 44,
+      xPercent: 55,
       yPercent: 32,
       title: "Architectural Neural Gateway",
       subtitle: "High-throughput enterprise AI inference gateway"
     },
     {
       id: "core",
-      xPercent: 58,
+      xPercent: 68,
       yPercent: 48,
       title: "Celestial Intelligence Core",
       subtitle: "Multi-agent autonomous reasoning swarm"
     },
     {
       id: "orbit",
-      xPercent: 78,
+      xPercent: 88,
       yPercent: 62,
       title: "Continuous Event Orbit",
       subtitle: "Bidirectional CRM, ERP & database synchronization"
@@ -70,7 +70,7 @@ export const AiThreeScene: React.FC = () => {
 
     // ── 2. CELESTIAL PLANET SPHERE ──
     const sphereGroup = new THREE.Group();
-    sphereGroup.position.set(0.1, 0.35, -0.1);
+    sphereGroup.position.set(0.48, 0.35, -0.1);
 
     const sphereGeo = new THREE.SphereGeometry(1.05, 64, 64);
     const sphereMat = new THREE.MeshStandardMaterial({
@@ -96,7 +96,7 @@ export const AiThreeScene: React.FC = () => {
 
     // ── 3. ARCHITECTURAL MONOLITH ARCHWAY (Minimalist Architectural White & Stone) ──
     const archGroup = new THREE.Group();
-    archGroup.position.set(-0.15, 0.3, -0.4);
+    archGroup.position.set(0.28, 0.3, -0.4);
 
     const stoneMaterial = new THREE.MeshStandardMaterial({
       color: 0xf1f5f9, // crisp slate pearl
@@ -291,10 +291,10 @@ export const AiThreeScene: React.FC = () => {
             </button>
 
             {/* Hover / Active Telemetry Tooltip */}
-            <div className={`absolute left-6 top-1/2 -translate-y-1/2 w-52 sm:w-64 pointer-events-none transition-all duration-200 ${
+            <div className={`absolute ${spot.xPercent > 75 ? "right-6" : "left-6"} top-1/2 -translate-y-1/2 w-48 sm:w-56 pointer-events-none transition-all duration-200 ${
               isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
             }`}>
-              <div className="rounded-xl border border-gray-200 bg-white/95 backdrop-blur-xl p-3.5 shadow-editorial space-y-1">
+              <div className="rounded-xl border border-gray-200 bg-white/95 backdrop-blur-xl p-3 shadow-editorial space-y-1">
                 <div className="flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-full bg-[#ffe500] border border-black" />
                   <span className="text-[10px] font-mono uppercase tracking-wider text-black font-extrabold">
@@ -313,21 +313,21 @@ export const AiThreeScene: React.FC = () => {
         );
       })}
 
-      {/* Floating Architectural HUD Spec Card (Styled like Brochure Info Block) */}
-      <div className="absolute left-4 bottom-6 sm:left-6 sm:bottom-8 z-20 max-w-[280px] sm:max-w-[310px] rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-xl p-4 sm:p-5 shadow-editorial hidden sm:block pointer-events-auto hover:border-black transition-colors">
-        <div className="flex items-center justify-between border-b border-gray-100 pb-2.5 mb-2.5">
+      {/* Floating Architectural HUD Spec Card (Positioned on the Right Side to Fill Space Elegantly) */}
+      <div className="absolute right-2 sm:right-4 bottom-4 sm:bottom-6 z-20 max-w-[260px] sm:max-w-[290px] rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-xl p-4 sm:p-4.5 shadow-editorial hidden sm:block pointer-events-auto hover:border-black transition-colors">
+        <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-800 font-bold">
+            <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-gray-800 font-bold">
               SYS ARCHITECTURE v3.4
             </span>
           </div>
-          <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#ffe500] text-black font-bold">
+          <span className="text-[8px] font-mono px-2 py-0.5 rounded bg-[#ffe500] text-black font-bold">
             2026 ACTIVE
           </span>
         </div>
 
-        <div className="space-y-1.5 text-[11px] font-mono text-gray-700">
+        <div className="space-y-1 text-[10px] font-mono text-gray-700">
           <div className="flex justify-between">
             <span className="text-gray-400">Studio:</span>
             <span className="text-black font-medium">VP VEYORA LABS</span>
@@ -346,7 +346,7 @@ export const AiThreeScene: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-mono">
+        <div className="mt-2.5 pt-2 border-t border-gray-100 flex items-center justify-between text-[9px] text-gray-500 font-mono">
           <span>Enterprise Bilateral NDA</span>
           <span className="text-black font-bold">100% IP Handover</span>
         </div>

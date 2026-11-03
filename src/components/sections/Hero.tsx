@@ -33,14 +33,14 @@ export const Hero = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
 
           {/* Left Column: Editorial Company Profile Layout */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 space-y-6 sm:space-y-7 text-left"
+            className="lg:col-span-7 space-y-6 sm:space-y-7 text-left lg:pr-6"
           >
             {/* Year & Category Badge Row (Matching Brochure 2026 Tag) */}
             <div className="flex items-center gap-3">
@@ -54,14 +54,14 @@ export const Hero = () => {
             </div>
 
             {/* Monumental Headline with Running Letter Animation */}
-            <h1 className="text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-black tracking-[-0.03em] text-[#0a0a0a] leading-[1.06]">
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-[3.5rem] font-black tracking-[-0.03em] text-[#0a0a0a] leading-[1.08]">
               Turn Repetitive <br className="hidden sm:inline" />
               Operations Into <br />
               <span className="relative inline-block mt-2">
                 <RunningLetterHeadline
                   words={[
                     "Intelligent Reality.",
-                    "Autonomous Workflows.",
+                    "Smart Workflows.",
                     "Automated Scale.",
                     "Digital Precision."
                   ]}
@@ -140,7 +140,7 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 relative flex items-center justify-center"
+            className="lg:col-span-5 relative flex items-center justify-center lg:justify-end"
           >
             <AiThreeScene />
           </motion.div>
